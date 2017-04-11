@@ -14,7 +14,7 @@ public class CS_Player_Movment : MonoBehaviour {
     private bool leftOar;
 
     private float rightTimer = 0.5f;
-    private float leftTimer = 0.5f;
+    private float leftTimer = 1f;
 
 
 
@@ -24,7 +24,7 @@ public class CS_Player_Movment : MonoBehaviour {
 	
 	void Update () {
 
-        if (Input.GetAxis("ControllerP1") == 1 || Input.GetAxis("ControllerP1") == -1)
+        if (Input.GetAxis("ControllerP1") >= 0.5 || Input.GetAxis("ControllerP1") <= -0.5)
         {
             if (Input.GetAxis("ControllerP1") != latestControllerP1Position)
             {
@@ -32,10 +32,16 @@ public class CS_Player_Movment : MonoBehaviour {
                 leftOar = true;
                 leftTimer = 0.5f;
                 rb.drag = 0;
+                if (leftOar == true && rightOar == false)
+                {
+                    transform.Rotate(Vector3.forward, 5, 0);
+                    rb.velocity = transform.up * movSpeed;
+                    Debug.Log("velocity");
+                }
             }
             
         }
-        if (Input.GetAxis("ControllerP2") == 1 || Input.GetAxis("ControllerP2") == -1)
+        if (Input.GetAxis("ControllerP2") >= 0.5 || Input.GetAxis("ControllerP2") <= -0.5)
         {
             if (Input.GetAxis("ControllerP2") != latestControllerP2Position)
             {
@@ -43,25 +49,20 @@ public class CS_Player_Movment : MonoBehaviour {
                 rightOar = true;
                 rightTimer = 0.5f;
                 rb.drag = 0;
+                if (leftOar == false && rightOar == true)
+                {
+                    transform.Rotate(Vector3.back, 5, 0);
+                    rb.velocity = transform.up * movSpeed;
+                    Debug.Log("velocity");
+                }
             }
            
         }
-        if (leftOar == true && rightOar == false)
-        {
-            transform.Rotate(Vector3.forward, 1, 0);
-            rb.velocity = transform.up * movSpeed;
-        }
-
-        if (leftOar == false && rightOar == true)
-        {
-            transform.Rotate(Vector3.back, 1, 0);
-            rb.velocity = transform.up * movSpeed;
-        }
-
         if (leftOar == true && rightOar == true)
         {
             transform.Rotate(0, 0, 0);
             rb.velocity = transform.up * movSpeed;
+            Debug.Log("velocity");
         }
 
         rb.drag = 0.5f;
@@ -76,5 +77,8 @@ public class CS_Player_Movment : MonoBehaviour {
         {
             leftOar = false;
         }
+
+        Debug.Log("left " + leftOar);
+        Debug.Log("right " + rightOar);
     }
 }
