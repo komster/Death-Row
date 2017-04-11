@@ -36,7 +36,6 @@ public class CS_Player_Movment : MonoBehaviour {
                 {
                     transform.Rotate(Vector3.forward, 5, 0);
                     rb.velocity = transform.up * movSpeed;
-                    Debug.Log("velocity");
                 }
             }
             
@@ -53,7 +52,6 @@ public class CS_Player_Movment : MonoBehaviour {
                 {
                     transform.Rotate(Vector3.back, 5, 0);
                     rb.velocity = transform.up * movSpeed;
-                    Debug.Log("velocity");
                 }
             }
            
@@ -62,7 +60,6 @@ public class CS_Player_Movment : MonoBehaviour {
         {
             transform.Rotate(0, 0, 0);
             rb.velocity = transform.up * movSpeed;
-            Debug.Log("velocity");
         }
 
         rb.drag = 0.5f;
@@ -77,8 +74,5 @@ public class CS_Player_Movment : MonoBehaviour {
         {
             leftOar = false;
         }
-
-        Debug.Log("left " + leftOar);
-        Debug.Log("right " + rightOar);
     }
 }
