@@ -7,8 +7,8 @@ public class CS_Player_Movment : MonoBehaviour {
     public Rigidbody2D rb;
     public float movSpeed = 3.0f;
 
-    private float latestControllerP1Position;
-    private float latestControllerP2Position;
+    private bool latestControllerP1;
+    private bool latestControllerP2;
 
     private bool rightOar;
     private bool leftOar;
@@ -26,9 +26,9 @@ public class CS_Player_Movment : MonoBehaviour {
 
         if (Input.GetAxis("ControllerP1") >= 0.5 || Input.GetAxis("ControllerP1") <= -0.5)
         {
-            if (Input.GetAxis("ControllerP1") != latestControllerP1Position)
+            if (Input.GetAxis("ControllerP1") >= 0.5 && latestControllerP1 == true)
             {
-                latestControllerP1Position = Input.GetAxis("ControllerP1");
+                latestControllerP1 = false;
                 leftOar = true;
                 leftTimer = 0.5f;
                 rb.drag = 0;
@@ -38,13 +38,25 @@ public class CS_Player_Movment : MonoBehaviour {
                     rb.velocity = transform.up * movSpeed;
                 }
             }
-            
+            if (Input.GetAxis("ControllerP1") <= -0.5 && latestControllerP1 == false)
+            {
+                latestControllerP1 = true;
+                leftOar = true;
+                leftTimer = 0.5f;
+                rb.drag = 0;
+                if (leftOar == true && rightOar == false)
+                {
+                    transform.Rotate(Vector3.forward, 5, 0);
+                    rb.velocity = transform.up * movSpeed;
+                }
+            }
+
         }
         if (Input.GetAxis("ControllerP2") >= 0.5 || Input.GetAxis("ControllerP2") <= -0.5)
         {
-            if (Input.GetAxis("ControllerP2") != latestControllerP2Position)
+            if (Input.GetAxis("ControllerP2") >= 0.5 && latestControllerP2 == true)
             {
-                latestControllerP2Position = Input.GetAxis("ControllerP2");
+                latestControllerP2 = false;
                 rightOar = true;
                 rightTimer = 0.5f;
                 rb.drag = 0;
@@ -54,7 +66,19 @@ public class CS_Player_Movment : MonoBehaviour {
                     rb.velocity = transform.up * movSpeed;
                 }
             }
-           
+            if (Input.GetAxis("ControllerP2") <= -0.5 && latestControllerP2 == false)
+            {
+                latestControllerP2 = true;
+                rightOar = true;
+                rightTimer = 0.5f;
+                rb.drag = 0;
+                if (leftOar == false && rightOar == true)
+                {
+                    transform.Rotate(Vector3.back, 5, 0);
+                    rb.velocity = transform.up * movSpeed;
+                }
+            }
+
         }
         if (leftOar == true && rightOar == true)
         {
