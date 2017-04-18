@@ -17,8 +17,8 @@ public class CS_Tile_Generator : MonoBehaviour {
         }
     }
 
-    public int columns = 2;
-    public int rows = 4;
+    public int columns = 3;
+    public int rows = 5;
     public GameObject[] IslandsModules;
 
     private Transform holder;
@@ -27,7 +27,7 @@ public class CS_Tile_Generator : MonoBehaviour {
     void InitList()
     {
         tilePositions.Clear();
-        for(int x = 0; x < columns - 1; x++)
+        for(int x = 1; x < columns - 1; x++)
         {
             for (int y = -1; y < rows - 1; y++)
             {
@@ -39,7 +39,7 @@ public class CS_Tile_Generator : MonoBehaviour {
     void SetupTiles()
     {
         holder = new GameObject("Holder").transform;
-        for (int x = 0; x < columns + 1; x++)
+        for (int x = 1; x < columns + 1; x++)
         {
             for (int y = -1; y < rows + 1; y++)
             {
