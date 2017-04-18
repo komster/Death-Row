@@ -84,3 +84,5 @@ $RECYCLE.BIN/
 # Test build
 test_Data
 test.exe
+
+.vs/Death Row/v14/.suo
