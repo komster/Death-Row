@@ -4,45 +4,74 @@ using UnityEngine;
 
 public class CS_Tile_Generator : MonoBehaviour {
 
-	
 
-    public int columns = 3;
-    public int rows = 5;
-    public int numModules = 15;
-    public int moduleWidth = 35;
-    public int moduleHeight = 14;
+    public List<GameObject> tilez = new List<GameObject>();
+    
     public List<GameObject> IslandsList = new List<GameObject>();
     
-    
-
     public GameObject Tiles;
-
     public Transform tilePos;
-
+    public float playerMaxYPos;
+    public GameObject player;
+    public int newTilesToCreate = 5;
+    private float newTilePosition = 0;
     private void Start()
     {
         //Tiles = Resources.Load("Tile") as GameObject;
-
-
+        player = GameObject.Find("Player");
+        Vector3 tilePos = Tiles.transform.position;
         InitTile();
         InitModule();
+        playerMaxYPos = GameObject.Find("Player").transform.position.y;
+
     }
     void Update()
     {
-       
+       generateTiles();
+    }
+    public void generateTiles()
+    {
+        
+        if(playerMaxYPos < GameObject.Find("Player").transform.position.y)
+        {
+            playerMaxYPos += 40;
+            actuallyGeneratingTilesAgain();
+        }
+    }
+    void actuallyGeneratingTilesAgain()
+    {
+        Vector3 yes = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, newTilePosition, 10));
+
+        for(int i = 1; i <= newTilesToCreate; i++)
+        {
+            float fj = (i * 1.0f) + 14.0f;
+            yes = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, newTilePosition + fj, 10));
+            tilez.Add(Instantiate(Tiles, yes, Quaternion.identity));
+            if(i == newTilesToCreate)
+            {
+                int hej = tilez.Count;
+                float tempFloat = tilez[hej-1].transform.position.y;
+                newTilePosition = tempFloat;
+            }
+        }
+        //newTilePosition += 40;
     }
     void InitTile()
     {
-        Vector3 sP = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10));
-       
-         //Vector3 sP = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
         
-        Instantiate(Tiles, sP, Quaternion.identity);
+        Vector3 sP = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10));
+
+        tilez.Add(Instantiate(Tiles, sP, Quaternion.identity));
+        int hej = tilez.Count;
+        float tempFloat = tilez[hej-1].transform.position.y;
+        newTilePosition = tempFloat;
+
+
     }
     void InitModule()
     {
         Vector3 tilePos = Tiles.transform.position;
-        Vector3 sP = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.farClipPlane / 2));
+       
         int rP = UnityEngine.Random.Range(0, IslandsList.Count);
         Instantiate(IslandsList[rP], tilePos, Quaternion.identity);
     }
