@@ -11,7 +11,6 @@ public class CS_Player_Cannons : MonoBehaviour {
 
     public Transform[] leftCannonsSpawnPoints;
     public Transform[] rightCannonsSpawnPoints;
-    public float[] angel;
 
     void Start () {
 
@@ -29,7 +28,7 @@ public class CS_Player_Cannons : MonoBehaviour {
                     Debug.Log(cannonBall.transform.rotation);
                     GameObject temp = Instantiate(cannonBall);
                     Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
-                    rb.velocity = (-transform.right * cannonSpeed) + (transform.up * angel[index]);
+                    rb.velocity = (-transform.right * cannonSpeed);
                 };
             }
         }
@@ -43,7 +42,7 @@ public class CS_Player_Cannons : MonoBehaviour {
                     cannonBall.transform.position = rightCannonsSpawnPoints[index].transform.position;
                     GameObject temp = Instantiate(cannonBall);
                     Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
-                    rb.velocity = (transform.right * cannonSpeed) + (transform.up * angel[index]);
+                    rb.velocity = (transform.right * cannonSpeed);
                 }
             }
         }
