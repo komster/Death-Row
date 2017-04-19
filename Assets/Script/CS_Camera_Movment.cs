@@ -29,25 +29,25 @@ public class CS_Camera_Movment : MonoBehaviour {
         cameraX = main.transform.position.x;
         cameraY = main.transform.position.y;
 
-        if (playerY > cameraY - 2 && playerY < cameraY + 2 )
+        if (playerY > cameraY - 1 && playerY < cameraY + 1 )
         {
             cameraSpeedY = 0f;
         }
 
-        if (playerY > cameraY + 2 && playerY < cameraY + 3)
+        if (playerY > cameraY + 1 && playerY < cameraY + 2)
         {
             cameraSpeedY = 2f;
         }
-        if (playerY > cameraY + 3 && playerY < cameraY + 4)
+        if (playerY > cameraY + 2 && playerY < cameraY + 4)
         {
             cameraSpeedY = 4f;
         }
 
-        if (playerY < cameraY - 2 && playerY > cameraY - 3)
+        if (playerY < cameraY - 1 && playerY > cameraY - 2)
         {
             cameraSpeedY = -2f;
         }
-        if (playerY < cameraY - 3 && playerY > cameraY - 4)
+        if (playerY < cameraY - 2 && playerY > cameraY - 4)
         {
             cameraSpeedY = -4f;
         }
@@ -55,12 +55,12 @@ public class CS_Camera_Movment : MonoBehaviour {
 
 
 
-        if (playerX > cameraX - 9 && playerX < cameraX + 9)
+        if (playerX > cameraX - 7 && playerX < cameraX + 7)
         {
             cameraSpeedX = 0f;
         }
 
-        if (playerX > cameraX + 9 && playerX < cameraX + 10)
+        if (playerX > cameraX + 7 && playerX < cameraX + 10)
         {
             cameraSpeedX = 2f;
         }
@@ -69,7 +69,7 @@ public class CS_Camera_Movment : MonoBehaviour {
             cameraSpeedX = 4f;
         }
 
-        if (playerX < cameraX - 9 && playerX > cameraX - 10)
+        if (playerX < cameraX - 7 && playerX > cameraX - 10)
         {
             cameraSpeedX = -2f;
         }
