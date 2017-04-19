@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CS_Randomizer_Islands : MonoBehaviour {
 
-    public List<GameObject> IslandsList = new List<GameObject>();
+    /*public List<GameObject> IslandsList = new List<GameObject>();
     /* public GameObject I1;
      public GameObject I2;
      public GameObject I3;
- */
+ 
     public int Icount = 0;
     public int Ilimit = 4;
     public bool allowSpawn = true;
@@ -17,7 +17,7 @@ public class CS_Randomizer_Islands : MonoBehaviour {
     {
   /*      IslandsList.Add(I1);
         IslandsList.Add(I2);
-        IslandsList.Add(I3);*/
+        IslandsList.Add(I3);
         //SpawnIslands();
     }
 	
@@ -28,7 +28,7 @@ public class CS_Randomizer_Islands : MonoBehaviour {
         /*if(allowSpawn)
         {
             SpawnIslands();
-        }*/
+        }
 
         if (Icount < Ilimit)
         {
@@ -52,5 +52,5 @@ public class CS_Randomizer_Islands : MonoBehaviour {
             Instantiate(IslandsList[rP], sP, Quaternion.identity);
             Icount++;
         }
-    }
+    }*/
 }
