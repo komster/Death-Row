@@ -7,7 +7,7 @@ public class CS_Camera_Movment : MonoBehaviour {
     public GameObject player;
     public Camera main;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     private float playerX;
     private float playerY;
