@@ -27,39 +27,50 @@ public class CS_World_Creater : MonoBehaviour {
     }
 
     void Update() {
-        if (player.transform.position.x < playerTileX + 15 && player.transform.position.x > playerTileX - 15 && player.transform.position.y < playerTileY + 15 && player.transform.position.y > playerTileY - 15)
-        {
-            newTile = false;
-        }
-        else
-        {
-            newTile = true;
-        }
 
-        if (newTile == true)
+        if (player.transform.position.x > playerTileX + 15)
         {
-            if (player.transform.position.x > playerTileX + 15)
+            playerTileX += 30;
+            if (tiles[playerTile + 1].hasSpawned == false)
             {
-                playerTileX += 35;
-                
+                playerTile += 1;
+                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
+                tiles[playerTile].hasSpawned = true;
+
             }
-            if (player.transform.position.x < playerTileX - 15)
+        }
+        if (player.transform.position.x < playerTileX - 15)
+        {
+            playerTileX -= 30;
+            if (tiles[playerTile -1].hasSpawned == false)
             {
-                playerTileX -= 35;
+                playerTile -=1;
+                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
+                tiles[playerTile].hasSpawned = true;
+
             }
-            if (player.transform.position.y > playerTileY + 15)
+        }
+        if (player.transform.position.y > playerTileY + 15)
+        {
+            playerTileY += 30;
+
+            if (tiles[playerTile + 7].hasSpawned == false)
             {
-                playerTileY += 35;
-                if (tiles[playerTile + 7].hasSpawned == false)
-                {
-                    Instantiate(moduals[tiles[playerTile + 7].modual], new Vector3(tiles[playerTile + 7].posX, tiles[playerTile + 7].posY, 0f), new Quaternion());
-                    tiles[playerTile + 7].hasSpawned = true;
-                }         
-                newTile = false;
+                playerTile += 7;
+                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
+                tiles[playerTile].hasSpawned = true;
+    
             }
-            if (player.transform.position.y < playerTileY - 15)
+        }
+        if (player.transform.position.y < playerTileY - 15)
+        {
+            playerTileY -= 30;
+            if (tiles[playerTile - 7].hasSpawned == false)
             {
-                playerTileY -= 35;
+                playerTile -= 7;
+                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
+                tiles[playerTile].hasSpawned = true;
+
             }
         }
     }
