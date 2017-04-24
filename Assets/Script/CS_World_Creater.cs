@@ -7,90 +7,163 @@ public class CS_World_Creater : MonoBehaviour {
     public GameObject[] moduals;
     public GameObject player;
 
-    private List<Tiles> tiles = new List<Tiles>();
+    private List<Lines> lines = new List<Lines>();
 
-    private int startX = -105;
-    private int startY = 0;
+    private int x = 0;
+    private int y = 0;
 
-    private bool newTile = false;
+    private int line = 0;
+    private int tile = 0;
 
-    private float playerTileX;
-    private float playerTileY;
-    private int playerTile = 3;
+    private int playerTileX = 0;
+    private int playerTileY = 0;
+
+    private int lineIndex = 0;
 
     void Start() {
-        RandomTiles(startX, startY);
-        Instantiate(moduals[tiles[3].modual], new Vector3(tiles[3].posX, tiles[3].posY, 0f), new Quaternion());
-        tiles[3].hasSpawned = true;
-        playerTileX = 0;
-        playerTileY = 0;
+
+        addLine(line);
+        instansModuals(lineIndex,0,2);
+        addLine(line + 1);
+        lineIndex++;
+        instansModuals(lineIndex, 0, 2);
+        addLine(line - 1);
+        lineIndex++;
+        instansModuals(lineIndex, 0, 2);
     }
 
     void Update() {
 
         if (player.transform.position.x > playerTileX + 15)
         {
-            playerTileX += 30;
-            if (tiles[playerTile + 1].hasSpawned == false)
+            if (checkLine(line + 2) == false)
             {
-                playerTile += 1;
-                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
-                tiles[playerTile].hasSpawned = true;
-
+                addLine(line + 2);
+                lineIndex++;
+                instansModuals(lineIndex, tile - 1, tile + 2);
             }
+        }
+        if (player.transform.position.x > playerTileX + 17)
+        {
+            line++;
+            playerTileX += 30;
         }
         if (player.transform.position.x < playerTileX - 15)
         {
-            playerTileX -= 30;
-            if (tiles[playerTile -1].hasSpawned == false)
+            if (checkLine(line -2 ) == false)
             {
-                playerTile -=1;
-                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
-                tiles[playerTile].hasSpawned = true;
-
+                addLine(line - 2);
+                lineIndex++;
+                instansModuals(lineIndex, tile - 1, tile + 2);
             }
         }
-        if (player.transform.position.y > playerTileY + 15)
+        if (player.transform.position.x < playerTileX - 17)
+        {
+            line--;
+            playerTileX -= 30;
+        }
+        if (player.transform.position.y > playerTileY + 17)
         {
             playerTileY += 30;
+            instansModuals(getLinePlace(line), tile + 2, tile + 3);
+            instansModuals(getLinePlace(line + 1), tile + 2, tile + 3);
+            instansModuals(getLinePlace(line -1), tile + 2, tile + 3);
+            tile++;
 
-            if (tiles[playerTile + 7].hasSpawned == false)
-            {
-                playerTile += 7;
-                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
-                tiles[playerTile].hasSpawned = true;
-    
-            }
         }
-        if (player.transform.position.y < playerTileY - 15)
+        if (player.transform.position.y < playerTileY - 17)
         {
             playerTileY -= 30;
-            if (tiles[playerTile - 7].hasSpawned == false)
-            {
-                playerTile -= 7;
-                Instantiate(moduals[tiles[playerTile].modual], new Vector3(tiles[playerTile].posX, tiles[playerTile].posY, 0f), new Quaternion());
-                tiles[playerTile].hasSpawned = true;
+            tile--;
 
+        }   
+    }
+
+    public void addLine(int newLine)
+    {
+        lines.Add(new Lines(newLine,moduals.Length));
+    }
+
+    public bool checkLine(int value)
+    {
+        for (int index = 0; index < lines.Count; index++)
+        {
+            if (lines[index].line == value)
+            {
+                return true;
             }
+        }
+        return false;
+    }
+
+    public void instansModuals(int lineIndex, int startY, int stopY)
+    {
+        for (int tileIndex = startY; tileIndex < stopY; tileIndex++)
+        {
+            if (tileIndex >= 0)
+            {
+                Instantiate(moduals[lines[lineIndex].GetModual(tileIndex)], new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
+            }
+            
         }
     }
 
-    public void RandomTiles(int x, int y)
+    public int getLinePlace(int value)
     {
-        int changeLine = 0;
-        for (int index = 0; index < 70; index++)
+        for (int index = 0; index < lines.Count; index++)
         {
-            tiles.Add(new Tiles(Random.Range(0, moduals.Length), x, y));
-            x += 35;
-            changeLine++;
-            if (changeLine == 7)
+            if (lines[index].line == value)
             {
-                changeLine = 0;
-                x = startX;
-                y += 35;
+                return index;
             }
-
         }
+
+        return 0;
+    }
+
+
+    private class Lines
+    {
+        public int line;
+
+        public List<Tiles> tiles = new List<Tiles>();
+
+        public Lines(int lineIndex, int modualsLenght)
+        {
+            line = lineIndex;
+            RandomTiles(line * 36,modualsLenght);
+        }
+
+
+        public void RandomTiles(int x, int modualsLength)
+        {
+            float y = 0;
+            for (int index = 0; index < 20; index++)
+            {
+                tiles.Add(new Tiles(Random.Range(0, modualsLength), x, y));
+                y += 36;
+
+            }
+        }
+
+        public int GetModual(int index)
+        {
+            return tiles[index].modual;
+        }
+        public float GetPosX(int index)
+        {
+            return tiles[index].posX;
+        }
+        public float GetPosY(int index)
+        {
+            return tiles[index].posY;
+        }
+        public bool GetHasSpawned(int index)
+        {
+            return tiles[index].hasSpawned;
+        }
+
+
     }
 
 
@@ -107,7 +180,6 @@ public class CS_World_Creater : MonoBehaviour {
             posX = x;
             posY = y;
         }
-
     }
 }
 

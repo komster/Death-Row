@@ -24,9 +24,11 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
             movmentSpeed += 0.001f;
         }
 
+        transform.position = new Vector3(player.transform.position.x, transform.position.y,-1);
+
         timer -= Time.deltaTime;
 
-        if (player.transform.position.y < transform.position.y + 3) 
+        if (player.transform.position.y < transform.position.y + 2) 
         {
             CS_Camera_Movment cameraScript = main.GetComponent<CS_Camera_Movment>();
             cameraScript.rb.Sleep();
