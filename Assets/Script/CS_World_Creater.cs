@@ -48,6 +48,10 @@ public class CS_World_Creater : MonoBehaviour {
         {
             line++;
             playerTileX += 30;
+            if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+            {
+                instansModuals(getLinePlace(line + 1), tile - 1, tile + 1);
+            }
         }
         if (player.transform.position.x < playerTileX - 15)
         {
@@ -62,6 +66,10 @@ public class CS_World_Creater : MonoBehaviour {
         {
             line--;
             playerTileX -= 30;
+            if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+            {
+                instansModuals(getLinePlace(line - 1), tile - 1, tile + 1);
+            }
         }
         if (player.transform.position.y > playerTileY + 17)
         {
@@ -74,12 +82,32 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 instansModuals(getLinePlace(line), tile, tile +1);
             }
+            if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+            {
+                instansModuals(getLinePlace(line + 1), tile, tile + 1);
+            }
+            if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+            {
+                instansModuals(getLinePlace(line - 1), tile, tile + 1);
+            }
 
         }
         if (player.transform.position.y < playerTileY - 17)
         {
             playerTileY -= 30;
             tile--;
+            if (lines[getLinePlace(line)].GetHasSpawned(tile - 1) == false)
+            {
+                instansModuals(getLinePlace(line), tile - 1, tile );
+            }
+            if (lines[getLinePlace(line + 1)].GetHasSpawned(tile - 1) == false)
+            {
+                instansModuals(getLinePlace(line + 1), tile - 1, tile);
+            }
+            if (lines[getLinePlace(line - 1)].GetHasSpawned(tile - 1) == false)
+            {
+                instansModuals(getLinePlace(line - 1), tile - 1, tile);
+            }
         }
 
         for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
