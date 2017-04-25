@@ -72,7 +72,6 @@ public class CS_World_Creater : MonoBehaviour {
             tile++;
             if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
             {
-                Debug.Log("hej");
                 instansModuals(getLinePlace(line), tile, tile +1);
             }
 
