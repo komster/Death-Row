@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CS_Player_Cannons : MonoBehaviour
 {
+    public AudioSource shot;
 
     public GameObject[] cannon;
     public GameObject cannonBall;
@@ -25,6 +26,7 @@ public class CS_Player_Cannons : MonoBehaviour
 
     void Start()
     {
+        shot = this.gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -34,6 +36,7 @@ public class CS_Player_Cannons : MonoBehaviour
         {
             if (leftRelodTimer <= 0)
             {
+                shot.Play();
                 for (int index = 0; index < cannon.Length; index++)
                 {
                     if (cannon[index].activeInHierarchy)
@@ -53,6 +56,7 @@ public class CS_Player_Cannons : MonoBehaviour
         {
             if (rightRelodTimer <= 0)
             {
+                shot.Play();
                 for (int index = 0; index < cannon.Length; index++)
                 {
                     if (cannon[index].activeInHierarchy)
