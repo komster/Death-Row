@@ -6,6 +6,7 @@ public class CS_World_Creater : MonoBehaviour {
 
     public GameObject[] moduals;
     public GameObject player;
+    public GameObject enemy;
 
     private List<Lines> lines = new List<Lines>();
 
@@ -69,14 +70,29 @@ public class CS_World_Creater : MonoBehaviour {
             instansModuals(getLinePlace(line + 1), tile + 2, tile + 3);
             instansModuals(getLinePlace(line -1), tile + 2, tile + 3);
             tile++;
+            if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+            {
+                Debug.Log("hej");
+                instansModuals(getLinePlace(line), tile, tile +1);
+            }
 
         }
         if (player.transform.position.y < playerTileY - 17)
         {
             playerTileY -= 30;
             tile--;
+        }
 
-        }   
+        for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
+        {
+            for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
+            {
+                if (enemy.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 17)
+                {
+                    Destroy(lines[lineIndex].tiles[tileIndex].tile);
+                }
+            }
+        }  
     }
 
     public void addLine(int newLine)
@@ -102,7 +118,12 @@ public class CS_World_Creater : MonoBehaviour {
         {
             if (tileIndex >= 0)
             {
-                Instantiate(moduals[lines[lineIndex].GetModual(tileIndex)], new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
+                if (lines[lineIndex].GetHasSpawned(tileIndex) == false)
+                {
+                    lines[lineIndex].tiles[tileIndex].tile = Instantiate(moduals[lines[lineIndex].GetModual(tileIndex)], new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
+                    lines[lineIndex].tiles[tileIndex].hasSpawned = true;
+                }
+                
             }
             
         }
@@ -169,6 +190,7 @@ public class CS_World_Creater : MonoBehaviour {
 
     private class Tiles
     {
+        public GameObject tile;
         public int modual = 0;
         public float posX = 0;
         public float posY = 0;
