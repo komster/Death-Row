@@ -31,6 +31,8 @@ public class CS_World_Creater : MonoBehaviour {
         addLine(line - 1);
         lineIndex++;
         instansModuals(lineIndex, 0, 2);
+
+        CS_Notify.Register(this, "TurnOff");
     }
 
     void Update() {
@@ -169,6 +171,18 @@ public class CS_World_Creater : MonoBehaviour {
         return 0;
     }
 
+    public void TurnOff()
+    {
+        this.enabled = false;
+        for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
+        {
+            for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
+            {
+                 Destroy(lines[lineIndex].tiles[tileIndex].tile);
+            }
+        }
+
+    }
 
     private class Lines
     {
