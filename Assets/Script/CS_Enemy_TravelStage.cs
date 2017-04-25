@@ -5,8 +5,7 @@ using UnityEngine;
 public class CS_Enemy_TravelStage : MonoBehaviour {
 
     public GameObject player;
-    public Camera main;
-    public Camera arena;
+    public GameObject arena;
 
     public float movmentSpeed;
 
@@ -15,8 +14,8 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
     private Rigidbody2D rb;
 
 	void Start () {
-        arena.
-    }
+        
+     }
 	
 	void Update () {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * movmentSpeed);
@@ -32,18 +31,16 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
 
         if (player.transform.position.y < transform.position.y + 2) 
         {
-
-            arena.enabled = true;
-            CS_Camera_Movment cameraScript = main.GetComponent<CS_Camera_Movment>();
-            cameraScript.rb.Sleep();
-            cameraScript.enabled = false;
+            CS_Notify.Send(this, "ChangeToArenaCamera");
             CS_Notify.Send(this, "TurnOff");
-            main.enabled = false;
             CapsuleCollider2D enemyCollider = GetComponent<CapsuleCollider2D>();
             enemyCollider.enabled = true;      
             CS_Enemy_TravelStage enemyScript = GetComponent<CS_Enemy_TravelStage>();
+            CS_Enemy_Battel enemyBattelScript = GetComponent<CS_Enemy_Battel>();
+            enemyBattelScript.on = true;
+            enemyBattelScript.enabled = true;
             enemyScript.enabled = false;
-            player.transform.position = new Vector3(-200,-400,-4);
+            Instantiate<GameObject>(arena);
         }
 	}
 }
