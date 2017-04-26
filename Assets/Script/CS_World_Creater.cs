@@ -202,18 +202,30 @@ public class CS_World_Creater : MonoBehaviour {
         public Lines(int lineIndex, int modualsLenght)
         {
             line = lineIndex;
-            RandomTiles(line * 36,modualsLenght);
+            RandomTiles(line * 36,modualsLenght, line);
         }
 
 
-        public void RandomTiles(int x, int modualsLength)
+        public void RandomTiles(int x, int modualsLength, int line)
         {
             float y = -36;
             tiles.Add(new Tiles(100, x, y));
             y += 36;
             for (int index = 0; index < 20; index++)
             {
-                tiles.Add(new Tiles(Random.Range(0, modualsLength), x, y));
+                if (line == 0 && index == 0)
+                {
+                    tiles.Add(new Tiles(0, x, y));
+                }
+                else if (line == 0 && index == 1)
+                {
+                    tiles.Add(new Tiles(1, x, y));
+                }
+                else
+                {
+                    tiles.Add(new Tiles(Random.Range(0, modualsLength), x, y));
+                }
+                
                 y += 36;
 
             }
