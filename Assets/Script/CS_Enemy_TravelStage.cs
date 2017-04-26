@@ -49,6 +49,7 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
                 enemyBattelScript.on = true;
                 enemyBattelScript.enabled = true;
                 enemyScript.enabled = false;
+                arena.transform.position = new Vector3(0,0,0);
                 Instantiate<GameObject>(arena);
             }
         }

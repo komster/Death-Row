@@ -12,7 +12,6 @@ public class CS_World_Creater : MonoBehaviour {
     private List<Lines> lines = new List<Lines>();
 
     private int x = 0;
-    private int y = 0;
 
     private int line = 0;
     private int tile = 1;

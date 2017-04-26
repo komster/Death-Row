@@ -7,20 +7,15 @@ public class CS_Camera : MonoBehaviour {
     public Camera main;
 
     private bool zoomOut = false;
-    private bool zoomIn = false;
 
     private bool start = true;
 
-
+    private CS_Camera_Movment cameraScript;
 
     void Start () {
         CS_Notify.Register(this, "ChangeToArenaCamera");
         CS_Notify.Register(this, "ChangeToTravelCamera");
-        CS_Notify.Register(this, "ZoomOut");
-        CS_Notify.Register(this, "StopZoomOut");
-        CS_Notify.Register(this, "ZoomIn");
-        CS_Notify.Register(this, "StopZoomIn");
-
+        cameraScript = GetComponent<CS_Camera_Movment>();
     }
 
     private void Update()
@@ -47,43 +42,25 @@ public class CS_Camera : MonoBehaviour {
 
         if (zoomOut == true)
         {          
-            if (main.orthographicSize < 15)
+            if (main.orthographicSize < 18)
             {
-                main.orthographicSize = main.orthographicSize + 1 * Time.deltaTime;
+                main.orthographicSize = main.orthographicSize + 5 * Time.deltaTime;
             }
-        }
-        if (zoomIn == true )
-        {
-            if (main.orthographicSize > 7.5)
+            else
             {
-                main.orthographicSize = main.orthographicSize - 1 * Time.deltaTime;
+                zoomOut = false;
             }
         }
     }
 
     public void ChangeToArenaCamera()
     {
-
+        zoomOut = true;
+        CS_Notify.Send(this, "ChangeStage");
     }
 
     public void ChangeToTravelCamera()
     {
 
-    }
-    public void ZoomOut()
-    {
-        zoomOut = true;
-    }
-    public void StopZoomOut()
-    {
-        zoomOut = false;
-    }
-    public void ZoomIn()
-    {
-        zoomIn = true;
-    }
-    public void StopZoomIn()
-    {
-        zoomIn = false;
     }
 }

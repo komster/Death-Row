@@ -18,16 +18,18 @@ public class CS_Camera_Movment : MonoBehaviour {
     private float cameraSpeedX;
 
     private bool gameStarted = false;
+    private bool travelStageOn = true;
 
 
     void Start () {
         CS_Notify.Register(this, "StartGame");
+        CS_Notify.Register(this, "ChangeStage");
         rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
 
-        if (gameStarted == true)
+        if (gameStarted == true && travelStageOn == true)
         {
             playerX = player.transform.position.x;
             playerY = player.transform.position.y;
@@ -87,5 +89,19 @@ public class CS_Camera_Movment : MonoBehaviour {
     public void StartGame()
     {
         gameStarted = true;
+    }
+
+    public void ChangeStage()
+    {
+        if (travelStageOn == true)
+        {
+            travelStageOn = false;
+            main.transform.position = new Vector3(16.5f, 3,-10);
+
+        }
+        else
+        {
+            travelStageOn = true;
+        }
     }
 }

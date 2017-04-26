@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4673925948245120}
   - component: {fileID: 212711450788960426}
   - component: {fileID: 61653841942966992}
-  - component: {fileID: 114915673353756076}
+  - component: {fileID: 50623286094121776}
   m_Layer: 0
   m_Name: IPH3
   m_TagString: Island
@@ -42,6 +42,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50623286094121776
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1502195718585264}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61653841942966992
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -56,17 +76,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 3.01, y: 2.79}
---- !u!114 &114915673353756076
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502195718585264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2fa3fa161f855498f9749437a29100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212711450788960426
 SpriteRenderer:
   m_ObjectHideFlags: 1

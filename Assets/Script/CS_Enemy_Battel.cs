@@ -9,6 +9,8 @@ public class CS_Enemy_Battel : MonoBehaviour {
     public GameObject leftSide;
     public GameObject rightSide;
 
+    public GameObject player;
+
     private GameObject targert;
 
     public float movmentSpeed;
@@ -31,25 +33,9 @@ public class CS_Enemy_Battel : MonoBehaviour {
             targert = rightSide;
         }
         transform.position = Vector3.MoveTowards(transform.position, targert.transform.position, Time.deltaTime * movmentSpeed);
-    }
 
-    void OnBecameInvisible()
-    {
-        if (on == true)
-        {
-            CS_Notify.Send(this, "ZoomOut");
-            CS_Notify.Send(this, "StopZoomIn");
-        }
-        
-    }
+        float angel = Vector3.Angle(transform.position,player.transform.position);
+        Debug.Log(angel);
 
-    private void OnBecameVisible()
-    {
-        if (on == true)
-        {
-            CS_Notify.Send(this, "StopZoomOut");
-            CS_Notify.Send(this, "ZoomIn");
-        }
-  
     }
 }
