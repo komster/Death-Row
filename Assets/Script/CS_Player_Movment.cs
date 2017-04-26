@@ -14,7 +14,7 @@ public class CS_Player_Movment : MonoBehaviour {
     private bool leftOar;
 
     private float rightTimer = 0.5f;
-    private float leftTimer = 1f;
+    private float leftTimer = 0.5f;
 
     private bool gameStarted = false;
 
@@ -36,7 +36,7 @@ public class CS_Player_Movment : MonoBehaviour {
                     rb.drag = 0;
                     if (leftOar == true && rightOar == false)
                     {
-                        transform.Rotate(Vector3.forward, 5, 0);
+                        transform.Rotate(Vector3.forward, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
                 }
@@ -48,7 +48,7 @@ public class CS_Player_Movment : MonoBehaviour {
                     rb.drag = 0;
                     if (leftOar == true && rightOar == false)
                     {
-                        transform.Rotate(Vector3.forward, 5, 0);
+                        transform.Rotate(Vector3.forward, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
                 }
@@ -64,7 +64,7 @@ public class CS_Player_Movment : MonoBehaviour {
                     rb.drag = 0;
                     if (leftOar == false && rightOar == true)
                     {
-                        transform.Rotate(Vector3.back, 5, 0);
+                        transform.Rotate(Vector3.back, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
                 }
@@ -76,7 +76,7 @@ public class CS_Player_Movment : MonoBehaviour {
                     rb.drag = 0;
                     if (leftOar == false && rightOar == true)
                     {
-                        transform.Rotate(Vector3.back, 5, 0);
+                        transform.Rotate(Vector3.back, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
                 }

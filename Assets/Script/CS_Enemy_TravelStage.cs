@@ -20,6 +20,10 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
     }
 	
 	void Update () {
+        if (gameStarted == false)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5);
+        }
 
         if (gameStarted == true)
         {
@@ -27,7 +31,7 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
 
             if (timer <= 0)
             {
-                movmentSpeed += 0.001f;
+                movmentSpeed += 0.0005f;
             }
 
             transform.position = new Vector3(player.transform.position.x, transform.position.y, -1);
