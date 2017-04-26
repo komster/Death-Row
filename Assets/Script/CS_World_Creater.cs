@@ -7,6 +7,7 @@ public class CS_World_Creater : MonoBehaviour {
     public GameObject[] moduals;
     public GameObject player;
     public GameObject enemy;
+    public GameObject emptyWater;
 
     private List<Lines> lines = new List<Lines>();
 
@@ -14,7 +15,7 @@ public class CS_World_Creater : MonoBehaviour {
     private int y = 0;
 
     private int line = 0;
-    private int tile = 0;
+    private int tile = 1;
 
     private int playerTileX = 0;
     private int playerTileY = 0;
@@ -24,13 +25,13 @@ public class CS_World_Creater : MonoBehaviour {
     void Start() {
 
         addLine(line);
-        instansModuals(lineIndex,0,2);
+        instansModuals(lineIndex,0,3);
         addLine(line + 1);
         lineIndex++;
-        instansModuals(lineIndex, 0, 2);
+        instansModuals(lineIndex, 0, 3);
         addLine(line - 1);
         lineIndex++;
-        instansModuals(lineIndex, 0, 2);
+        instansModuals(lineIndex, 0, 3);
 
         CS_Notify.Register(this, "TurnOff");
     }
@@ -116,7 +117,7 @@ public class CS_World_Creater : MonoBehaviour {
         {
             for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
             {
-                if (enemy.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 17)
+                if (enemy.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 25)
                 {
                     Destroy(lines[lineIndex].tiles[tileIndex].tile);
                 }
@@ -149,8 +150,16 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 if (lines[lineIndex].GetHasSpawned(tileIndex) == false)
                 {
-                    lines[lineIndex].tiles[tileIndex].tile = Instantiate(moduals[lines[lineIndex].GetModual(tileIndex)], new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
-                    lines[lineIndex].tiles[tileIndex].hasSpawned = true;
+                    if (lines[lineIndex].GetModual(tileIndex) == 100)
+                    {
+                        lines[lineIndex].tiles[tileIndex].tile = Instantiate(emptyWater, new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
+                        lines[lineIndex].tiles[tileIndex].hasSpawned = true;
+                    }
+                    else
+                    {
+                        lines[lineIndex].tiles[tileIndex].tile = Instantiate(moduals[lines[lineIndex].GetModual(tileIndex)], new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
+                        lines[lineIndex].tiles[tileIndex].hasSpawned = true;
+                    }            
                 }
                 
             }
@@ -199,7 +208,9 @@ public class CS_World_Creater : MonoBehaviour {
 
         public void RandomTiles(int x, int modualsLength)
         {
-            float y = 0;
+            float y = -36;
+            tiles.Add(new Tiles(100, x, y));
+            y += 36;
             for (int index = 0; index < 20; index++)
             {
                 tiles.Add(new Tiles(Random.Range(0, modualsLength), x, y));

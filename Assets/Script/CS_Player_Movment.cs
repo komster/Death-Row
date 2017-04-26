@@ -16,87 +16,95 @@ public class CS_Player_Movment : MonoBehaviour {
     private float rightTimer = 0.5f;
     private float leftTimer = 1f;
 
-
-
+    private bool gameStarted = false;
 
     void Start () {
-	}
+        CS_Notify.Register(this, "StartGame");
+    }
 	
 	void Update () {
 
-        if (Input.GetAxis("ControllerP1") >= 0.5 || Input.GetAxis("ControllerP1") <= -0.5)
+        if (gameStarted == true)
         {
-            if (Input.GetAxis("ControllerP1") >= 0.5 && latestControllerP1 == true)
+            if (Input.GetAxis("ControllerP1") >= 0.5 || Input.GetAxis("ControllerP1") <= -0.5)
             {
-                latestControllerP1 = false;
-                leftOar = true;
-                leftTimer = 0.5f;
-                rb.drag = 0;
-                if (leftOar == true && rightOar == false)
+                if (Input.GetAxis("ControllerP1") >= 0.5 && latestControllerP1 == true)
                 {
-                    transform.Rotate(Vector3.forward, 5, 0);
-                    rb.velocity = transform.up * movSpeed;
+                    latestControllerP1 = false;
+                    leftOar = true;
+                    leftTimer = 0.5f;
+                    rb.drag = 0;
+                    if (leftOar == true && rightOar == false)
+                    {
+                        transform.Rotate(Vector3.forward, 5, 0);
+                        rb.velocity = transform.up * movSpeed;
+                    }
                 }
+                if (Input.GetAxis("ControllerP1") <= -0.5 && latestControllerP1 == false)
+                {
+                    latestControllerP1 = true;
+                    leftOar = true;
+                    leftTimer = 0.5f;
+                    rb.drag = 0;
+                    if (leftOar == true && rightOar == false)
+                    {
+                        transform.Rotate(Vector3.forward, 5, 0);
+                        rb.velocity = transform.up * movSpeed;
+                    }
+                }
+
             }
-            if (Input.GetAxis("ControllerP1") <= -0.5 && latestControllerP1 == false)
+            if (Input.GetAxis("ControllerP2") >= 0.5 || Input.GetAxis("ControllerP2") <= -0.5)
             {
-                latestControllerP1 = true;
-                leftOar = true;
-                leftTimer = 0.5f;
-                rb.drag = 0;
-                if (leftOar == true && rightOar == false)
+                if (Input.GetAxis("ControllerP2") >= 0.5 && latestControllerP2 == true)
                 {
-                    transform.Rotate(Vector3.forward, 5, 0);
-                    rb.velocity = transform.up * movSpeed;
+                    latestControllerP2 = false;
+                    rightOar = true;
+                    rightTimer = 0.5f;
+                    rb.drag = 0;
+                    if (leftOar == false && rightOar == true)
+                    {
+                        transform.Rotate(Vector3.back, 5, 0);
+                        rb.velocity = transform.up * movSpeed;
+                    }
                 }
+                if (Input.GetAxis("ControllerP2") <= -0.5 && latestControllerP2 == false)
+                {
+                    latestControllerP2 = true;
+                    rightOar = true;
+                    rightTimer = 0.5f;
+                    rb.drag = 0;
+                    if (leftOar == false && rightOar == true)
+                    {
+                        transform.Rotate(Vector3.back, 5, 0);
+                        rb.velocity = transform.up * movSpeed;
+                    }
+                }
+
+            }
+            if (leftOar == true && rightOar == true)
+            {
+                transform.Rotate(0, 0, 0);
+                rb.velocity = transform.up * movSpeed;
             }
 
-        }
-        if (Input.GetAxis("ControllerP2") >= 0.5 || Input.GetAxis("ControllerP2") <= -0.5)
-        {
-            if (Input.GetAxis("ControllerP2") >= 0.5 && latestControllerP2 == true)
+            rb.drag = 0.1f;
+            rightTimer -= Time.deltaTime;
+            leftTimer -= Time.deltaTime;
+
+            if (rightTimer <= 0)
             {
-                latestControllerP2 = false;
-                rightOar = true;
-                rightTimer = 0.5f;
-                rb.drag = 0;
-                if (leftOar == false && rightOar == true)
-                {
-                    transform.Rotate(Vector3.back, 5, 0);
-                    rb.velocity = transform.up * movSpeed;
-                }
+                rightOar = false;
             }
-            if (Input.GetAxis("ControllerP2") <= -0.5 && latestControllerP2 == false)
+            if (leftTimer <= 0)
             {
-                latestControllerP2 = true;
-                rightOar = true;
-                rightTimer = 0.5f;
-                rb.drag = 0;
-                if (leftOar == false && rightOar == true)
-                {
-                    transform.Rotate(Vector3.back, 5, 0);
-                    rb.velocity = transform.up * movSpeed;
-                }
+                leftOar = false;
             }
+        } 
+    }
 
-        }
-        if (leftOar == true && rightOar == true)
-        {
-            transform.Rotate(0, 0, 0);
-            rb.velocity = transform.up * movSpeed;
-        }
-
-        rb.drag = 0.5f;
-        rightTimer -= Time.deltaTime;
-        leftTimer -= Time.deltaTime;
-
-        if (rightTimer <= 0)
-        {
-            rightOar = false;
-        }
-        if (leftTimer <= 0)
-        {
-            leftOar = false;
-        }
+    public void StartGame()
+    {
+        gameStarted = true;
     }
 }

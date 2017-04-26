@@ -17,68 +17,75 @@ public class CS_Camera_Movment : MonoBehaviour {
     private float cameraSpeedY;
     private float cameraSpeedX;
 
+    private bool gameStarted = false;
+
 
     void Start () {
-        main.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10f);
+        CS_Notify.Register(this, "StartGame");
         rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
-        playerX = player.transform.position.x;
-        playerY = player.transform.position.y;
-        cameraX = main.transform.position.x;
-        cameraY = main.transform.position.y;
 
-        if (playerY > cameraY - 0.5 && playerY < cameraY + 0.5 )
+        if (gameStarted == true)
         {
-            cameraSpeedY = 0f;
-        }
+            playerX = player.transform.position.x;
+            playerY = player.transform.position.y;
+            cameraX = main.transform.position.x;
+            cameraY = main.transform.position.y;
 
-        if (playerY > cameraY + 0.5 && playerY < cameraY + 1)
-        {
-            cameraSpeedY = 2f;
-        }
-        if (playerY > cameraY + 1 && playerY < cameraY + 4)
-        {
-            cameraSpeedY = 4f;
-        }
+            if (playerY > cameraY - 30 && playerY < cameraY - 5)
+            {
+                cameraSpeedY = 0f;
+            }
 
-        if (playerY < cameraY - 0.5 && playerY > cameraY - 1)
-        {
-            cameraSpeedY = -2f;
-        }
-        if (playerY < cameraY - 1 && playerY > cameraY - 4)
-        {
-            cameraSpeedY = -4f;
-        }
-
-
+            if (playerY > cameraY - 5 && playerY < cameraY - 3)
+            {
+                cameraSpeedY = 2f;
+            }
+            if (playerY > cameraY - 3 && playerY < cameraY + 0)
+            {
+                cameraSpeedY = 4f;
+            }
+            if (playerY > cameraY + 0 && playerY < cameraY + 5)
+            {
+                cameraSpeedY = 6f;
+            }
 
 
-        if (playerX > cameraX - 5 && playerX < cameraX + 5)
-        {
-            cameraSpeedX = 0f;
-        }
 
-        if (playerX > cameraX + 5 && playerX < cameraX + 7)
-        {
-            cameraSpeedX = 2f;
-        }
-        if (playerX > cameraX + 7 && playerX < cameraX + 11)
-        {
-            cameraSpeedX = 4f;
-        }
 
-        if (playerX < cameraX - 5 && playerX > cameraX - 7)
-        {
-            cameraSpeedX = -2f;
-        }
-        if (playerX < cameraX - 7 && playerX > cameraX - 11)
-        {
-            cameraSpeedX = -4f;
-        }
+            if (playerX > cameraX - 5 && playerX < cameraX + 5)
+            {
+                cameraSpeedX = 0f;
+            }
 
-        rb.velocity = ((transform.up * cameraSpeedY) + (transform.right * cameraSpeedX));
+            if (playerX > cameraX + 5 && playerX < cameraX + 7)
+            {
+                cameraSpeedX = 2f;
+            }
+            if (playerX > cameraX + 7 && playerX < cameraX + 11)
+            {
+                cameraSpeedX = 4f;
+            }
 
+            if (playerX < cameraX - 5 && playerX > cameraX - 7)
+            {
+                cameraSpeedX = -2f;
+            }
+            if (playerX < cameraX - 7 && playerX > cameraX - 11)
+            {
+                cameraSpeedX = -4f;
+            }
+
+            rb.velocity = ((transform.up * cameraSpeedY) + (transform.right * cameraSpeedX));
+        }
+       
+
+    }
+
+    public void StartGame()
+    {
+        gameStarted = true;
     }
 }

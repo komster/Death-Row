@@ -246,7 +246,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.581291
+  orthographic size: 28.74132
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -267,8 +267,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 41963058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -9.9, z: -10}
+  m_LocalScale: {x: 1, y: 2.2806847, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -380,7 +380,7 @@ Prefab:
     - target: {fileID: 114356696877993170, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
         type: 2}
       propertyPath: movmentSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 328aaac28a6aa3d4793473b7d6f93c3c, type: 2}
@@ -403,7 +403,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4798538383390806, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5.45
       objectReference: {fileID: 0}
     - target: {fileID: 4798538383390806, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
       propertyPath: m_LocalPosition.z
@@ -428,6 +428,21 @@ Prefab:
     - target: {fileID: 4798538383390806, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916876993743116, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: MovSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916876993743116, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108143793301234, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
@@ -563,6 +578,7 @@ MonoBehaviour:
   - {fileID: 1055491536003862, guid: 7b19078047928b640ba47b23f841f61c, type: 2}
   player: {fileID: 2078540630}
   enemy: {fileID: 2065894720}
+  emptyWater: {fileID: 1916459212604420, guid: aa93df7a3cbe59d47ad1200fc2693a80, type: 2}
 --- !u!114 &1854120779
 MonoBehaviour:
   m_ObjectHideFlags: 0
