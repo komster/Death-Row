@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TopElements
+    uniqueID: 2275085051
+    locked: 0
+  - name: MidElements
+    uniqueID: 1468542701
+    locked: 0
+  - name: BotElements
+    uniqueID: 766996903
+    locked: 0
