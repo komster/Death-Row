@@ -46,11 +46,11 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
                 enemyCollider.enabled = true;
                 CS_Enemy_TravelStage enemyScript = GetComponent<CS_Enemy_TravelStage>();
                 CS_Enemy_Battel enemyBattelScript = GetComponent<CS_Enemy_Battel>();
-                enemyBattelScript.on = true;
-                enemyBattelScript.enabled = true;
+                //enemyBattelScript.on = true;
+                //enemyBattelScript.enabled = true;
                 enemyScript.enabled = false;
-                arena.transform.position = new Vector3(0,0,0);
-                Instantiate<GameObject>(arena);
+                //arena.transform.position = new Vector3(0,0,0);
+                //Instantiate<GameObject>(arena);
             }
         }
         
