@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: f691f19a1996c424899d98334ec15465
-timeCreated: 1493311982
+guid: 469f75dc1e092a34085916cd567f7452
+timeCreated: 1493314532
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Sail animation_0
+    21300002: Sail animation_1
+    21300004: Sail animation_2
+    21300006: Sail animation_3
+    21300008: Sail animation_4
+    21300010: Sail animation_5
+    21300012: Sail animation_6
+    21300014: Sail animation_7
+    21300016: Sail animation_8
+    21300018: Sail animation_9
+    21300020: Sail animation_10
+    21300022: Sail animation_11
+    21300024: Sail animation_12
+    21300026: Sail animation_13
+    21300028: Sail animation_14
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +73,212 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Sail animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3148
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_1
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 3148
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_2
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 3148
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2361
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_4
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 2361
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_5
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 2361
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1574
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1574
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_8
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1574
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 787
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 787
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_11
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 787
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_13
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sail animation_14
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 0
+        width: 511
+        height: 787
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
