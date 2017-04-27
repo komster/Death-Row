@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
 --- !u!114 &114525284719128000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,6 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
 --- !u!114 &114676308834371486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -617,6 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
 --- !u!114 &114687132090292612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -629,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
 --- !u!114 &114693157894002320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -641,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
 --- !u!212 &212037317775550848
 SpriteRenderer:
   m_ObjectHideFlags: 1

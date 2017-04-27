@@ -5,7 +5,7 @@ using UnityEngine;
 public class CS_Pickup_Coin : MonoBehaviour {
     private CS_Gamemanager gameManager;
     public int coinValue;
-
+    public AudioClip sound;
 	// Use this for initialization
 	void Start () {
         gameManager = FindObjectOfType<CS_Gamemanager>();
@@ -19,6 +19,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
     {
         if(other.gameObject.name == "Player")
         {
+            AudioSource.PlayClipAtPoint(sound, transform.position);
             gameManager.InitScore(coinValue);
             Destroy(this.gameObject);
         }
