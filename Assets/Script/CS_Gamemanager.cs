@@ -7,11 +7,11 @@ public class CS_Gamemanager : MonoBehaviour {
 
     public int coins;
     public Text score;
-	// Use this for initialization
-	void Start () {
-        score = GameObject.Find("score").GetComponent<Text>();
-        
-	}
+    public Text score1;
+    // Use this for initialization
+    void Start () {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,6 +22,7 @@ public class CS_Gamemanager : MonoBehaviour {
     {
         coins += nrOfCoins;
         score.text = "score: " + coins;
+        score1.text = "score: " + coins;
 
     }
 }

@@ -36,22 +36,22 @@ public class CS_Camera_Movment : MonoBehaviour {
             cameraX = main.transform.position.x;
             cameraY = main.transform.position.y;
 
-            if (playerY > cameraY - 30 && playerY < cameraY - 5)
+            if (playerY > cameraY - 30 && playerY < cameraY - 7)
             {
                 cameraSpeedY = 0f;
             }
 
-            if (playerY > cameraY - 5 && playerY < cameraY - 3)
+            if (playerY > cameraY - 7 && playerY < cameraY - 5)
             {
-                cameraSpeedY = 2f;
+                cameraSpeedY = 3f;
             }
-            if (playerY > cameraY - 3 && playerY < cameraY + 0)
+            if (playerY > cameraY - 5 && playerY < cameraY + 0)
             {
-                cameraSpeedY = 4f;
+                cameraSpeedY = 6f;
             }
             if (playerY > cameraY + 0 && playerY < cameraY + 5)
             {
-                cameraSpeedY = 6f;
+                cameraSpeedY = 9f;
             }
 
 

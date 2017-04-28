@@ -31,7 +31,7 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
 
             if (timer <= 0)
             {
-                movmentSpeed += 0.0005f;
+                movmentSpeed += 0.001f;
             }
 
             transform.position = new Vector3(player.transform.position.x, transform.position.y, -1);

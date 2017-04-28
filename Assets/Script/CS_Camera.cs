@@ -6,6 +6,10 @@ public class CS_Camera : MonoBehaviour {
 
     public Camera main;
 
+    public GameObject score;
+    public GameObject score1;
+    public GameObject text;
+
     private bool zoomOut = false;
 
     private bool start = true;
@@ -57,6 +61,9 @@ public class CS_Camera : MonoBehaviour {
     {
         zoomOut = true;
         CS_Notify.Send(this, "ChangeStage");
+        score.SetActive(false);
+        score1.SetActive(true);
+        text.SetActive(true);
     }
 
     public void ChangeToTravelCamera()
