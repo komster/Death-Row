@@ -37,7 +37,7 @@ public class CS_Main_Menu : MonoBehaviour
         player1Ready = false;
         player2Ready = false;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
