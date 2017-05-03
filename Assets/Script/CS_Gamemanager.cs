@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CS_Gamemanager : MonoBehaviour {
 
     public int coins;
     public Text score;
-    public Text score1;
+    
+    
     // Use this for initialization
     void Start () {
-
+        
+       
     }
 	
 	// Update is called once per frame
@@ -22,7 +25,8 @@ public class CS_Gamemanager : MonoBehaviour {
     {
         coins += nrOfCoins;
         score.text = "score: " + coins;
-        score1.text = "score: " + coins;
+        
 
     }
+   
 }
