@@ -12,6 +12,8 @@ public class CS_Enemy_Battel : MonoBehaviour {
 
     public Transform leftCannon;
     public Transform rightCannon;
+    public int hp;
+
 
     private Vector3 direction;
     private float cannonSpeed = 10;
@@ -83,6 +85,14 @@ public class CS_Enemy_Battel : MonoBehaviour {
             }
 
         }
+
+
   
+    }
+
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 }

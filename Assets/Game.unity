@@ -258,37 +258,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2078540630}
-    - target: {fileID: 114356696877993170, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
+    - target: {fileID: 114014911372211222, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
         type: 2}
-      propertyPath: main
+      propertyPath: player
       value: 
-      objectReference: {fileID: 41963062}
-    - target: {fileID: 1700777130186196, guid: 328aaac28a6aa3d4793473b7d6f93c3c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212432944316368052, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9f1777a48b9f6cb4c86d3e1c527139c9,
-        type: 3}
-    - target: {fileID: 114356696877993170, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
-        type: 2}
-      propertyPath: arena
-      value: 
-      objectReference: {fileID: 1618702409360044, guid: 697a3f43d0cd64e4fa7f0d9508c89197,
-        type: 2}
-    - target: {fileID: 114356696877993170, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
-        type: 2}
-      propertyPath: movmentSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 70492765677243562, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2078540630}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 328aaac28a6aa3d4793473b7d6f93c3c, type: 2}
   m_IsPrefabParent: 0
@@ -516,7 +490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 0
   score: {fileID: 1926632936}
-  score1: {fileID: 0}
 --- !u!114 &1854120781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,23 +880,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1700777130186196, guid: 328aaac28a6aa3d4793473b7d6f93c3c,
     type: 2}
   m_PrefabInternal: {fileID: 437109446}
---- !u!114 &2065894726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2065894720}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed61845466201ec47ae3ae00da98055a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movSpeed: 6
-  rb: {fileID: 0}
-  player: {fileID: 2078540630}
-  cannonBall: {fileID: 0}
-  leftCannon: {fileID: 0}
-  rightCannon: {fileID: 0}
 --- !u!1 &2078540630 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1478113835845590, guid: f56f3ee9184c7f44f8cedaad0f46f619,
@@ -940,3 +896,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dfdef1645f72e4a871620afed1ea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 0}

@@ -8,6 +8,7 @@ TagManager:
   - LeftCannon
   - RightCannon
   - Tile
+  - CannonBall
   layers:
   - Default
   - TransparentFX
