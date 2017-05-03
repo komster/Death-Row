@@ -61,9 +61,9 @@ public class CS_Camera : MonoBehaviour {
     {
         zoomOut = true;
         CS_Notify.Send(this, "ChangeStage");
-        score.SetActive(false);
-        score1.SetActive(true);
-        text.SetActive(true);
+        //score.SetActive(false);
+        //score1.SetActive(true);
+        //text.SetActive(true);
     }
 
     public void ChangeToTravelCamera()
