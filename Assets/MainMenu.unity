@@ -900,6 +900,7 @@ GameObject:
   - component: {fileID: 666097360}
   - component: {fileID: 666097359}
   - component: {fileID: 666097364}
+  - component: {fileID: 666097365}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -918,7 +919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cf18c6a97b28345a83c30315412f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreText: {fileID: 1857721054}
   p1PressButton: {fileID: 0}
   p2PressButton: {fileID: 0}
   p1Ready: {fileID: 0}
@@ -1017,7 +1017,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56f7ae48a3eaaea4eb3ffc0b89a89201, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.508
+  m_Volume: 0.274
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1086,6 +1086,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &666097365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666097358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a8178cdb4d74c44a835da48a931065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreText: {fileID: 1857721054}
 --- !u!1 &836756474
 GameObject:
   m_ObjectHideFlags: 0

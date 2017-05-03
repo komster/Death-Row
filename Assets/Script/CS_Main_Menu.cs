@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CS_Main_Menu : MonoBehaviour
 {
-    public Text highscoreText;
+    
     //public GameObject highScoreHolder;
     //public int mainMenuState = 0;
     public GameObject p1PressButton;
@@ -26,7 +26,7 @@ public class CS_Main_Menu : MonoBehaviour
 
     private void Start()
     {
-        highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
+        
         /*  MainMenuList.Add(GameObject.Find("State0"));
           MainMenuList.Add(GameObject.Find("State1"));
           MainMenuStateManager();*/
