@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 50655927781644122}
   - component: {fileID: 70492765677243562}
   - component: {fileID: 114356696877993170}
-  - component: {fileID: 114553205529142992}
+  - component: {fileID: 114014911372211222}
   m_Layer: 0
   m_Name: Medium_Enemy
   m_TagString: Untagged
@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700777130186196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -32.58, z: -4}
+  m_LocalPosition: {x: -0.1, y: -32.6, z: -4}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.59412664}
   m_Children:
   - {fileID: 4613969464431026}
@@ -225,6 +225,23 @@ CapsuleCollider2D:
   m_Offset: {x: -0.19251549, y: 0.014809199}
   m_Size: {x: 2.6517265, y: 5.9448414}
   m_Direction: 0
+--- !u!114 &114014911372211222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700777130186196}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed61845466201ec47ae3ae00da98055a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movSpeed: 6
+  rb: {fileID: 50655927781644122}
+  player: {fileID: 0}
+  cannonBall: {fileID: 1852603831466300, guid: 8564b94216736724e984bd1aa2a69e06, type: 2}
+  leftCannon: {fileID: 4347236561352918}
+  rightCannon: {fileID: 4781549675327220}
 --- !u!114 &114356696877993170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,23 +256,6 @@ MonoBehaviour:
   player: {fileID: 0}
   arena: {fileID: 1618702409360044, guid: 697a3f43d0cd64e4fa7f0d9508c89197, type: 2}
   movmentSpeed: 3
---- !u!114 &114553205529142992
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1700777130186196}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed61845466201ec47ae3ae00da98055a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  on: 0
-  rb: {fileID: 50655927781644122}
-  leftSide: {fileID: 0}
-  rightSide: {fileID: 0}
-  player: {fileID: 0}
-  movmentSpeed: 2
 --- !u!212 &212241248694775082
 SpriteRenderer:
   m_ObjectHideFlags: 1
