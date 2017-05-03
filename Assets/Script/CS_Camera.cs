@@ -48,7 +48,7 @@ public class CS_Camera : MonoBehaviour {
         {          
             if (main.orthographicSize < 18)
             {
-                main.orthographicSize = main.orthographicSize + 5 * Time.deltaTime;
+                main.orthographicSize = main.orthographicSize + 2 * Time.deltaTime;
             }
             else
             {
@@ -61,13 +61,11 @@ public class CS_Camera : MonoBehaviour {
     {
         zoomOut = true;
         CS_Notify.Send(this, "ChangeStage");
-        //score.SetActive(false);
-        //score1.SetActive(true);
-        //text.SetActive(true);
     }
 
     public void ChangeToTravelCamera()
     {
-
+        start = true;
+        CS_Notify.Send(this, "ChangeStage");
     }
 }

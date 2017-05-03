@@ -16,7 +16,8 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
     private bool gameStarted = false;
 
 	void Start () {
-        CS_Notify.Register(this, "StartGame");
+        CS_Notify.Register(this, "EnemyBoatStart");
+        EnemyBoatStart();
     }
 	
 	void Update () {
@@ -40,22 +41,13 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
 
             if (player.transform.position.y < transform.position.y + 2)
             {
-                CS_Notify.Send(this, "ChangeToArenaCamera");
-                CS_Notify.Send(this, "TurnOff");
-                CapsuleCollider2D enemyCollider = GetComponent<CapsuleCollider2D>();
-                enemyCollider.enabled = true;
-                CS_Enemy_TravelStage enemyScript = GetComponent<CS_Enemy_TravelStage>();
-                CS_Enemy_Battel enemyBattelScript = GetComponent<CS_Enemy_Battel>();
-                enemyBattelScript.enabled = true;
-                enemyScript.enabled = false;
-                arena.transform.position = new Vector3(0, 0, 0);
-                Instantiate<GameObject>(arena);
+                CS_Notify.Send(this,"BattelStageOn");
             }
         }
         
 	}
 
-    public void StartGame()
+    public void EnemyBoatStart()
     {
         gameStarted = true;
     }
