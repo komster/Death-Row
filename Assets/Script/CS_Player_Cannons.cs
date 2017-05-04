@@ -41,7 +41,7 @@ public class CS_Player_Cannons : MonoBehaviour
                 {
                     if (cannon[index].activeInHierarchy)
                     {
-                        cannonBall.transform.position = leftCannonsSpawnPoints[index].transform.position;
+                        cannonBall.transform.position = new Vector3 (leftCannonsSpawnPoints[index].transform.position.x, leftCannonsSpawnPoints[index].transform.position.y,0);
                         GameObject temp = Instantiate(cannonBall);
                         Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                         rb.velocity = (leftCannons[index].transform.up * cannonSpeed);
@@ -61,7 +61,7 @@ public class CS_Player_Cannons : MonoBehaviour
                 {
                     if (cannon[index].activeInHierarchy)
                     {
-                        cannonBall.transform.position = rightCannonsSpawnPoints[index].transform.position;
+                        cannonBall.transform.position = new Vector3(rightCannonsSpawnPoints[index].transform.position.x, rightCannonsSpawnPoints[index].transform.position.y,0);
                         GameObject temp = Instantiate(cannonBall);
                         Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                         rb.velocity = (rightCannons[index].transform.up * cannonSpeed);

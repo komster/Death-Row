@@ -7,7 +7,7 @@ public class CS_Enemy_Battel : MonoBehaviour {
     public float movSpeed = 6;
 
     public Rigidbody2D rb;
-    public GameObject player;
+    public Transform player;
     public GameObject cannonBall;
 
     public Transform leftCannon;
@@ -22,8 +22,8 @@ public class CS_Enemy_Battel : MonoBehaviour {
 
 
     void Start () {
-		
-	}
+        player = GameObject.Find("Player").GetComponent<Transform>();
+    }
 	
 	void Update () {
 
@@ -89,6 +89,14 @@ public class CS_Enemy_Battel : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.tag == "CannonBall")
+        {
+            hp--;
+            Destroy(collision.gameObject);
+        }
+        if (hp == 0)
+        {
+            CS_Notify.Send(this, "ChangeStage");
+        }
     }
 }

@@ -6,6 +6,7 @@ public class CS_Camera : MonoBehaviour {
 
     public Camera main;
     public GameObject score;
+    public Transform player;
 
     CS_Camera_Movment cameraScript;
 
@@ -28,10 +29,10 @@ public class CS_Camera : MonoBehaviour {
             }
             else
             {
-                main.transform.position = Vector3.MoveTowards(main.transform.position, new Vector3(0,0,-10) ,Time.deltaTime * 8);
+                main.transform.position = Vector3.MoveTowards(main.transform.position, new Vector3(player.position.x,player.position.y + 3 ,-10) ,Time.deltaTime * 8);
             }
 
-            if (main.transform.position == new Vector3(0, 0, -10))
+            if (main.transform.position == new Vector3(player.position.x, player.position.y + 3, - 10))
             {
                 CS_Notify.Send(this, "StartGame");
                 //CS_Notify.Send(this, "EnemyBoatStart");
@@ -65,7 +66,9 @@ public class CS_Camera : MonoBehaviour {
 
     public void ChangeToTravelCamera()
     {
-        start = true;
+        main.transform.position = new Vector3(player.position.x, player.position.y -15 - 10);
         cameraScript.enabled = true;
+        cameraScript.gameStarted = true;
+        start = true;
     }
 }

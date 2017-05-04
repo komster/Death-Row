@@ -23,6 +23,8 @@ public class CS_World_Creater : MonoBehaviour {
     void Start() {
         CS_Notify.Register(this, "TurnOffWorldSpawn");
         CS_Notify.Register(this, "TurnOnWorldSpawn");
+        CS_Notify.Register(this, "MovePlayer");
+
 
         addLine(line);
         addLine(line + 1);
@@ -145,6 +147,7 @@ public class CS_World_Creater : MonoBehaviour {
         {
             if (tileIndex >= 0)
             {
+                Debug.Log(lineIndex + "line");
                 if (lines[lineIndex].GetHasSpawned(tileIndex) == false)
                 {
                     if (lines[lineIndex].GetModual(tileIndex) == 100)
@@ -184,20 +187,29 @@ public class CS_World_Creater : MonoBehaviour {
         {
             for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
             {
+                lines[lineIndex].tiles[tileIndex].hasSpawned = false;
                  Destroy(lines[lineIndex].tiles[tileIndex].tile);
             }
         }
+
+        travelStageOn = false;
 
     }
     public void TurnOnWorldSpawn()
     {
         travelStageOn = true;
-        instansModuals(lineIndex, tile - 1, tile + 2);
-        lineIndex++;
-        instansModuals(lineIndex, tile - 1, tile + 2);
-        lineIndex++;
-        instansModuals(lineIndex, tile - 1, tile + 2);
 
+        instansModuals(getLinePlace(line), tile - 1, tile + 2);
+
+        instansModuals(getLinePlace(line+ 1), tile - 1, tile + 2);
+
+        instansModuals(getLinePlace(line - 1), tile - 1, tile + 2);
+
+    }
+
+    public void MovePlayer()
+    {
+        player.transform.position = new Vector3(line * 30, tile * 30, -4);
     }
 
     private class Lines
