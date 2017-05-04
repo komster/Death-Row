@@ -8,7 +8,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
     public AudioClip sound;
     private CS_Gamemanager manager;
     
-    public float time = 3f;
+    
     private CS_Player_Movment Movement;
     private movment movement;
 	// Use this for initialization
@@ -23,7 +23,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        time -= Time.deltaTime;
+        
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,7 +37,8 @@ public class CS_Pickup_Coin : MonoBehaviour {
         {
             AudioSource.PlayClipAtPoint(sound, transform.position);
             gameManager.InitScore(coinValue);
-            manager.coinPicked = true;
+            manager.checkForBoost();
+            //manager.coinPicked = true;
             Destroy(this.gameObject);
             
         }

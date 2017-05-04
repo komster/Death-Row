@@ -8,7 +8,7 @@ public class CS_Gamemanager : MonoBehaviour {
 
     public int coins;
     public Text score;
-    public bool coinPicked = false;
+    
     private CS_Player_Movment Movement;
     private movment movement;
     private CS_Pickup_Coin pickS;
@@ -30,24 +30,20 @@ public class CS_Gamemanager : MonoBehaviour {
         score.text = "score: " + coins;
         
     }
-    void checkForBoost()
+    public void checkForBoost()
     {
-        if(coinPicked == true)
-        {
-            StartCoroutine(boost());
-        }
-        
+        StartCoroutine(boost());
     }
     private IEnumerator boost()
     {
 
-        //Movement.movSpeed += 10f;
-        movement.MovSpeed = 10f;
-        yield return new WaitForSeconds(0.5f);
-        //Movement.movSpeed -= 10f;
+        //Movement.movSpeed += 8f;
+        movement.MovSpeed = 8f;
+        yield return new WaitForSeconds(3f);
+        //Movement.movSpeed -= 6f;
         movement.MovSpeed = 6f;
-        Debug.Log("test");
-        coinPicked = false;
+        Debug.Log("Boosted");
+        
 
     }
 }
