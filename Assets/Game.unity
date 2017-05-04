@@ -194,6 +194,7 @@ MonoBehaviour:
   player: {fileID: 2078540630}
   main: {fileID: 41963062}
   rb: {fileID: 41963065}
+  gameStarted: 0
 --- !u!50 &41963065
 Rigidbody2D:
   serializedVersion: 4
