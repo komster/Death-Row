@@ -25,7 +25,7 @@ public class CS_Main_Menu : MonoBehaviour
 
     private void Start()
     {
-        
+        //
         /*  MainMenuList.Add(GameObject.Find("State0"));
           MainMenuList.Add(GameObject.Find("State1"));
           MainMenuStateManager();*/
@@ -37,6 +37,7 @@ public class CS_Main_Menu : MonoBehaviour
         p2Ready.SetActive(false);
         player1Ready = false;
         player2Ready = false;
+        
     }
     private void Update()
     {

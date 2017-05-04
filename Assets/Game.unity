@@ -439,6 +439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 0
   score: {fileID: 1926632936}
+  scoreCoins: {fileID: 0}
+  board: {fileID: 0}
 --- !u!114 &1854120781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11183dd56da0ddb4faa27de9cd8f5fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleStage: 0
   player: {fileID: 2078540630}
   meduimEnemyBattel: {fileID: 1631750870620132, guid: 092c074850a11d64a85d1f8d117f1da8,
     type: 2}

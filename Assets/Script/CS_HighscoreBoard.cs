@@ -7,16 +7,15 @@ public class CS_HighscoreBoard : MonoBehaviour {
     public Text[] highScores;
 
     int[] highScoreValues;
-
+    private bool callOnce = false;
+    public int Value;
     //public Text highscoreText;
     // Use this for initialization
-    void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+    
     void Start ()
     {
         
+        inherit();
        // highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
         highScoreValues = new int[highScores.Length];
         for(int x = 0; x < highScores.Length; x++)
@@ -25,6 +24,13 @@ public class CS_HighscoreBoard : MonoBehaviour {
         }
         WriteScores();
     }
+    
+    void inherit()
+    {
+        Value = PlayerPrefs.GetInt("Highscore");
+        //CheckForHScore(PlayerPrefs.GetInt("Highscore"));
+        
+    }
 	void saveScores()
     {
         for (int x = 0; x < highScores.Length; x++)
@@ -32,17 +38,17 @@ public class CS_HighscoreBoard : MonoBehaviour {
             PlayerPrefs.SetInt("highScoreValues" + x, highScoreValues[x]);
         }
     }
-    public void CheckForHScore(int value)
+    public void CheckForHScore()
     {
         for (int x = 0; x < highScores.Length; x++)
         {
-            if(value > highScoreValues [x])
+            if(Value > highScoreValues [x])
             {
                 for(int y = highScores.Length - 1; y > x; y--)
                 {
                     highScoreValues[y] = highScoreValues[y - 1];
                 }
-                highScoreValues[x] = value;
+                highScoreValues[x] = Value;
                 WriteScores();
                 saveScores();
                 break;
@@ -57,6 +63,10 @@ public class CS_HighscoreBoard : MonoBehaviour {
         }
     }// Update is called once per frame
 	void Update () {
-		
-	}
+        if (callOnce == false)
+        {
+            CheckForHScore();
+            callOnce = true;
+        }
+    }
 }

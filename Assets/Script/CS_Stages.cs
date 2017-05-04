@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CS_Stages : MonoBehaviour {
-
     private bool travleStage = false;
-    private bool battleStage = false;
+    public bool battleStage = false;
 
     private int wave = 0;
 
