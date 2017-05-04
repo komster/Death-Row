@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class CS_Main_Menu : MonoBehaviour
 {
-    
     //public GameObject highScoreHolder;
     //public int mainMenuState = 0;
     public GameObject p1PressButton;

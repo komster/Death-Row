@@ -7,13 +7,15 @@ public class CS_Pickup_Coin : MonoBehaviour {
     public int coinValue;
     public AudioClip sound;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         gameManager = FindObjectOfType<CS_Gamemanager>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+	    	
 	}
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -10,8 +10,13 @@ public class CS_HighscoreBoard : MonoBehaviour {
 
     //public Text highscoreText;
     // Use this for initialization
-    void Start () {
+    void Awake()
+    {
         DontDestroyOnLoad(transform.gameObject);
+    }
+    void Start ()
+    {
+        
        // highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
         highScoreValues = new int[highScores.Length];
         for(int x = 0; x < highScores.Length; x++)
