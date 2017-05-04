@@ -9,6 +9,7 @@ TagManager:
   - RightCannon
   - Tile
   - CannonBall
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114467105349985552}
   m_Layer: 0
   m_Name: Coin.1 (1)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114478273659924256}
   m_Layer: 0
   m_Name: Coin.1
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 114199326580310276}
   m_Layer: 0
   m_Name: Coin.1
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 0}
+  coinPicked: 0
+  time: 3
 --- !u!114 &114467105349985552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,6 +294,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 0}
+  coinPicked: 0
+  time: 3
 --- !u!114 &114478273659924256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,6 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 100
+  sound: {fileID: 0}
+  coinPicked: 0
+  time: 3
 --- !u!212 &212000691154092928
 SpriteRenderer:
   m_ObjectHideFlags: 1

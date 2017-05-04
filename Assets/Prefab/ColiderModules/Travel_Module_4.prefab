@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58890934840427046}
   m_Layer: 0
   m_Name: Coin Animation (1)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 58957558365097146}
   m_Layer: 0
   m_Name: Coin Animation (4)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 58888945515652302}
   m_Layer: 0
   m_Name: Coin Animation (5)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 58669638967047768}
   m_Layer: 0
   m_Name: Coin Animation (2)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 58158919657513660}
   m_Layer: 0
   m_Name: Coin Animation (3)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,6 +594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 100
   sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
+  coinPicked: 0
+  time: 3
 --- !u!114 &114231418062347904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,6 +609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 100
   sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
+  coinPicked: 0
+  time: 3
 --- !u!114 &114459932628889218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -620,6 +624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 100
   sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
+  coinPicked: 0
+  time: 3
 --- !u!114 &114714512830203602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,6 +639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 100
   sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
+  coinPicked: 0
+  time: 3
 --- !u!114 &114986138632537518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -646,6 +654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 100
   sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
+  coinPicked: 0
+  time: 3
 --- !u!212 &212028636623751380
 SpriteRenderer:
   m_ObjectHideFlags: 1

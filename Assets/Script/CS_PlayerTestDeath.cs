@@ -10,7 +10,7 @@ public class CS_PlayerTestDeath : MonoBehaviour {
 	void Start ()
     {
         score = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
-        board = GameObject.Find("MainMenu").GetComponent<CS_HighscoreBoard>();
+       // board = GameObject.Find("MainMenu").GetComponent<CS_HighscoreBoard>();
     }
 	
 	// Update is called once per frame
@@ -31,7 +31,7 @@ public class CS_PlayerTestDeath : MonoBehaviour {
         {
             PlayerPrefs.SetFloat("Highscore", score.coins);
         }*/
-        board.CheckForHScore(score.coins);
+       // board.CheckForHScore(score.coins);
         SceneManager.LoadScene(0);
         
     }
