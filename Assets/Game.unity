@@ -452,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 41963062}
   score: {fileID: 1926632934}
+  player: {fileID: 2078540638}
 --- !u!82 &1854120782
 AudioSource:
   m_ObjectHideFlags: 0
@@ -626,10 +627,12 @@ MonoBehaviour:
   player: {fileID: 2078540630}
   meduimEnemyBattel: {fileID: 1631750870620132, guid: 092c074850a11d64a85d1f8d117f1da8,
     type: 2}
-  largeEnemeyBattel: {fileID: 0}
+  largeEnemeyBattel: {fileID: 1631750870620132, guid: 092c074850a11d64a85d1f8d117f1da8,
+    type: 2}
   meduimEnemyTravel: {fileID: 1230653714767334, guid: 891df7d1582c18b4897ba5b48fae9202,
     type: 2}
-  largeEnemeyTravel: {fileID: 0}
+  largeEnemeyTravel: {fileID: 1230653714767334, guid: 891df7d1582c18b4897ba5b48fae9202,
+    type: 2}
   clouds: {fileID: 1713509303962018, guid: 283eb26b933d9f1418cc8146eb193ba1, type: 2}
   arenas:
   - {fileID: 1618702409360044, guid: 697a3f43d0cd64e4fa7f0d9508c89197, type: 2}
@@ -846,5 +849,10 @@ CanvasRenderer:
 --- !u!1 &2078540630 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1478113835845590, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+    type: 2}
+  m_PrefabInternal: {fileID: 1102135555}
+--- !u!4 &2078540638 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4798538383390806, guid: f56f3ee9184c7f44f8cedaad0f46f619,
     type: 2}
   m_PrefabInternal: {fileID: 1102135555}
