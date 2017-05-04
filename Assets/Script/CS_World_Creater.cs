@@ -6,12 +6,9 @@ public class CS_World_Creater : MonoBehaviour {
 
     public GameObject[] moduals;
     public GameObject player;
-    public GameObject enemy;
     public GameObject emptyWater;
 
     private List<Lines> lines = new List<Lines>();
-
-    private int x = 0;
 
     private int line = 0;
     private int tile = 1;
@@ -21,7 +18,7 @@ public class CS_World_Creater : MonoBehaviour {
 
     private int lineIndex = 0;
 
-    private bool travelStageOn = true;
+    private bool travelStageOn = false;
 
     void Start() {
         CS_Notify.Register(this, "TurnOffWorldSpawn");
@@ -30,7 +27,6 @@ public class CS_World_Creater : MonoBehaviour {
         addLine(line);
         addLine(line + 1);
         addLine(line - 1);
-        TurnOnWorldSpawn();
     }
 
     void Update() {
@@ -116,7 +112,7 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
                 {
-                    if (enemy.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 25)
+                    if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 35)
                     {
                         Destroy(lines[lineIndex].tiles[tileIndex].tile);
                     }

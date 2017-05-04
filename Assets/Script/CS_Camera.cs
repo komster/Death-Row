@@ -5,21 +5,17 @@ using UnityEngine;
 public class CS_Camera : MonoBehaviour {
 
     public Camera main;
-
     public GameObject score;
-    public GameObject score1;
-    public GameObject text;
+
+    CS_Camera_Movment cameraScript;
 
     private bool zoomOut = false;
-
     private bool start = true;
-
-    private CS_Camera_Movment cameraScript;
 
     void Start () {
         CS_Notify.Register(this, "ChangeToArenaCamera");
         CS_Notify.Register(this, "ChangeToTravelCamera");
-        cameraScript = GetComponent<CS_Camera_Movment>();
+        cameraScript = main.GetComponent<CS_Camera_Movment>();
     }
 
     private void Update()
@@ -38,6 +34,7 @@ public class CS_Camera : MonoBehaviour {
             if (main.transform.position == new Vector3(0, 0, -10))
             {
                 CS_Notify.Send(this, "StartGame");
+                //CS_Notify.Send(this, "EnemyBoatStart");
                 start = false;
             }
         }
@@ -48,7 +45,7 @@ public class CS_Camera : MonoBehaviour {
         {          
             if (main.orthographicSize < 18)
             {
-                main.orthographicSize = main.orthographicSize + 2 * Time.deltaTime;
+                main.orthographicSize = main.orthographicSize + 5 * Time.deltaTime;
             }
             else
             {
@@ -59,13 +56,16 @@ public class CS_Camera : MonoBehaviour {
 
     public void ChangeToArenaCamera()
     {
+        main.transform.position = new Vector3(16.5f, 3, -10);
         zoomOut = true;
-        CS_Notify.Send(this, "ChangeStage");
+        cameraScript.gameStarted = false;
+        cameraScript.enabled = false;
+
     }
 
     public void ChangeToTravelCamera()
     {
         start = true;
-        CS_Notify.Send(this, "ChangeStage");
+        cameraScript.enabled = true;
     }
 }

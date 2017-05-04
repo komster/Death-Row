@@ -17,35 +17,33 @@ public class CS_Camera_Movment : MonoBehaviour {
     private float cameraSpeedY;
     private float cameraSpeedX;
 
-    private bool gameStarted = false;
-    private bool travelStageOn = true;
+    public bool gameStarted = false;
 
 
     void Start () {
         CS_Notify.Register(this, "StartGame");
-        CS_Notify.Register(this, "ChangeStage");
         rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
 
-        if (gameStarted == true && travelStageOn == true)
+        if (gameStarted == true)
         {
             playerX = player.transform.position.x;
             playerY = player.transform.position.y;
             cameraX = main.transform.position.x;
             cameraY = main.transform.position.y;
 
-            if (playerY > cameraY - 30 && playerY < cameraY - 7)
+            if (playerY > cameraY - 30 && playerY < cameraY - 4)
             {
                 cameraSpeedY = 0f;
             }
 
-            if (playerY > cameraY - 7 && playerY < cameraY - 5)
+            if (playerY > cameraY - 4  && playerY < cameraY - 3)
             {
                 cameraSpeedY = 3f;
             }
-            if (playerY > cameraY - 5 && playerY < cameraY + 0)
+            if (playerY > cameraY - 3 && playerY < cameraY + 0)
             {
                 cameraSpeedY = 6f;
             }
@@ -89,19 +87,5 @@ public class CS_Camera_Movment : MonoBehaviour {
     public void StartGame()
     {
         gameStarted = true;
-    }
-
-    public void ChangeStage()
-    {
-        if (travelStageOn == true)
-        {
-            travelStageOn = false;
-            main.transform.position = new Vector3(16.5f, 3,-10);
-
-        }
-        else
-        {
-            travelStageOn = true;
-        }
     }
 }

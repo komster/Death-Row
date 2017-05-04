@@ -83,11 +83,7 @@ public class CS_Enemy_Battel : MonoBehaviour {
                     reloadTimer = 5;
                 }
             }
-
-        }
-
-
-  
+        } 
     }
 
 

@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class CS_Enemy_TravelStage : MonoBehaviour {
 
-    public GameObject player;
-    public GameObject arena;
-
+    public Transform player;
     public float movmentSpeed;
 
     private float timer = 5;
-
     private Rigidbody2D rb;
 
     private bool gameStarted = false;
 
 	void Start () {
         CS_Notify.Register(this, "EnemyBoatStart");
+        player = GameObject.Find("Player").GetComponent<Transform>();
         EnemyBoatStart();
     }
 	
 	void Update () {
         if (gameStarted == false)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5);
+            //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5);
         }
 
         if (gameStarted == true)
@@ -39,9 +37,11 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
 
             timer -= Time.deltaTime;
 
-            if (player.transform.position.y < transform.position.y + 2)
+            if (player.position.y < transform.position.y + 2)
             {
-                CS_Notify.Send(this,"BattelStageOn");
+                CS_Notify.Send(this, "ChangeStage");
+                CS_Notify.Unregister(this, "EnemyBoatStart");
+                gameStarted = false;
             }
         }
         
