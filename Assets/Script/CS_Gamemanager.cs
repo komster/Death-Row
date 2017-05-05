@@ -54,10 +54,10 @@ public class CS_Gamemanager : MonoBehaviour {
     private IEnumerator boost()
     {
 
-        //Movement.movSpeed += 8f;
+        Movement.movSpeed = 8f;
         movement.MovSpeed = 8f;
         yield return new WaitForSeconds(3f);
-        //Movement.movSpeed -= 6f;
+        Movement.movSpeed = 6f;
         movement.MovSpeed = 6f;
         Debug.Log("Boosted");
         
