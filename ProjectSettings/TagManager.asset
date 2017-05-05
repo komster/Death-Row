@@ -9,6 +9,7 @@ TagManager:
   - RightCannon
   - Tile
   - CannonBall
+  - End
   layers:
   - Default
   - TransparentFX

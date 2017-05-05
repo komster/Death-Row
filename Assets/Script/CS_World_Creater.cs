@@ -7,6 +7,7 @@ public class CS_World_Creater : MonoBehaviour {
     public GameObject[] moduals;
     public GameObject player;
     public GameObject emptyWater;
+    public GameObject endTile;
 
     private List<Lines> lines = new List<Lines>();
 
@@ -71,43 +72,50 @@ public class CS_World_Creater : MonoBehaviour {
                     instansModuals(getLinePlace(line - 1), tile - 1, tile + 1);
                 }
             }
-            if (player.transform.position.y > playerTileY + 17)
+            if (player.transform.position.y > playerTileY + 15)
             {
                 playerTileY += 30;
                 instansModuals(getLinePlace(line), tile + 2, tile + 3);
                 instansModuals(getLinePlace(line + 1), tile + 2, tile + 3);
                 instansModuals(getLinePlace(line - 1), tile + 2, tile + 3);
                 tile++;
-                if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+                if (tile > 0 && tile <= 15)
                 {
-                    instansModuals(getLinePlace(line), tile, tile + 1);
-                }
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line + 1), tile, tile + 1);
-                }
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line - 1), tile, tile + 1);
+                    if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line), tile, tile + 1);
+                    }
+                    if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 1), tile, tile + 1);
+                    }
+                    if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 1), tile, tile + 1);
+                    }
                 }
 
             }
-            if (player.transform.position.y < playerTileY - 17)
+            if (player.transform.position.y < playerTileY - 15)
             {
                 playerTileY -= 30;
                 tile--;
-                if (lines[getLinePlace(line)].GetHasSpawned(tile - 1) == false)
+                if (tile > 0 && tile <= 15)
                 {
-                    instansModuals(getLinePlace(line), tile - 1, tile);
+                    if (lines[getLinePlace(line)].GetHasSpawned(tile - 1) == false)
+                    {
+                        instansModuals(getLinePlace(line), tile - 1, tile);
+                    }
+                    if (lines[getLinePlace(line + 1)].GetHasSpawned(tile - 1) == false)
+                    {
+                        instansModuals(getLinePlace(line + 1), tile - 1, tile);
+                    }
+                    if (lines[getLinePlace(line - 1)].GetHasSpawned(tile - 1) == false)
+                    {
+                        instansModuals(getLinePlace(line - 1), tile - 1, tile);
+                    }
                 }
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile - 1) == false)
-                {
-                    instansModuals(getLinePlace(line + 1), tile - 1, tile);
-                }
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile - 1) == false)
-                {
-                    instansModuals(getLinePlace(line - 1), tile - 1, tile);
-                }
+                
             }
 
             for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
@@ -145,14 +153,18 @@ public class CS_World_Creater : MonoBehaviour {
     {
         for (int tileIndex = startY; tileIndex < stopY; tileIndex++)
         {
-            if (tileIndex >= 0)
+            if (tileIndex >= 0 && tileIndex <= 15)
             {
-                Debug.Log(lineIndex + "line");
                 if (lines[lineIndex].GetHasSpawned(tileIndex) == false)
                 {
                     if (lines[lineIndex].GetModual(tileIndex) == 100)
                     {
                         lines[lineIndex].tiles[tileIndex].tile = Instantiate(emptyWater, new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
+                        lines[lineIndex].tiles[tileIndex].hasSpawned = true;
+                    }
+                    else if (lines[lineIndex].GetModual(tileIndex) == 200)
+                    {
+                        lines[lineIndex].tiles[tileIndex].tile = Instantiate(endTile, new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
                         lines[lineIndex].tiles[tileIndex].hasSpawned = true;
                     }
                     else
@@ -198,11 +210,8 @@ public class CS_World_Creater : MonoBehaviour {
     public void TurnOnWorldSpawn()
     {
         travelStageOn = true;
-
         instansModuals(getLinePlace(line), tile - 1, tile + 2);
-
         instansModuals(getLinePlace(line+ 1), tile - 1, tile + 2);
-
         instansModuals(getLinePlace(line - 1), tile - 1, tile + 2);
 
     }
@@ -230,9 +239,13 @@ public class CS_World_Creater : MonoBehaviour {
             float y = -36;
             tiles.Add(new Tiles(100, x, y));
             y += 36;
-            for (int index = 0; index < 20; index++)
+            for (int index = 0; index < 15; index++)
             {
-                if (line == 0 && index == 0)
+                if (index == 14)
+                {
+                    tiles.Add(new Tiles(200, x, y));
+                }
+                else if (line == 0 && index == 0)
                 {
                     tiles.Add(new Tiles(0, x, y));
                 }

@@ -55,6 +55,11 @@ public class CS_Stages : MonoBehaviour {
                             tempEnemy = Instantiate<GameObject>(meduimEnemyBattel);
                             tempEnemy.transform.position = new Vector3(40,3,0);
                         }
+                        if (wave == 1)
+                        {
+                            tempEnemy = Instantiate<GameObject>(largeEnemeyBattel);
+                            tempEnemy.transform.position = new Vector3(40, 3, 0);
+                        }
                     }
 
                     if (travleStage == true)
