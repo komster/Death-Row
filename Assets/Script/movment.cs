@@ -5,7 +5,7 @@ using UnityEngine;
 public class movment : MonoBehaviour {
 
     Rigidbody2D rb;
-    public float MovSpeed = 100.0f;
+    public float MovSpeed = 6.0f;
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114866019701575468}
   m_Layer: 0
   m_Name: Coin.1
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1041075432917314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 230.5, y: 45.7, z: -1}
+  m_LocalPosition: {x: 23.590221, y: -15.418545, z: -1}
   m_LocalScale: {x: 0.8140943, y: 0.7819378, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 100
   sound: {fileID: 8300000, guid: ef704bd2729230b4cacbee4a6e7c540f, type: 3}
+  coinPicked: 0
+  time: 3
 --- !u!212 &212541237118899558
 SpriteRenderer:
   m_ObjectHideFlags: 1
