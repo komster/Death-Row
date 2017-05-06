@@ -23,12 +23,22 @@ public class CS_Stages : MonoBehaviour {
     private GameObject tempArena;
     private GameObject tempEnemy;
 
+    public Transform progressPlayer;
+    public Transform progressEnemy;
+
+    private float lastPlayerY;
+    private float lastEnemyY;
+
 
 
     void Start () {
         CS_Notify.Register(this, "ChangeStage");
         ChangeStage();
-	}
+        progressPlayer.localPosition = new Vector3(progressPlayer.localPosition.x, -300, progressPlayer.localPosition.z);
+        progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, -310, progressEnemy.localPosition.z);
+        lastPlayerY = player.transform.position.y;
+        lastEnemyY = tempEnemy.transform.position.y;
+    }
 	
 	void Update () {
         if (tempClouds != null)
@@ -74,6 +84,7 @@ public class CS_Stages : MonoBehaviour {
                         if (wave == 1)
                         {
                             tempEnemy = Instantiate(largeEnemeyTravel, new Vector3(player.transform.position.x, player.transform.position.y - 30, player.transform.position.z), new Quaternion(0, 0, 0, 0));;
+                            lastPlayerY = player.transform.position.z;
                         }
                     }
 
@@ -95,6 +106,23 @@ public class CS_Stages : MonoBehaviour {
 
             }
         }
+
+        float playerYPos = player.transform.position.y;
+        if (playerYPos - lastPlayerY >= 3)
+        {
+            Debug.Log("hej");
+            progressPlayer.localPosition = new Vector3(progressPlayer.localPosition.x, progressPlayer.localPosition.y + 1f, progressPlayer.localPosition.z);
+            lastPlayerY = player.transform.position.y;
+        }
+
+        float enemyYPos = tempEnemy.transform.position.y;
+        if (enemyYPos - lastEnemyY >= 3)
+        {
+            progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, progressEnemy.localPosition.y + 1f, progressEnemy.localPosition.z);
+            lastEnemyY = tempEnemy.transform.position.y;
+        }
+
+
     }
 
     public void ChangeStage()
