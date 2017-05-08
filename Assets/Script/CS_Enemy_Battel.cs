@@ -10,8 +10,8 @@ public class CS_Enemy_Battel : MonoBehaviour {
     public Transform player;
     public GameObject cannonBall;
 
-    public Transform leftCannon;
-    public Transform rightCannon;
+    public Transform[] leftCannon;
+    public Transform[] rightCannon;
     public int hp;
 
 
@@ -58,19 +58,27 @@ public class CS_Enemy_Battel : MonoBehaviour {
             {
                 if (direction.x * direction.y < 0)
                 {
-                    cannonBall.transform.position = leftCannon.position;
-                    GameObject temp = Instantiate(cannonBall);
-                    Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
-                    rb.velocity = (-transform.right * cannonSpeed);
-                    reloding = true;
+                    for (int index = 0; index < leftCannon.Length; index++)
+                    {
+                        cannonBall.transform.position = leftCannon[index].position;
+                        GameObject temp = Instantiate(cannonBall);
+                        Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
+                        rb.velocity = (-transform.right * cannonSpeed);
+                        reloding = true;
+                    }
+                   
                 }
                 if (direction.x * direction.y > 0)
                 {
-                    cannonBall.transform.position = rightCannon.position;
-                    GameObject temp = Instantiate(cannonBall);
-                    Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
-                    rb.velocity = (transform.right * cannonSpeed);
-                    reloding = true;
+                    for (int index = 0; index < rightCannon.Length; index++)
+                    {
+                        cannonBall.transform.position = rightCannon[index].position;
+                        GameObject temp = Instantiate(cannonBall);
+                        Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
+                        rb.velocity = (transform.right * cannonSpeed);
+                        reloding = true;
+                    }
+ 
                 }
 
             }
