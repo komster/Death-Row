@@ -5,7 +5,7 @@ using UnityEngine;
 public class CS_Player_Movment : MonoBehaviour {
 
     public Rigidbody2D rb;
-    public float movSpeed = 3.0f;
+    public float movSpeed = 6.0f;
 
     private bool latestControllerP1;
     private bool latestControllerP2;
@@ -20,6 +20,7 @@ public class CS_Player_Movment : MonoBehaviour {
 
     void Start () {
         CS_Notify.Register(this, "StartGame");
+        CS_Notify.Register(this, "MovementUpgrade");
     }
 	
 	void Update () {
@@ -106,5 +107,10 @@ public class CS_Player_Movment : MonoBehaviour {
     public void StartGame()
     {
         gameStarted = true;
+    }
+
+    public void MovmentUpgrade()
+    {
+        movSpeed++;
     }
 }

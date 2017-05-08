@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1188592038941292
 GameObject:
   m_ObjectHideFlags: 1
@@ -291,6 +291,8 @@ GameObject:
   - component: {fileID: 70942491033171230}
   - component: {fileID: 114916876993743116}
   - component: {fileID: 82600782790543000}
+  - component: {fileID: 114930403829625862}
+  - component: {fileID: 114147601113700550}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -375,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1739102363342562
 GameObject:
   m_ObjectHideFlags: 1
@@ -869,7 +871,7 @@ CapsuleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478113835845590}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1004,6 +1006,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 50558720541875408}
   movSpeed: 6
+--- !u!114 &114147601113700550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478113835845590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925991497c0e9f84383cf9876b48e4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon1: {fileID: 1738734230775974}
+  cannon2: {fileID: 1167618139638414}
 --- !u!114 &114212509063761900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1024,7 +1039,7 @@ MonoBehaviour:
   - {fileID: 1167618139638414}
   cannonBall: {fileID: 1852603831466300, guid: 8564b94216736724e984bd1aa2a69e06, type: 2}
   cannonSpeed: 10
-  relodSpeed: 1
+  relodSpeed: 1.5
   leftCannonsSpawnPoints:
   - {fileID: 4512784257924642}
   - {fileID: 4135046383508844}
@@ -1060,7 +1075,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e6846b01a1e734db77173355e76baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovSpeed: 6
+  MovSpeed: 15
+--- !u!114 &114930403829625862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478113835845590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee3f4ae7c78c504f8c214fd0b6f5643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
 --- !u!212 &212254076947230682
 SpriteRenderer:
   m_ObjectHideFlags: 1

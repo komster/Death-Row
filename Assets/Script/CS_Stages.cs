@@ -79,7 +79,11 @@ public class CS_Stages : MonoBehaviour {
                         CS_Notify.Send(this, "ChangeToTravelCamera");
                         player.transform.rotation = new Quaternion(0,0,0,0);
                         spawnIn = false;
-                        Destroy(tempEnemy.gameObject);
+                        if (tempEnemy != null)
+                        {
+                            Destroy(tempEnemy.gameObject);
+                        }
+
                         Destroy(tempArena.gameObject);
                         if (wave == 1)
                         {
@@ -110,17 +114,20 @@ public class CS_Stages : MonoBehaviour {
         float playerYPos = player.transform.position.y;
         if (playerYPos - lastPlayerY >= 3)
         {
-            Debug.Log("hej");
             progressPlayer.localPosition = new Vector3(progressPlayer.localPosition.x, progressPlayer.localPosition.y + 1f, progressPlayer.localPosition.z);
             lastPlayerY = player.transform.position.y;
         }
 
-        float enemyYPos = tempEnemy.transform.position.y;
-        if (enemyYPos - lastEnemyY >= 3)
+        if (tempEnemy != null)
         {
-            progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, progressEnemy.localPosition.y + 1f, progressEnemy.localPosition.z);
-            lastEnemyY = tempEnemy.transform.position.y;
+            float enemyYPos = tempEnemy.transform.position.y;
+            if (enemyYPos - lastEnemyY >= 3)
+            {
+                progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, progressEnemy.localPosition.y + 1f, progressEnemy.localPosition.z);
+                lastEnemyY = tempEnemy.transform.position.y;
+            }
         }
+
 
 
     }

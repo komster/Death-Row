@@ -56,7 +56,7 @@ public class CS_Enemy_Battel : MonoBehaviour {
 
             if (reloding == false && angle < 95 && angle > 85)
             {
-                if (direction.x * direction.y < 0)
+                if (direction.x * direction.y > 0)
                 {
                     for (int index = 0; index < leftCannon.Length; index++)
                     {
@@ -68,7 +68,7 @@ public class CS_Enemy_Battel : MonoBehaviour {
                     }
                    
                 }
-                if (direction.x * direction.y > 0)
+                if (direction.x * direction.y < 0)
                 {
                     for (int index = 0; index < rightCannon.Length; index++)
                     {
@@ -104,7 +104,8 @@ public class CS_Enemy_Battel : MonoBehaviour {
         }
         if (hp == 0)
         {
-            CS_Notify.Send(this, "ChangeStage");
+            CS_Notify.Send(this, "PowerUp");
+            Destroy(this.gameObject);
         }
     }
 }

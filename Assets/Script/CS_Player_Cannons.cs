@@ -27,12 +27,13 @@ public class CS_Player_Cannons : MonoBehaviour
     void Start()
     {
         shot = this.gameObject.GetComponent<AudioSource>();
+        CS_Notify.Register(this,"ReloadUpgrade");
     }
 
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.A))
         {
             if (leftRelodTimer <= 0)
             {
@@ -122,5 +123,10 @@ public class CS_Player_Cannons : MonoBehaviour
         }
 
 
+    }
+
+    public void ReloadUpgrade()
+    {
+        relodSpeed -= 0.5f;
     }
 }
