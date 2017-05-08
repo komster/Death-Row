@@ -842,11 +842,11 @@ MonoBehaviour:
   player: {fileID: 2078540630}
   meduimEnemyBattel: {fileID: 1631750870620132, guid: 092c074850a11d64a85d1f8d117f1da8,
     type: 2}
-  largeEnemeyBattel: {fileID: 1631750870620132, guid: 092c074850a11d64a85d1f8d117f1da8,
+  largeEnemeyBattel: {fileID: 1903875769369780, guid: 434f955aef914264683928a620739136,
     type: 2}
   meduimEnemyTravel: {fileID: 1230653714767334, guid: 891df7d1582c18b4897ba5b48fae9202,
     type: 2}
-  largeEnemeyTravel: {fileID: 1230653714767334, guid: 891df7d1582c18b4897ba5b48fae9202,
+  largeEnemeyTravel: {fileID: 1038760678416110, guid: 6785c7fd27427f64dafc279041e42bea,
     type: 2}
   clouds: {fileID: 1713509303962018, guid: 283eb26b933d9f1418cc8146eb193ba1, type: 2}
   arenas:
