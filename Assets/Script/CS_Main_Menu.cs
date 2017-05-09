@@ -33,7 +33,7 @@ public class CS_Main_Menu : MonoBehaviour
         
         temp = PlayerPrefs.GetInt("Highscore");
         tempUserName = PlayerPrefs.GetString("UserInput");
-        
+        enterScore();
         
     
         //

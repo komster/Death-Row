@@ -17,6 +17,7 @@ public class CS_HighscoreBoard : MonoBehaviour {
     {
         //storedScore = GameObject.Find("HighscoreSaver").GetComponent<CS_HighScoreStore>();
         
+        
         // highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
         highScoreValues = new int[highScores.Length];
         highScoreNames = new string[highScores.Length];
