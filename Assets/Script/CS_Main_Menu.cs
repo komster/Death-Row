@@ -10,7 +10,7 @@ public class CS_Main_Menu : MonoBehaviour
     public CS_HighscoreBoard board;
     public int temp;
     public string tempUserName;
-    //public GameObject highScoreHolder;
+    
     //public int mainMenuState = 0;
     public GameObject p1PressButton;
     public GameObject p2PressButton;

@@ -7,18 +7,14 @@ public class CS_HighscoreBoard : MonoBehaviour {
     public Text[] highScores;
 
     int[] highScoreValues;
-
+    
     string[] highScoreNames;
-    //public CS_HighScoreStore storedScore;
-    //public Text highscoreText;
-    // Use this for initialization
+    
+    
     
     void Start ()
     {
-        //storedScore = GameObject.Find("HighscoreSaver").GetComponent<CS_HighScoreStore>();
-        
-        
-        // highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
+       
         highScoreValues = new int[highScores.Length];
         highScoreNames = new string[highScores.Length];
         for(int x = 0; x < highScores.Length; x++)
@@ -26,6 +22,7 @@ public class CS_HighscoreBoard : MonoBehaviour {
             highScoreValues[x] = PlayerPrefs.GetInt("highScoreValues" + x);
             highScoreNames[x] = PlayerPrefs.GetString("highScoreNames" + x);
         }
+        
         WriteScores();
     }
     
@@ -36,6 +33,7 @@ public class CS_HighscoreBoard : MonoBehaviour {
         {
             PlayerPrefs.SetInt("highScoreValues" + x, highScoreValues[x]);
             PlayerPrefs.SetString("highScoreNames" + x, highScoreNames [x]);
+            
         }
     }
     public void CheckForHScore(int _value, string _userName)
@@ -64,8 +62,6 @@ public class CS_HighscoreBoard : MonoBehaviour {
         {
             highScores[x].text = highScoreNames[x] + ":" + highScoreValues[x].ToString();
         }
-    }// Update is called once per frame
-	void Update () {
-        
     }
+	
 }
