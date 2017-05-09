@@ -5,6 +5,7 @@ using UnityEngine;
 public class CS_Player_Cannons : MonoBehaviour
 {
     public AudioSource shot;
+    public GameObject cannonSmoke;
 
     public GameObject[] cannon;
     public GameObject cannonBall;
@@ -14,6 +15,9 @@ public class CS_Player_Cannons : MonoBehaviour
 
     public Transform[] leftCannonsSpawnPoints;
     public Transform[] rightCannonsSpawnPoints;
+
+    public Transform[] leftCannonAimPositions;
+    public Transform[] rightCannonAimPositions;
 
     public Transform[] leftCannons;
     public Transform[] rightCannons;
@@ -47,6 +51,7 @@ public class CS_Player_Cannons : MonoBehaviour
                         Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                         rb.velocity = (leftCannons[index].transform.up * cannonSpeed);
                         leftRelodTimer = relodSpeed;
+                        Instantiate(cannonSmoke, leftCannonsSpawnPoints[index].transform.position, Quaternion.LookRotation(leftCannonAimPositions[index].transform.position - leftCannonsSpawnPoints[index].transform.position));
                     };
                 }
             }
@@ -67,6 +72,7 @@ public class CS_Player_Cannons : MonoBehaviour
                         Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                         rb.velocity = (rightCannons[index].transform.up * cannonSpeed);
                         rightRelodTimer = relodSpeed;
+                        Instantiate(cannonSmoke, rightCannonsSpawnPoints[index].transform.position, Quaternion.LookRotation(rightCannonAimPositions[index].transform.position - rightCannonsSpawnPoints[index].transform.position));
                     }
                 }
             }
