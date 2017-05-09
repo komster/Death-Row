@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class CS_Main_Menu : MonoBehaviour
 {
+    
     public CS_HighscoreBoard board;
     public int temp;
+    public string tempUserName;
     //public GameObject highScoreHolder;
     //public int mainMenuState = 0;
     public GameObject p1PressButton;
@@ -30,7 +32,7 @@ public class CS_Main_Menu : MonoBehaviour
         board = GameObject.Find("HighScoreManager").GetComponent<CS_HighscoreBoard>();
         
         temp = PlayerPrefs.GetInt("Highscore");
-            
+        tempUserName = PlayerPrefs.GetString("UserInput");
         
         
     
@@ -48,9 +50,9 @@ public class CS_Main_Menu : MonoBehaviour
         player2Ready = false;
         
     }
-    public void NameEntered()
+    public void  enterScore()
     {
-        board.CheckForHScore(temp);
+        board.CheckForHScore(temp, tempUserName);
     }
     private void Update()
     {

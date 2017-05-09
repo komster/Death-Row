@@ -272,7 +272,6 @@ MonoBehaviour:
   - {fileID: 387245869}
   - {fileID: 1494359610}
   - {fileID: 82639071}
-  storedScore: {fileID: 0}
 --- !u!1001 &156824091
 Prefab:
   m_ObjectHideFlags: 0
@@ -1692,6 +1691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cf18c6a97b28345a83c30315412f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 0}
+  temp: 0
+  tempUserName: 
   p1PressButton: {fileID: 0}
   p2PressButton: {fileID: 0}
   p1Ready: {fileID: 0}

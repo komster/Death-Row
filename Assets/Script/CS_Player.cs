@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CS_Player : MonoBehaviour {
 
     public bool dead = false;
     public int hp;
-
+    public Transform gameover;
     void Start () {
-		
+        
 	}
 	
 	void Update () {
@@ -36,7 +37,10 @@ public class CS_Player : MonoBehaviour {
     public void death()
     {
         dead = true;
-        StartCoroutine(onDeath());
+
+        gameover.gameObject.SetActive(true);
+        //StartCoroutine(onDeath());
+        Time.timeScale = 0;
     }
     private IEnumerator onDeath()
     {

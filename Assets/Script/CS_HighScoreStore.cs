@@ -6,10 +6,7 @@ public class CS_HighScoreStore : MonoBehaviour {
     public CS_Player playerLife;
     public CS_Gamemanager playerScore;
     
-    private void Awake()
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+    
     void Start ()
     {
         playerScore = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
