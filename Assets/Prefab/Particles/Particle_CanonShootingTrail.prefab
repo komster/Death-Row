@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4564933129721422}
   - component: {fileID: 198320700929542726}
   - component: {fileID: 199037124173978184}
+  - component: {fileID: 114288936746640098}
   m_Layer: 0
   m_Name: Particle_CanonShootingTrail
   m_TagString: Untagged
@@ -72,6 +73,17 @@ Transform:
   m_Father: {fileID: 4564933129721422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114288936746640098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120561713857022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd9527736147c049bc7e896490858b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198182135159394838
 ParticleSystem:
   m_ObjectHideFlags: 1
