@@ -272,7 +272,7 @@ MonoBehaviour:
   - {fileID: 387245869}
   - {fileID: 1494359610}
   - {fileID: 82639071}
-  Value: 0
+  storedScore: {fileID: 0}
 --- !u!1001 &156824091
 Prefab:
   m_ObjectHideFlags: 0

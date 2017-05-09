@@ -38,27 +38,17 @@ public class CS_Gamemanager : MonoBehaviour {
     public void checkForBoost()
     {
         StartCoroutine(boost());
-        PlayerPrefs.SetInt("Highscore", scoreCoins.coins);
-    }
-    public void checkForPoints()
-    {
-        if(stage.battleStage == true)
-        {
-           //board.CheckForHScore(scoreCoins.coins);
-          // PlayerPrefs.SetInt("highScoreValues" , scoreCoins.coins);
-       
-           PlayerPrefs.SetInt("Highscore", scoreCoins.coins);
         
-        }
     }
+    
     private IEnumerator boost()
     {
 
-        Movement.movSpeed = 8f;
-        movement.MovSpeed = 8f;
+        Movement.movSpeed += 8f;
+        movement.MovSpeed += 8f;
         yield return new WaitForSeconds(3f);
-        Movement.movSpeed = 6f;
-        movement.MovSpeed = 6f;
+        Movement.movSpeed -= 8f;
+        movement.MovSpeed -= 8f;
         Debug.Log("Boosted");
         
 

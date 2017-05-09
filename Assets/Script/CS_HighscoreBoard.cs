@@ -7,16 +7,18 @@ public class CS_HighscoreBoard : MonoBehaviour {
     public Text[] highScores;
 
     int[] highScoreValues;
-    private bool callOnce = false;
-    public int Value;
+
+    //public CS_HighScoreStore storedScore;
     //public Text highscoreText;
     // Use this for initialization
     
     void Start ()
     {
         
-        inherit();
-       // highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
+        
+        //storedScore = GameObject.Find("HighscoreSaver").GetComponent<CS_HighScoreStore>();
+        
+        // highscoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
         highScoreValues = new int[highScores.Length];
         for(int x = 0; x < highScores.Length; x++)
         {
@@ -25,12 +27,7 @@ public class CS_HighscoreBoard : MonoBehaviour {
         WriteScores();
     }
     
-    void inherit()
-    {
-        Value = PlayerPrefs.GetInt("Highscore");
-        //CheckForHScore(PlayerPrefs.GetInt("Highscore"));
-        
-    }
+    
 	void saveScores()
     {
         for (int x = 0; x < highScores.Length; x++)
@@ -38,17 +35,17 @@ public class CS_HighscoreBoard : MonoBehaviour {
             PlayerPrefs.SetInt("highScoreValues" + x, highScoreValues[x]);
         }
     }
-    public void CheckForHScore()
+    public void CheckForHScore(int _value)
     {
         for (int x = 0; x < highScores.Length; x++)
         {
-            if(Value > highScoreValues [x])
+            if(_value > highScoreValues [x])
             {
                 for(int y = highScores.Length - 1; y > x; y--)
                 {
                     highScoreValues[y] = highScoreValues[y - 1];
                 }
-                highScoreValues[x] = Value;
+                highScoreValues[x] = _value;
                 WriteScores();
                 saveScores();
                 break;
@@ -63,10 +60,6 @@ public class CS_HighscoreBoard : MonoBehaviour {
         }
     }// Update is called once per frame
 	void Update () {
-        if (callOnce == false)
-        {
-            CheckForHScore();
-            callOnce = true;
-        }
+        
     }
 }

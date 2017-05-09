@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CS_Player : MonoBehaviour {
 
-
+    public bool dead = false;
     public int hp;
 
     void Start () {
@@ -27,9 +28,19 @@ public class CS_Player : MonoBehaviour {
             Debug.Log("jay");
         }
 
-        if (hp < 0)
+        if (hp <= 0)
         {
-
+            death();
         }
+    }
+    public void death()
+    {
+        dead = true;
+        StartCoroutine(onDeath());
+    }
+    private IEnumerator onDeath()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(0);
     }
 }
