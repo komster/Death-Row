@@ -28,9 +28,11 @@ public class CS_Main_Menu : MonoBehaviour
     private void Start()
     {
         board = GameObject.Find("HighScoreManager").GetComponent<CS_HighscoreBoard>();
-        temp = PlayerPrefs.GetInt("Highscore");
         
-        board.CheckForHScore(temp);
+        temp = PlayerPrefs.GetInt("Highscore");
+            
+        
+        
     
         //
         /*  MainMenuList.Add(GameObject.Find("State0"));
@@ -45,6 +47,10 @@ public class CS_Main_Menu : MonoBehaviour
         player1Ready = false;
         player2Ready = false;
         
+    }
+    public void NameEntered()
+    {
+        board.CheckForHScore(temp);
     }
     private void Update()
     {
