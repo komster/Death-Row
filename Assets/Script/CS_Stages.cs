@@ -35,7 +35,7 @@ public class CS_Stages : MonoBehaviour {
         CS_Notify.Register(this, "ChangeStage");
         ChangeStage();
         progressPlayer.localPosition = new Vector3(progressPlayer.localPosition.x, -300, progressPlayer.localPosition.z);
-        progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, -310, progressEnemy.localPosition.z);
+        progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, -300, progressEnemy.localPosition.z);
         lastPlayerY = player.transform.position.y;
         lastEnemyY = tempEnemy.transform.position.y;
     }
@@ -112,7 +112,7 @@ public class CS_Stages : MonoBehaviour {
         }
 
         float playerYPos = player.transform.position.y;
-        if (playerYPos - lastPlayerY >= 3)
+        if (playerYPos - lastPlayerY >= 1)
         {
             progressPlayer.localPosition = new Vector3(progressPlayer.localPosition.x, progressPlayer.localPosition.y + 1f, progressPlayer.localPosition.z);
             lastPlayerY = player.transform.position.y;
@@ -121,9 +121,9 @@ public class CS_Stages : MonoBehaviour {
         if (tempEnemy != null)
         {
             float enemyYPos = tempEnemy.transform.position.y;
-            if (enemyYPos - lastEnemyY >= 3)
+            if (enemyYPos - lastEnemyY >= 1)
             {
-                progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, progressEnemy.localPosition.y + 1f, progressEnemy.localPosition.z);
+                progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, progressEnemy.localPosition.y + 0.8f, progressEnemy.localPosition.z);
                 lastEnemyY = tempEnemy.transform.position.y;
             }
         }
