@@ -22,7 +22,10 @@ public class CS_HighscoreBoard : MonoBehaviour {
             highScoreValues[x] = PlayerPrefs.GetInt("highScoreValues" + x);
             highScoreNames[x] = PlayerPrefs.GetString("highScoreNames" + x);
         }
-        
+        for(int x = 0; x < highScores.Length; x++)
+        {
+            highScores[x].text = "EMPTY";
+        } 
         WriteScores();
     }
     

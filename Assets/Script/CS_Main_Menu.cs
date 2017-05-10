@@ -53,6 +53,8 @@ public class CS_Main_Menu : MonoBehaviour
     public void  enterScore()
     {
         board.CheckForHScore(temp, tempUserName);
+        PlayerPrefs.DeleteKey("Highscore");
+        PlayerPrefs.DeleteKey("UserInput");
     }
     private void Update()
     {
