@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CS_Player_Movment : MonoBehaviour {
 
+    public CS_OarLeftScript leftOarScript;
+    public CS_OarRightScript rightOarScript;
+
     public Rigidbody2D rb;
     public float movSpeed = 6.0f;
 
@@ -18,7 +21,12 @@ public class CS_Player_Movment : MonoBehaviour {
 
     private bool gameStarted = false;
 
-    void Start () {
+    void Start ()
+    {
+
+        leftOarScript = GameObject.Find("LeftOars").GetComponent<CS_OarLeftScript>();
+        rightOarScript = GameObject.Find("RightOars").GetComponent<CS_OarRightScript>();
+
         CS_Notify.Register(this, "StartGame");
         CS_Notify.Register(this, "MovementUpgrade");
     }
@@ -40,6 +48,7 @@ public class CS_Player_Movment : MonoBehaviour {
                         transform.Rotate(Vector3.forward, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
+                    leftOarScript.upIsTheTarget = true;
                 }
                 if (Input.GetAxis("ControllerP1") <= -0.5 && latestControllerP1 == false)
                 {
@@ -52,6 +61,7 @@ public class CS_Player_Movment : MonoBehaviour {
                         transform.Rotate(Vector3.forward, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
+                    leftOarScript.upIsTheTarget = false;
                 }
 
             }
@@ -68,6 +78,7 @@ public class CS_Player_Movment : MonoBehaviour {
                         transform.Rotate(Vector3.back, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
+                    rightOarScript.upIsTheTarget = true;
                 }
                 if (Input.GetAxis("ControllerP2") <= -0.5 && latestControllerP2 == false)
                 {
@@ -80,6 +91,7 @@ public class CS_Player_Movment : MonoBehaviour {
                         transform.Rotate(Vector3.back, 8, 0);
                         rb.velocity = transform.up * movSpeed;
                     }
+                    rightOarScript.upIsTheTarget = false;
                 }
 
             }
