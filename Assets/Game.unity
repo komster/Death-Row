@@ -1309,6 +1309,16 @@ Prefab:
       propertyPath: m_Size.x
       value: 1.861936
       objectReference: {fileID: 0}
+    - target: {fileID: 114108143793301234, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916876993743116, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
   m_IsPrefabParent: 0
@@ -2186,6 +2196,12 @@ MonoBehaviour:
   - {fileID: 1020169025807512, guid: 99c4d53c830e5bc43a33563e3b3831eb, type: 2}
   - {fileID: 1751479591020046, guid: 2124527b85f4f9b48a7dbc7ed0bfadc1, type: 2}
   - {fileID: 1471613593582168, guid: 6fae248db9fcba94890ecd27cab539dd, type: 2}
+  - {fileID: 1102885637606538, guid: cb94b82c4933d384fbdd13192badfbf5, type: 2}
+  - {fileID: 1878289108373986, guid: f01a7adb94c5e6a419b887b9d0db0d58, type: 2}
+  - {fileID: 1332958087107576, guid: 7f83f6bf8b8de234abd23ca051736373, type: 2}
+  - {fileID: 1804618373741852, guid: 9ee537f681ace3047bfee630d652c7d5, type: 2}
+  - {fileID: 1412608471203986, guid: e398498c5ce73974cb77e70434c63458, type: 2}
+  - {fileID: 1954838151032828, guid: 3070f058ac16f4542860cda7ccebb69b, type: 2}
   player: {fileID: 2078540630}
   emptyWater: {fileID: 1125017286414888, guid: e7f587c5ea92e4d4e8657cbfbbcd51e6, type: 2}
   endTile: {fileID: 1258522653962782, guid: 78b3992fe7cc16f4195806d7b48165f7, type: 2}
