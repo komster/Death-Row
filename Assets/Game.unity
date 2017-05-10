@@ -954,6 +954,21 @@ Prefab:
       propertyPath: gameover
       value: 
       objectReference: {fileID: 2123092843}
+    - target: {fileID: 70942491033171230, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.11498033
+      objectReference: {fileID: 0}
+    - target: {fileID: 70942491033171230, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.33899224
+      objectReference: {fileID: 0}
+    - target: {fileID: 70942491033171230, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.861936
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
   m_IsPrefabParent: 0
