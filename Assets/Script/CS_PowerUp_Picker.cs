@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CS_PowerUp_Picker : MonoBehaviour {
 
-    public GameObject[] leftPowerUp = new GameObject[3];
-    public GameObject[] rightPowerUp = new GameObject[3];
+    public GameObject[] leftPowerUp = new GameObject[2];
+    public GameObject[] rightPowerUp = new GameObject[2];
 
     private int leftValue = 0;
     private int rightValue = 0;
@@ -35,10 +35,6 @@ public class CS_PowerUp_Picker : MonoBehaviour {
                 }
                 if (leftValue == 1)
                 {
-                    CS_Notify.Send(this, "ReloadUpgrade");
-                }
-                if (leftValue == 2)
-                {
                     CS_Notify.Send(this, "CannonUpgrade");
                 }
                 picking = false;
@@ -54,10 +50,6 @@ public class CS_PowerUp_Picker : MonoBehaviour {
                 }
                 if (rightValue == 1)
                 {
-                    CS_Notify.Send(this, "ReloadUpgrade");
-                }
-                if (rightValue == 2)
-                {
                     CS_Notify.Send(this, "CannonUpgrade");
                 }
                 picking = false;
@@ -70,8 +62,8 @@ public class CS_PowerUp_Picker : MonoBehaviour {
 
     public void PowerUp()
     {
-        leftValue = Random.Range(0,3);
-        rightValue = Random.Range(0,3);
+        leftValue = Random.Range(0,2);
+        rightValue = Random.Range(0,2);
         picking = true;
     }
 }
