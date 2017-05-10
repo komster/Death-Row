@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CS_Player : MonoBehaviour {
-
+    public CS_Gamemanager coins;
     public bool dead = false;
     public int hp;
     public Transform gameover;
+    public Vector3 playerpos;
+    public bool gotHit = false;
     void Start () {
-        
-	}
+        coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
+    }
 	
 	void Update () {
 		
@@ -21,6 +23,8 @@ public class CS_Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "CannonBall")
         {
+            playerpos = this.gameObject.transform.position;
+            gotHit = true;
             hp--;
         }
 

@@ -2130,6 +2130,8 @@ MonoBehaviour:
   coins: 0
   score: {fileID: 1926632936}
   scoreCoins: {fileID: 0}
+  coinPre: {fileID: 1107985964010148, guid: 20c8c6c44d031bb4aae211e0858d270f, type: 2}
+  checkIfHit: {fileID: 0}
 --- !u!114 &1854120781
 MonoBehaviour:
   m_ObjectHideFlags: 0
