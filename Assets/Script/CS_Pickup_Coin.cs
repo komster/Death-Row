@@ -7,7 +7,8 @@ public class CS_Pickup_Coin : MonoBehaviour {
     public int coinValue;
     public AudioClip sound;
     private CS_Gamemanager manager;
-    
+
+    private bool shotCoins = false;
     
     private CS_Player_Movment Movement;
     private movment movement;
@@ -18,21 +19,27 @@ public class CS_Pickup_Coin : MonoBehaviour {
         gameManager = FindObjectOfType<CS_Gamemanager>();
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
+        CS_Notify.Register(this, "BiggerCoins");
+        CS_Notify.Register(this, "ShotCoins");
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        
+
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag =="CannonBall")
+        if (shotCoins == true)
         {
-            AudioSource.PlayClipAtPoint(sound, transform.position);
-            gameManager.InitScore(coinValue);
-            Destroy(this.gameObject);
+            if (other.gameObject.tag == "CannonBall")
+            {
+                AudioSource.PlayClipAtPoint(sound, transform.position);
+                gameManager.InitScore(coinValue);
+                Destroy(this.gameObject);
+            }
         }
+        
         if(other.gameObject.name == "Player")
         {
             AudioSource.PlayClipAtPoint(sound, transform.position);
@@ -44,5 +51,18 @@ public class CS_Pickup_Coin : MonoBehaviour {
         }
     }
     
+
+    public void BiggerCoins()
+    {
+        this.transform.localScale = new Vector3(2, 2, 2);
+    }
+
+    public void ShotCoins()
+    {
+        if (shotCoins == false)
+        {
+            shotCoins = true;
+        }
+    }
     
 }

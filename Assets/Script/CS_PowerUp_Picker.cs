@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class CS_PowerUp_Picker : MonoBehaviour {
 
-    public GameObject[] leftPowerUp = new GameObject[2];
-    public GameObject[] rightPowerUp = new GameObject[2];
+    public GameObject[] leftPowerUp = new GameObject[4];
+    public GameObject[] rightPowerUp = new GameObject[4];
 
     private int leftValue = 0;
     private int rightValue = 0;
 
     private bool picking = false;
+
+    private bool biggerCoins = false;
+    private bool shotCoins = false;
 
     void Start () {
         CS_Notify.Register(this, "PowerUp");
@@ -37,6 +40,14 @@ public class CS_PowerUp_Picker : MonoBehaviour {
                 {
                     CS_Notify.Send(this, "CannonUpgrade");
                 }
+                if (rightValue == 2)
+                {
+                    shotCoins = true;
+                }
+                if (rightValue == 3)
+                {
+                    biggerCoins = true;
+                }
                 picking = false;
                 leftPowerUp[leftValue].SetActive(false);
                 rightPowerUp[rightValue].SetActive(false);
@@ -52,11 +63,28 @@ public class CS_PowerUp_Picker : MonoBehaviour {
                 {
                     CS_Notify.Send(this, "CannonUpgrade");
                 }
+                if (rightValue == 2)
+                {
+                    shotCoins = true;
+                }
+                if (rightValue == 3)
+                {
+                    biggerCoins = true;
+                }
                 picking = false;
                 leftPowerUp[leftValue].SetActive(false);
                 rightPowerUp[rightValue].SetActive(false);
                 CS_Notify.Send(this, "ChangeStage");
             }
+        }
+
+        if (biggerCoins == true)
+        {
+            CS_Notify.Send(this, "BiggerCoins");
+        }
+        if (shotCoins == true)
+        {
+            CS_Notify.Send(this, "ShotCoins");
         }
 	}
 
