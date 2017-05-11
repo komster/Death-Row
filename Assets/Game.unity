@@ -2328,7 +2328,7 @@ Prefab:
     - target: {fileID: 114930403829625862, guid: f56f3ee9184c7f44f8cedaad0f46f619,
         type: 2}
       propertyPath: hp
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114108143793301234, guid: f56f3ee9184c7f44f8cedaad0f46f619,
         type: 2}
