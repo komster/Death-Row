@@ -35,11 +35,30 @@ public class CS_Gamemanager : MonoBehaviour {
     }
     public void decreScore()
     {
-        coins -= 300;
+
+        if (coins == 100)
+        {
+            coins -= 100;
+            Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
+            
+        }
+        else if (coins == 200)
+        {
+            coins -= 200;
+            Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
+            Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
+
+        }
+        else if (coins >= 300)
+        {
+            coins -= 300;
+            Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
+            Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
+            Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
+        }
+        
         score.text = "score: " + coins;
-        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f)), Quaternion.identity);
-        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f)), Quaternion.identity);
-        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f)), Quaternion.identity);
+        
     }
     public void InitScore(int nrOfCoins)
     {
