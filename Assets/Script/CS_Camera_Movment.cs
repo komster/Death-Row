@@ -55,27 +55,27 @@ public class CS_Camera_Movment : MonoBehaviour {
 
 
 
-            if (playerX > cameraX - 5 && playerX < cameraX + 5)
+            if (playerX > cameraX - 3 && playerX < cameraX + 3)
             {
                 cameraSpeedX = 0f;
             }
 
-            if (playerX > cameraX + 5 && playerX < cameraX + 7)
+            if (playerX > cameraX + 3 && playerX < cameraX + 5)
             {
-                cameraSpeedX = 2f;
+                cameraSpeedX = 3f;
             }
-            if (playerX > cameraX + 7 && playerX < cameraX + 11)
+            if (playerX > cameraX + 5 && playerX < cameraX + 11)
             {
-                cameraSpeedX = 4f;
+                cameraSpeedX = 6f;
             }
 
-            if (playerX < cameraX - 5 && playerX > cameraX - 7)
+            if (playerX < cameraX - 3 && playerX > cameraX - 5)
             {
-                cameraSpeedX = -2f;
+                cameraSpeedX = -3f;
             }
-            if (playerX < cameraX - 7 && playerX > cameraX - 11)
+            if (playerX < cameraX - 5 && playerX > cameraX - 11)
             {
-                cameraSpeedX = -4f;
+                cameraSpeedX = -6f;
             }
 
             rb.velocity = ((transform.up * cameraSpeedY) + (transform.right * cameraSpeedX));

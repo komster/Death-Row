@@ -97,8 +97,26 @@ public class CS_Player_Movment : MonoBehaviour {
             }
             if (leftOar == true && rightOar == true)
             {
-                transform.Rotate(0, 0, 0);
-                rb.velocity = transform.up * movSpeed;
+                if (rightTimer > 0.45 && leftTimer > 0.45)
+                {
+                    transform.Rotate(0, 0, 0);
+                    rb.velocity = transform.up * (movSpeed + 2);
+                }
+                else if (rightTimer > 0.35 && leftTimer > 0.35)
+                {
+                    transform.Rotate(0, 0, 0);
+                    rb.velocity = transform.up * (movSpeed + 1);
+                }
+                else if (rightTimer > 0.25 && leftTimer > 0.25)
+                {
+                    transform.Rotate(0, 0, 0);
+                    rb.velocity = transform.up * (movSpeed + 0.5f);
+                }
+                else
+                {
+                    transform.Rotate(0, 0, 0);
+                    rb.velocity = transform.up * movSpeed;
+                }
             }
 
             rb.drag = 0.1f;
