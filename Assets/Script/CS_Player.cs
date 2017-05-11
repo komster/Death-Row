@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CS_Player : MonoBehaviour {
     public CS_Gamemanager coins;
     public bool dead = false;
-    public int hp;
+    public int hp = 4;
     public Transform gameover;
     public Vector3 playerpos;
     public bool gotHit = false;
