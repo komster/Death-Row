@@ -37,8 +37,9 @@ public class CS_Player : MonoBehaviour {
         {
             ended = true;
             winScreen.gameObject.SetActive(true);
-            Debug.Log("jay");
             Time.timeScale = 0;
+            Debug.Log("jay");
+            
         }
 
         if (hp <= 0)

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CS_Stages : MonoBehaviour {
     private bool travleStage = false;
     public bool battleStage = false;
-
+    public bool enableLife = false;
     private int wave = 0;
 
     private bool spawnIn = false;
@@ -93,7 +93,14 @@ public class CS_Stages : MonoBehaviour {
                     }
 
                 }
-
+                if(battleStage==true)
+                {
+                    enableLife = true;
+                }
+                else
+                {
+                    enableLife = false;
+                }
             }
             if (tempClouds.transform.position.x > player.transform.position.x + 150)
             {
