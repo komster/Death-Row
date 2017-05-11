@@ -7,6 +7,9 @@ public class CS_Player_Cannons : MonoBehaviour
     public AudioSource shot;
     public GameObject cannonSmoke;
 
+    public GameObject rightReloadIndicator;
+    public GameObject leftReloadIndicator;
+
     public GameObject cannonBall;
     public GameObject[] cannons;
 
@@ -30,9 +33,19 @@ public class CS_Player_Cannons : MonoBehaviour
     private int leftCannonsPositon = 0;
     private int rightCannonsPositon = 0;
 
+    private float rightIndicationTime = 6f;
+    private bool rightIndicationOn = false;
+    private float leftIndicationTime = 6f;
+    private bool leftIndicationOn = false;
+
     void Start()
     {
         shot = this.gameObject.GetComponent<AudioSource>();
+
+        rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
+        leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
+        rightReloadIndicator.SetActive(false);
+        leftReloadIndicator.SetActive(false);
     }
 
     void Update()
@@ -106,13 +119,61 @@ public class CS_Player_Cannons : MonoBehaviour
             leftReloaded = true;
             left1 = false;
             left2 = false;
+            rightReloadIndicator.SetActive(false);
+            rightIndicationOn = false;
+            rightIndicationTime = 6f;
         }
 
         if (right1 == true && right2 == true)
         {
             rightReloaded = true;
-            right1 = true;
-            right2 = true;
+            right1 = false;
+            right2 = false;
+            leftReloadIndicator.SetActive(false);
+            leftIndicationOn = false;
+            leftIndicationTime = 6f;
+        }
+
+        
+        ActivateRightReloadIndicator();
+        ActivateLeftReloadIndicator();
+    }
+
+
+    private void ActivateRightReloadIndicator()
+    {
+        if (rightIndicationOn == false)
+        {
+            rightIndicationOn = true;
+            rightIndicationTime = 6f;
+
+        }
+        if (leftReloaded == false)
+        {
+            rightIndicationTime -= Time.deltaTime;
+         if   (rightIndicationTime < 0f)
+            {
+
+                rightReloadIndicator.SetActive(true);
+            }   
+        }
+    }
+    private void ActivateLeftReloadIndicator()
+    {
+        if (leftIndicationOn == false)
+        {
+            leftIndicationOn = true;
+            leftIndicationTime = 6f;
+
+        }
+        if (rightReloaded == false)
+        {
+            leftIndicationTime -= Time.deltaTime;
+            if (leftIndicationTime < 0f)
+            {
+
+                leftReloadIndicator.SetActive(true);
+            }
         }
     }
 }
