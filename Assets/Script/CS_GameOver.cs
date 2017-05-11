@@ -5,18 +5,27 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CS_GameOver : MonoBehaviour {
-    public InputField playerName;
+    // public InputField playerName;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public CS_HighScoreInput hSI;
+
+    // Use this for initialization
+    void Start ()
+    {
+        hSI = GameObject.Find("HighScoreInput").GetComponent<CS_HighScoreInput>();
+       
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-    public void checkIfEmpty()
+	void Update ()
+    {
+        if (hSI.goToMainMenu == true)
+        {
+            PlayerPrefs.SetString("UserInput", hSI.combinedPlayersEntry);
+            SceneManager.LoadScene(0);
+        }
+    }
+    /*public void checkIfEmpty()
     {
         if(playerName.text=="")
         {
@@ -31,5 +40,5 @@ public class CS_GameOver : MonoBehaviour {
     {
         PlayerPrefs.SetString("UserInput", playerName.text);
         SceneManager.LoadScene(0);
-    }
+    }*/
 }

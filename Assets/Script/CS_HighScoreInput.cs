@@ -61,11 +61,14 @@ public class CS_HighScoreInput : MonoBehaviour {
 
         player1PointerHolder = GameObject.Find("Player1PointerHolder");
         player2PointerHolder = GameObject.Find("Player2PointerHolder");
+        
     }
 	
 	//----------------------------UPDATE-------------------------------------------------------------------
 	void Update ()
     {
+        blinkInterval = minBlinkInterval + timer / time * (maxBlinkInterval);
+        
         if (player1Done == false)
         {
             Player1Input();
@@ -93,8 +96,8 @@ public class CS_HighScoreInput : MonoBehaviour {
                 ima.enabled = false;
             }
         }
-
-        blinkInterval = minBlinkInterval + timer / time * (maxBlinkInterval);
+        
+      
 
         if (player1Done == true && player2Done == true)
         {
@@ -237,11 +240,9 @@ public class CS_HighScoreInput : MonoBehaviour {
     //-------------------------------PLAYER 1 POINTERS BLINK-----------------------------------------------------------------------------------------------
     private void Player1PointersBlink()
     {
-        
-
         foreach (Image ima in player1PointerHolder.GetComponentsInChildren<Image>())
         {
-            ima.enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2.0f));
+            ima.enabled =(Mathf.PingPong(Time.unscaledTime, blinkInterval) > (blinkInterval / 2.0f));
         }
         switch (letterNumberPlayer1)
         {
@@ -392,7 +393,7 @@ public class CS_HighScoreInput : MonoBehaviour {
         
         foreach (Image ima in player2PointerHolder.GetComponentsInChildren<Image>())
         {
-            ima.enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2.0f));
+            ima.enabled = (Mathf.PingPong(Time.unscaledTime, blinkInterval) > (blinkInterval / 2.0f));
         }
         switch (letterNumberPlayer2)
         {
