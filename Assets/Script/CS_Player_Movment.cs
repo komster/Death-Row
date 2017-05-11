@@ -141,6 +141,7 @@ public class CS_Player_Movment : MonoBehaviour {
 
     public void MovmentUpgrade()
     {
+
         movSpeed++;
     }
 }

@@ -1155,6 +1155,10 @@ MonoBehaviour:
   shot: {fileID: 82600782790543000}
   cannonSmoke: {fileID: 1120561713857022, guid: 097432e565e5cd54cb7a594fc61a415a,
     type: 2}
+  rightReloadIndicator: {fileID: 1661947425677986, guid: 394b67a16de47f04c89e55e65d6240c6,
+    type: 2}
+  leftReloadIndicator: {fileID: 1661947425677986, guid: 394b67a16de47f04c89e55e65d6240c6,
+    type: 2}
   cannonBall: {fileID: 1852603831466300, guid: 8564b94216736724e984bd1aa2a69e06, type: 2}
   cannons:
   - {fileID: 1738734230775974}

@@ -11,7 +11,7 @@ public class CS_Cannon_PowerUp : MonoBehaviour {
         CS_Notify.Register(this, "CannonUpgrad");
 	}
 
-    public void CannonUpgrade()
+    public void CannonUpgrad()
     {
         cannon1.SetActive(true);
         cannon2.SetActive(true);

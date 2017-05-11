@@ -27,6 +27,7 @@ public class CS_Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "CannonBall")
         {
+            Destroy(collision.gameObject);
             playerpos = this.gameObject.transform.position;
             gotHit = true;
             hp--;
@@ -38,7 +39,6 @@ public class CS_Player : MonoBehaviour {
             ended = true;
             winScreen.gameObject.SetActive(true);
             Time.timeScale = 0;
-            Debug.Log("jay");
             
         }
 

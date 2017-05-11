@@ -22,7 +22,7 @@ public class CS_Player_Cannons : MonoBehaviour
     public Transform[] rightCannonAimPositions;
 
     private bool leftReloaded = true;
-    private bool rightReloaded = true;
+    public bool rightReloaded = true;
 
     private bool left1 = false;
     private bool left2 = false;
@@ -42,10 +42,10 @@ public class CS_Player_Cannons : MonoBehaviour
     {
         shot = this.gameObject.GetComponent<AudioSource>();
 
-        rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
-        leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
-        rightReloadIndicator.SetActive(false);
-        leftReloadIndicator.SetActive(false);
+        //rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
+        //leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
+        //rightReloadIndicator.SetActive(false);
+        //leftReloadIndicator.SetActive(false);
     }
 
     void Update()

@@ -144,7 +144,7 @@ public class CS_Stages : MonoBehaviour {
         if (battleStage == true)
         {
             spawnIn = true;
-            clouds.transform.position = new Vector3(player.transform.position.x - 100, player.transform.position.y, player.transform.position.z);
+            clouds.transform.position = new Vector3(player.transform.position.x - 100, player.transform.position.y, player.transform.position.z - 3);
             tempClouds = Instantiate<GameObject>(clouds);
             Rigidbody2D tempRb = tempClouds.GetComponent<Rigidbody2D>();
             tempRb.velocity = transform.right * 30;
@@ -155,7 +155,7 @@ public class CS_Stages : MonoBehaviour {
         else if (travleStage == true)
         {
             spawnIn = true;
-            clouds.transform.position = new Vector3(player.transform.position.x - 100, player.transform.position.y, player.transform.position.z);
+            clouds.transform.position = new Vector3(player.transform.position.x - 100, player.transform.position.y, player.transform.position.z - 3);
             tempClouds = Instantiate<GameObject>(clouds);
             Rigidbody2D tempRb = tempClouds.GetComponent<Rigidbody2D>();
             tempRb.velocity = transform.right * 30;

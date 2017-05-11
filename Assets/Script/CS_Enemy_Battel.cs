@@ -104,6 +104,7 @@ public class CS_Enemy_Battel : MonoBehaviour {
         }
         if (hp == 0)
         {
+            Debug.Log("ej");
             CS_Notify.Send(this, "PowerUp");
             Destroy(this.gameObject);
         }

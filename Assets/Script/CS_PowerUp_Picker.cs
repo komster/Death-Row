@@ -38,7 +38,7 @@ public class CS_PowerUp_Picker : MonoBehaviour {
                 }
                 if (leftValue == 1)
                 {
-                    CS_Notify.Send(this, "CannonUpgrade");
+                    CS_Notify.Send(this, "CannonUpgrad");
                 }
                 if (rightValue == 2)
                 {
@@ -61,7 +61,7 @@ public class CS_PowerUp_Picker : MonoBehaviour {
                 }
                 if (rightValue == 1)
                 {
-                    CS_Notify.Send(this, "CannonUpgrade");
+                    CS_Notify.Send(this, "CannonUpgrad");
                 }
                 if (rightValue == 2)
                 {
@@ -90,8 +90,8 @@ public class CS_PowerUp_Picker : MonoBehaviour {
 
     public void PowerUp()
     {
-        leftValue = Random.Range(0,2);
-        rightValue = Random.Range(0,2);
+        leftValue = Random.Range(1,2);
+        rightValue = Random.Range(0,4);
         picking = true;
     }
 }
