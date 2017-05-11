@@ -35,11 +35,11 @@ public class CS_Gamemanager : MonoBehaviour {
     }
     public void decreScore()
     {
-        coins -= 200;
+        coins -= 300;
         score.text = "score: " + coins;
-        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-10.0f, 20.0f), 0, Random.Range(-10.0f, 20.0f)), Quaternion.identity);
-        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-10.0f, 20.0f), 0, Random.Range(-10.0f, 20.0f)), Quaternion.identity);
-        
+        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f)), Quaternion.identity);
+        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f)), Quaternion.identity);
+        Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f)), Quaternion.identity);
     }
     public void InitScore(int nrOfCoins)
     {
