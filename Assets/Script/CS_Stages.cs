@@ -18,6 +18,7 @@ public class CS_Stages : MonoBehaviour {
     public GameObject largeEnemeyTravel;
     public GameObject clouds;
     public GameObject[] arenas;
+    public GameObject progressbar;
 
     private GameObject tempClouds;
     private GameObject tempArena;
@@ -150,6 +151,7 @@ public class CS_Stages : MonoBehaviour {
             tempRb.velocity = transform.right * 30;
             travleStage = true;
             battleStage = false;
+            progressbar.SetActive(true);
             wave++;
         }
         else if (travleStage == true)
@@ -161,6 +163,7 @@ public class CS_Stages : MonoBehaviour {
             tempRb.velocity = transform.right * 30;
             battleStage = true;
             travleStage = false;
+            progressbar.SetActive(false);
         }
         else if (battleStage == false && travleStage == false)
         {

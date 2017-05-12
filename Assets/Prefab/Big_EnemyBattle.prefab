@@ -392,7 +392,7 @@ MonoBehaviour:
   rightCannon:
   - {fileID: 4773232514169454}
   - {fileID: 4596325599809876}
-  hp: 3
+  hp: 5
 --- !u!212 &212120243990199276
 SpriteRenderer:
   m_ObjectHideFlags: 1

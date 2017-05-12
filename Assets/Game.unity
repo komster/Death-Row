@@ -3956,7 +3956,7 @@ MonoBehaviour:
   player: {fileID: 2078540630}
   emptyWater: {fileID: 1125017286414888, guid: e7f587c5ea92e4d4e8657cbfbbcd51e6, type: 2}
   endTile: {fileID: 1258522653962782, guid: 78b3992fe7cc16f4195806d7b48165f7, type: 2}
-  startTile: {fileID: 1107018844612550, guid: 3a24481668fca9e478ad458bf3c013d1, type: 2}
+  startTile: {fileID: 1974646479}
 --- !u!114 &1854120779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4184,6 +4184,7 @@ MonoBehaviour:
   arenas:
   - {fileID: 1618702409360044, guid: 697a3f43d0cd64e4fa7f0d9508c89197, type: 2}
   - {fileID: 1618702409360044, guid: 697a3f43d0cd64e4fa7f0d9508c89197, type: 2}
+  progressbar: {fileID: 1591867806}
   progressPlayer: {fileID: 1681680521}
   progressEnemy: {fileID: 646918793}
 --- !u!114 &1854120785
@@ -4551,6 +4552,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972367319}
+--- !u!1 &1974646479 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1107018844612550, guid: 3a24481668fca9e478ad458bf3c013d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1734558709}
 --- !u!1 &2036957756
 GameObject:
   m_ObjectHideFlags: 0
