@@ -211,6 +211,11 @@ public class CS_World_Creater : MonoBehaviour {
             }
         }
 
+        if (startTile != null)
+        {
+            Destroy(startTile.gameObject);
+        }
+
         travelStageOn = false;
 
     }

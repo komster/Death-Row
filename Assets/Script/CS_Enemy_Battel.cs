@@ -32,6 +32,7 @@ public class CS_Enemy_Battel : MonoBehaviour {
         direction = transform.position - player.transform.position;
         direction.Normalize();
         float angle = Vector3.Angle(direction, transform.up);
+        float shotAngle = Vector3.Angle(direction, transform.right);
 
         if (distans >10)
         {
@@ -54,35 +55,33 @@ public class CS_Enemy_Battel : MonoBehaviour {
         {
             movSpeed = 2;
 
-            if (reloding == false && angle < 95 && angle > 85)
+            Debug.Log(shotAngle);
+
+            if (reloding == false && shotAngle < 5 && shotAngle > 0 )
             {
-                if (direction.x * direction.y > 0)
+
+                for (int index = 0; index < leftCannon.Length; index++)
                 {
-                    for (int index = 0; index < leftCannon.Length; index++)
-                    {
-                        cannonBall.transform.position = leftCannon[index].position;
-                        GameObject temp = Instantiate(cannonBall);
-                        Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
-                        rb.velocity = (-transform.right * cannonSpeed);
-                        reloding = true;
-                    }
-                   
-                }
-                if (direction.x * direction.y < 0)
-                {
-                    for (int index = 0; index < rightCannon.Length; index++)
-                    {
-                        cannonBall.transform.position = rightCannon[index].position;
-                        GameObject temp = Instantiate(cannonBall);
-                        Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
-                        rb.velocity = (transform.right * cannonSpeed);
-                        reloding = true;
-                    }
- 
+                    cannonBall.transform.position = leftCannon[index].position;
+                    GameObject temp = Instantiate(cannonBall);
+                    Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
+                    rb.velocity = (-transform.right * cannonSpeed);
+                    reloding = true;
                 }
 
             }
-            if (reloding == true)
+            if (reloding == false && shotAngle < 185 && shotAngle > 175)
+            {
+                for (int index = 0; index < rightCannon.Length; index++)
+                {
+                    cannonBall.transform.position = rightCannon[index].position;
+                    GameObject temp = Instantiate(cannonBall);
+                    Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
+                    rb.velocity = (transform.right * cannonSpeed);
+                    reloding = true;
+                }
+            }
+                if (reloding == true)
             {
                 reloadTimer -= Time.deltaTime;
                 if (reloadTimer <= 0)
