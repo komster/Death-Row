@@ -15,7 +15,6 @@ public class CS_Enemy_TravelStage : MonoBehaviour {
 	void Start () {
         CS_Notify.Register(this, "EnemyBoatStart");
         player = GameObject.Find("Player").GetComponent<Transform>();
-        EnemyBoatStart();
     }
 	
 	void Update () {

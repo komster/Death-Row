@@ -8,18 +8,22 @@ public class CS_World_Creater : MonoBehaviour {
     public GameObject player;
     public GameObject emptyWater;
     public GameObject endTile;
+    public GameObject startTile;
 
     private List<Lines> lines = new List<Lines>();
 
     private int line = 0;
-    private int tile = 1;
+    private int tile = 0;
 
     private int playerTileX = 0;
-    private int playerTileY = 0;
+    private int playerTileY = 56;
 
     private int lineIndex = 0;
 
     private bool travelStageOn = false;
+
+    private bool firstLoad = true;
+    private bool firstStart = true;
 
     void Start() {
         CS_Notify.Register(this, "TurnOffWorldSpawn");
@@ -33,9 +37,17 @@ public class CS_World_Creater : MonoBehaviour {
     }
 
     void Update() {
-
         if (travelStageOn == true)
         {
+            if (firstStart == true)
+            {
+                if (player.transform.position.y >= 20)
+                {
+                    CS_Notify.Send(this, "EnemyBoatStart");
+                    firstStart = false;
+                }
+
+            }
             if (player.transform.position.x > playerTileX + 15)
             {
                 if (checkLine(line + 2) == false)
@@ -157,12 +169,7 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 if (lines[lineIndex].GetHasSpawned(tileIndex) == false)
                 {
-                    if (lines[lineIndex].GetModual(tileIndex) == 100)
-                    {
-                        lines[lineIndex].tiles[tileIndex].tile = Instantiate(emptyWater, new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
-                        lines[lineIndex].tiles[tileIndex].hasSpawned = true;
-                    }
-                    else if (lines[lineIndex].GetModual(tileIndex) == 200)
+                    if (lines[lineIndex].GetModual(tileIndex) == 200)
                     {
                         lines[lineIndex].tiles[tileIndex].tile = Instantiate(endTile, new Vector3(lines[lineIndex].GetPosX(tileIndex), lines[lineIndex].GetPosY(tileIndex)), Quaternion.identity);
                         lines[lineIndex].tiles[tileIndex].hasSpawned = true;
@@ -210,9 +217,20 @@ public class CS_World_Creater : MonoBehaviour {
     public void TurnOnWorldSpawn()
     {
         travelStageOn = true;
-        instansModuals(getLinePlace(line), tile - 1, tile + 2);
-        instansModuals(getLinePlace(line+ 1), tile - 1, tile + 2);
-        instansModuals(getLinePlace(line - 1), tile - 1, tile + 2);
+        if (firstLoad == true)
+        {
+            instansModuals(getLinePlace(line), tile, tile);
+            instansModuals(getLinePlace(line + 1), tile, tile);
+            instansModuals(getLinePlace(line - 1), tile, tile);
+            firstLoad = false;
+        }
+        else
+        {
+            instansModuals(getLinePlace(line), tile - 1, tile + 2);
+            instansModuals(getLinePlace(line + 1), tile - 1, tile + 2);
+            instansModuals(getLinePlace(line - 1), tile - 1, tile + 2);
+        }
+
 
     }
 
@@ -236,22 +254,12 @@ public class CS_World_Creater : MonoBehaviour {
 
         public void RandomTiles(int x, int modualsLength, int line)
         {
-            float y = -36;
-            tiles.Add(new Tiles(100, x, y));
-            y += 36;
+            float y = 53;
             for (int index = 0; index < 15; index++)
             {
                 if (index == 14)
                 {
                     tiles.Add(new Tiles(200, x, y));
-                }
-                else if (line == 0 && index == 0)
-                {
-                    tiles.Add(new Tiles(0, x, y));
-                }
-                else if (line == 0 && index == 1)
-                {
-                    tiles.Add(new Tiles(1, x, y));
                 }
                 else
                 {
