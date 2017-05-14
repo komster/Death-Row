@@ -42,10 +42,10 @@ public class CS_Player_Cannons : MonoBehaviour
     {
         shot = this.gameObject.GetComponent<AudioSource>();
 
-        //rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
-        //leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
-        //rightReloadIndicator.SetActive(false);
-        //leftReloadIndicator.SetActive(false);
+        rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
+        leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
+        rightReloadIndicator.SetActive(false);
+        leftReloadIndicator.SetActive(false);
     }
 
     void Update()

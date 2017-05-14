@@ -41,7 +41,7 @@ public class CS_World_Creater : MonoBehaviour {
         {
             if (firstStart == true)
             {
-                if (player.transform.position.y >= 20)
+                if (player.transform.position.y >= 30)
                 {
                     CS_Notify.Send(this, "EnemyBoatStart");
                     firstStart = false;
@@ -61,10 +61,14 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 line++;
                 playerTileX += 30;
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                if (tile >= 0 && tile <= 14)
                 {
-                    instansModuals(getLinePlace(line + 1), tile - 1, tile + 1);
+                    if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 1), tile - 1, tile + 1);
+                    }
                 }
+
             }
             if (player.transform.position.x < playerTileX - 15)
             {
@@ -79,20 +83,27 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 line--;
                 playerTileX -= 30;
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                if (tile >= 0 && tile <= 14)
                 {
-                    instansModuals(getLinePlace(line - 1), tile - 1, tile + 1);
+                    if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 1), tile - 1, tile + 1);
+                    }
                 }
+
             }
             if (player.transform.position.y > playerTileY + 15)
             {
                 playerTileY += 30;
-                instansModuals(getLinePlace(line), tile + 2, tile + 3);
-                instansModuals(getLinePlace(line + 1), tile + 2, tile + 3);
-                instansModuals(getLinePlace(line - 1), tile + 2, tile + 3);
-                tile++;
-                if (tile > 0 && tile <= 15)
+
+                    instansModuals(getLinePlace(line), tile + 2, tile + 3);
+                    instansModuals(getLinePlace(line + 1), tile + 2, tile + 3);
+                    instansModuals(getLinePlace(line - 1), tile + 2, tile + 3);
+                    tile++;
+
+                if (tile > 0 && tile <= 14)
                 {
+
                     if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
                     {
                         instansModuals(getLinePlace(line), tile, tile + 1);
@@ -112,7 +123,7 @@ public class CS_World_Creater : MonoBehaviour {
             {
                 playerTileY -= 30;
                 tile--;
-                if (tile > 0 && tile <= 15)
+                if (tile > 0 && tile <= 14)
                 {
                     if (lines[getLinePlace(line)].GetHasSpawned(tile - 1) == false)
                     {
@@ -165,7 +176,7 @@ public class CS_World_Creater : MonoBehaviour {
     {
         for (int tileIndex = startY; tileIndex < stopY; tileIndex++)
         {
-            if (tileIndex >= 0 && tileIndex <= 15)
+            if (tileIndex >= 0 && tileIndex <= 14)
             {
                 if (lines[lineIndex].GetHasSpawned(tileIndex) == false)
                 {

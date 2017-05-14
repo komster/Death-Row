@@ -67,6 +67,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4480114850036730}
+  - component: {fileID: 68558704370748644}
   m_Layer: 0
   m_Name: TempArena
   m_TagString: Untagged
@@ -159,6 +160,38 @@ Transform:
   m_Father: {fileID: 4480114850036730}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &68558704370748644
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618702409360044}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 41.00644, y: 16.64828}
+  - {x: 43.32962, y: 14.905275}
+  - {x: 45.49945, y: 12.134092}
+  - {x: 45.68068, y: 2.241125}
+  - {x: 43.975235, y: -9.942167}
+  - {x: 38.026993, y: -14.957702}
+  - {x: 31.27739, y: -15.850809}
+  - {x: 14.158783, y: -16.02745}
+  - {x: -0.08175659, y: -15.944624}
+  - {x: -8.153282, y: -14.268575}
+  - {x: -11.3942795, y: -10.167626}
+  - {x: -12.194878, y: -2.7603645}
+  - {x: -12.209053, y: 5.754347}
+  - {x: -10.547874, y: 12.304571}
+  - {x: -7.3857193, y: 17.012922}
+  - {x: 0.05910492, y: 19.319487}
+  - {x: 22.098328, y: 19.223497}
+  - {x: 34.571808, y: 19.13785}
+  - {x: 41.11618, y: 16.477495}
 --- !u!212 &212254845742384086
 SpriteRenderer:
   m_ObjectHideFlags: 1

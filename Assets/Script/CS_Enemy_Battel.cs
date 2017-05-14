@@ -55,8 +55,6 @@ public class CS_Enemy_Battel : MonoBehaviour {
         {
             movSpeed = 2;
 
-            Debug.Log(shotAngle);
-
             if (reloding == false && shotAngle < 5 && shotAngle > 0 )
             {
 

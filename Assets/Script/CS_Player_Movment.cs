@@ -119,7 +119,7 @@ public class CS_Player_Movment : MonoBehaviour {
                 }
             }
 
-            rb.drag = 0.1f;
+            rb.drag = 0.4f;
             rightTimer -= Time.deltaTime;
             leftTimer -= Time.deltaTime;
 

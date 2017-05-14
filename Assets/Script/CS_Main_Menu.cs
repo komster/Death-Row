@@ -34,8 +34,10 @@ public class CS_Main_Menu : MonoBehaviour
         temp = PlayerPrefs.GetInt("Highscore");
         tempUserName = PlayerPrefs.GetString("UserInput");
         enterScore();
-        
-    
+
+        player1Ready = false;
+        player2Ready = false;
+
         //
         /*  MainMenuList.Add(GameObject.Find("State0"));
           MainMenuList.Add(GameObject.Find("State1"));
