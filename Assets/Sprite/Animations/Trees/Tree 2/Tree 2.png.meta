@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 153862624023e00459fd19020d3f3586
-timeCreated: 1494692744
+guid: 1e8a1aa987ac4a043b897b1d10a6257c
+timeCreated: 1494778653
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,11 @@ TextureImporter:
     21300006: Tree 2_3
     21300008: Tree 2_4
     21300010: Tree 2_5
+    21300012: Tree 2_6
+    21300014: Tree 2_7
+    21300016: Tree 2_8
+    21300018: Tree 2_9
+    21300020: Tree 2_10
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -80,7 +85,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1280
+        y: 2560
         width: 256
         height: 256
       alignment: 0
@@ -93,7 +98,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
+        y: 2304
         width: 256
         height: 256
       alignment: 0
@@ -106,7 +111,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
+        y: 2048
         width: 256
         height: 256
       alignment: 0
@@ -119,7 +124,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 1792
         width: 256
         height: 256
       alignment: 0
@@ -132,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 1536
         width: 256
         height: 256
       alignment: 0
@@ -142,6 +147,71 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: Tree 2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree 2_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree 2_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree 2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree 2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tree 2_10
       rect:
         serializedVersion: 2
         x: 0
