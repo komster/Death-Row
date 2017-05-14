@@ -270,7 +270,7 @@ public class CS_World_Creater : MonoBehaviour {
 
         public void RandomTiles(int x, int modualsLength, int line)
         {
-            float y = 53;
+            float y = 55;
             for (int index = 0; index < 15; index++)
             {
                 if (index == 14)
