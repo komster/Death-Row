@@ -9,48 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1008664663258434}
+  m_RootGameObject: {fileID: 1602183608806804}
   m_IsPrefabParent: 1
---- !u!1 &1008664663258434
+--- !u!1 &1602183608806804
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4841846459245798}
-  - component: {fileID: 212831110438523546}
-  - component: {fileID: 95787423107636490}
+  - component: {fileID: 4332795663258988}
+  - component: {fileID: 212841342780922756}
+  - component: {fileID: 95579126691095804}
   m_Layer: 0
-  m_Name: Sail animation
+  m_Name: Sail animation_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4841846459245798
+--- !u!4 &4332795663258988
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008664663258434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2719934, y: -5.013198, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1602183608806804}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.03, z: 10.032614}
+  m_LocalScale: {x: 1.0264106, y: 1.0382544, z: 2.5081534}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95787423107636490
+--- !u!95 &95579126691095804
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008664663258434}
+  m_GameObject: {fileID: 1602183608806804}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f97df12d6b191143a3e5c4d5e1ab505, type: 2}
+  m_Controller: {fileID: 9100000, guid: 51051bfbe477c3a44b895e704970fc4b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -58,12 +58,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!212 &212831110438523546
+--- !u!212 &212841342780922756
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1008664663258434}
+  m_GameObject: {fileID: 1602183608806804}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 469f75dc1e092a34085916cd567f7452, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 2294d9293c12a77498fecc8249c251b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
