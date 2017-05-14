@@ -22,6 +22,7 @@ public class CS_Camera_Movment : MonoBehaviour {
 
     void Start () {
         CS_Notify.Register(this, "StartGame");
+        CS_Notify.Register(this, "StopMoving");
         rb = GetComponent<Rigidbody2D>();
 	}
 	
@@ -87,5 +88,10 @@ public class CS_Camera_Movment : MonoBehaviour {
     public void StartGame()
     {
         gameStarted = true;
+    }
+
+    public void StopMoving()
+    {
+        rb.velocity = transform.up * 0;
     }
 }

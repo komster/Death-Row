@@ -24,6 +24,8 @@ public class CS_Stages : MonoBehaviour {
     private GameObject tempArena;
     private GameObject tempEnemy;
 
+    private CS_Player_Movment playerScript;
+
     public Transform progressPlayer;
     public Transform progressEnemy;
 
@@ -34,6 +36,7 @@ public class CS_Stages : MonoBehaviour {
 
     void Start () {
         CS_Notify.Register(this, "ChangeStage");
+        playerScript = player.GetComponent<CS_Player_Movment>();
         ChangeStage();
         progressPlayer.localPosition = new Vector3(progressPlayer.localPosition.x, -300, progressPlayer.localPosition.z);
         progressEnemy.localPosition = new Vector3(progressEnemy.localPosition.x, -300, progressEnemy.localPosition.z);
@@ -110,10 +113,12 @@ public class CS_Stages : MonoBehaviour {
                 {
                     CS_Enemy_Battel script = tempEnemy.GetComponent<CS_Enemy_Battel>();
                     script.enabled = true;
+                    playerScript.enabled = true;
                 }
                 if (travleStage == true)
                 {
                     CS_Notify.Send(this, "EnemyBoatStart");
+                    playerScript.enabled = true;
                 }
 
             }
@@ -144,6 +149,7 @@ public class CS_Stages : MonoBehaviour {
     {
         if (battleStage == true)
         {
+            CS_Notify.Send(this, "StopMoving");
             spawnIn = true;
             clouds.transform.position = new Vector3(player.transform.position.x - 100, player.transform.position.y, player.transform.position.z - 3);
             tempClouds = Instantiate<GameObject>(clouds);
@@ -153,9 +159,11 @@ public class CS_Stages : MonoBehaviour {
             battleStage = false;
             progressbar.SetActive(true);
             wave++;
+            playerScript.enabled = false;
         }
         else if (travleStage == true)
         {
+            CS_Notify.Send(this, "StopMoving");
             spawnIn = true;
             clouds.transform.position = new Vector3(player.transform.position.x - 100, player.transform.position.y, player.transform.position.z - 3);
             tempClouds = Instantiate<GameObject>(clouds);
@@ -164,6 +172,7 @@ public class CS_Stages : MonoBehaviour {
             battleStage = true;
             travleStage = false;
             progressbar.SetActive(false);
+            playerScript.enabled = false;
         }
         else if (battleStage == false && travleStage == false)
         {

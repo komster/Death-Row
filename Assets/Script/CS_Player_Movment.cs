@@ -28,6 +28,7 @@ public class CS_Player_Movment : MonoBehaviour {
         rightOarScript = GameObject.Find("RightOars").GetComponent<CS_OarRightScript>();
 
         CS_Notify.Register(this, "StartGame");
+        CS_Notify.Register(this, "StopMoving");
         CS_Notify.Register(this, "MovementUpgrade");
     }
 	
@@ -143,5 +144,11 @@ public class CS_Player_Movment : MonoBehaviour {
     {
 
         movSpeed++;
+    }
+
+    public void StopMoving()
+    {
+        transform.Rotate(0, 0, 0);
+        rb.velocity = transform.up * 0;
     }
 }
