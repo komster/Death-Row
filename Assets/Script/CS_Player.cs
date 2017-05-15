@@ -14,6 +14,7 @@ public class CS_Player : MonoBehaviour {
     public Vector3 playerpos;
     public bool gotHit = false;
     public bool ended = false;
+    public bool activateLife = false;
     void Start () {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
@@ -30,6 +31,7 @@ public class CS_Player : MonoBehaviour {
             Destroy(collision.gameObject);
             playerpos = this.gameObject.transform.position;
             gotHit = true;
+            activateLife = true;
             hp--;
             StartCoroutine(damageFeedback());
         }

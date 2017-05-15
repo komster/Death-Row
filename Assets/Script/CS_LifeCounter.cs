@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CS_LifeCounter : MonoBehaviour {
 
-    public CS_Stages stage;
+    
     private CS_Player player;
     public GameObject counter;
     public GameObject life;
@@ -23,7 +23,7 @@ public class CS_LifeCounter : MonoBehaviour {
         life5 = GameObject.Find("Life5");
         counter = GameObject.Find("LifeCounter");
         player = GameObject.Find("Player").GetComponent<CS_Player>();
-        stage = GameObject.Find("GameManager").GetComponent<CS_Stages>();
+        
 	}
 	
 	// Update is called once per frame
@@ -33,9 +33,10 @@ public class CS_LifeCounter : MonoBehaviour {
 	}
     public void lifeChanger()
     {
-        if(stage.enableLife == true)
+        if (player.activateLife == true)
         {
             counter.SetActive(true);
+            StartCoroutine(counterActive());
             if(player.hp == 4)
             {
                 life.SetActive(true);
@@ -82,5 +83,10 @@ public class CS_LifeCounter : MonoBehaviour {
             counter.SetActive(false);
         }
         
+    }
+    public IEnumerator counterActive()
+    {
+        yield return new WaitForSeconds(4f);
+        player.activateLife = false;
     }
 }
