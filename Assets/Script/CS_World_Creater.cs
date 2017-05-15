@@ -15,8 +15,8 @@ public class CS_World_Creater : MonoBehaviour {
     private int line = 0;
     private int tile = 0;
 
-    private int playerTileX = 0;
-    private int playerTileY = 56;
+    private float playerTileX = 0;
+    private float playerTileY = 20;
 
     private int lineIndex = 0;
 
@@ -26,13 +26,10 @@ public class CS_World_Creater : MonoBehaviour {
         addLine(line + 1);
         addLine(line - 1);
 
-        instansModuals(getLinePlace(line), tile, tile);
-        instansModuals(getLinePlace(line + 1), tile, tile);
-        instansModuals(getLinePlace(line - 1), tile, tile);
     }
 
     void Update() {
-        if (player.transform.position.x > playerTileX + 15)
+        if (player.transform.position.x > playerTileX + 10)
         {
             if (checkLine(line + 2) == false)
             {
@@ -41,20 +38,20 @@ public class CS_World_Creater : MonoBehaviour {
                 instansModuals(lineIndex, tile - 1, tile + 2);
             }
         }
-        if (player.transform.position.x > playerTileX + 17)
+        if (player.transform.position.x > playerTileX + 15)
         {
             line++;
-            playerTileX += 30;
+            playerTileX += 25.5f;
             if (tile >= 0 && tile <= 14)
             {
                 if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
                 {
-                    instansModuals(getLinePlace(line + 1), tile - 1, tile + 1);
+                    instansModuals(getLinePlace(line + 1), tile - 2, tile + 2);
                 }
             }
 
         }
-        if (player.transform.position.x < playerTileX - 15)
+        if (player.transform.position.x < playerTileX - 10)
         {
             if (checkLine(line - 2) == false)
             {
@@ -63,29 +60,32 @@ public class CS_World_Creater : MonoBehaviour {
                 instansModuals(lineIndex, tile - 1, tile + 2);
             }
         }
-        if (player.transform.position.x < playerTileX - 17)
+        if (player.transform.position.x < playerTileX - 15)
         {
             line--;
-            playerTileX -= 30;
+            playerTileX -= 25.5f;
             if (tile >= 0 && tile <= 14)
             {
                 if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
                 {
-                    instansModuals(getLinePlace(line - 1), tile - 1, tile + 1);
+                    instansModuals(getLinePlace(line - 1), tile - 2, tile + 2);
                 }
             }
 
         }
-        if (player.transform.position.y > playerTileY + 15)
+        if (player.transform.position.y > playerTileY + 5)
         {
-            playerTileY += 30;
+            playerTileY += 25.5f;
 
-            instansModuals(getLinePlace(line), tile + 2, tile + 3);
-            instansModuals(getLinePlace(line + 1), tile + 2, tile + 3);
-            instansModuals(getLinePlace(line - 1), tile + 2, tile + 3);
+            instansModuals(getLinePlace(line), tile, tile + 1);
+            instansModuals(getLinePlace(line + 1), tile, tile + 1);
+            instansModuals(getLinePlace(line - 1), tile , tile + 1);
+            instansModuals(getLinePlace(line + 2), tile, tile + 1);
+            instansModuals(getLinePlace(line - 2), tile, tile + 1);
             tile++;
+            CS_Notify.Send(this,"NextTile");
 
-            if (tile > 0 && tile <= 14)
+            if (tile >= 0 && tile <= 14)
             {
 
                 if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
@@ -100,36 +100,33 @@ public class CS_World_Creater : MonoBehaviour {
                 {
                     instansModuals(getLinePlace(line - 1), tile, tile + 1);
                 }
+                if (lines[getLinePlace(line + 2)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line + 2), tile, tile + 1);
+                }
+                if (lines[getLinePlace(line - 2)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line - 2), tile, tile + 1);
+                }
             }
 
         }
-        if (player.transform.position.y < playerTileY - 15)
+        for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
         {
-            playerTileY -= 30;
-            tile--;
-            if (tile > 0 && tile <= 14)
+            for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
             {
-                if (lines[getLinePlace(line)].GetHasSpawned(tile - 1) == false)
+                if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 35)
                 {
-                    instansModuals(getLinePlace(line), tile - 1, tile);
-                }
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile - 1) == false)
-                {
-                    instansModuals(getLinePlace(line + 1), tile - 1, tile);
-                }
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile - 1) == false)
-                {
-                    instansModuals(getLinePlace(line - 1), tile - 1, tile);
+                    Destroy(lines[lineIndex].tiles[tileIndex].tile);
                 }
             }
-
         }
 
         for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
         {
             for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
             {
-                if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 35)
+                if (player.transform.position.x >= lines[lineIndex].GetPosX(tileIndex) + 50 || player.transform.position.x <= lines[lineIndex].GetPosX(tileIndex)  - 50)
                 {
                     Destroy(lines[lineIndex].tiles[tileIndex].tile);
                 }
@@ -206,13 +203,13 @@ public class CS_World_Creater : MonoBehaviour {
         public Lines(int lineIndex, int modualsLenght)
         {
             line = lineIndex;
-            RandomTiles(line * 36,modualsLenght, line);
+            RandomTiles(line * 25.5f,modualsLenght, line);
         }
 
 
-        public void RandomTiles(int x, int modualsLength, int line)
+        public void RandomTiles(float x, int modualsLength, int line)
         {
-            float y = 55;
+            float y = 50.5f;
             for (int index = 0; index < 15; index++)
             {
                 if (index == 14)
@@ -224,7 +221,7 @@ public class CS_World_Creater : MonoBehaviour {
                     tiles.Add(new Tiles(Random.Range(0, modualsLength), x, y));
                 }
                 
-                y += 36;
+                y += 25.5f;
 
             }
         }
