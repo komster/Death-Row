@@ -174,9 +174,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4800721103060684}
   - component: {fileID: 212580865406750466}
-  - component: {fileID: 50793579108359134}
   - component: {fileID: 70990026463835576}
-  - component: {fileID: 114526636672616248}
+  - component: {fileID: 114440323755198124}
   m_Layer: 0
   m_Name: Big_EnemyBattle
   m_TagString: Untagged
@@ -337,26 +336,6 @@ Transform:
   m_Father: {fileID: 4935983624911696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50793579108359134
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1903875769369780}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!70 &70990026463835576
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -371,28 +350,23 @@ CapsuleCollider2D:
   m_Offset: {x: -0.19251549, y: 0.014809199}
   m_Size: {x: 2.6517265, y: 5.9448414}
   m_Direction: 0
---- !u!114 &114526636672616248
+--- !u!114 &114440323755198124
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903875769369780}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed61845466201ec47ae3ae00da98055a, type: 3}
+  m_Script: {fileID: 11500000, guid: 06e9adab136273343b1a78c78f01e7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 6
-  rb: {fileID: 50793579108359134}
   player: {fileID: 0}
-  cannonBall: {fileID: 1852603831466300, guid: 8564b94216736724e984bd1aa2a69e06, type: 2}
-  leftCannon:
-  - {fileID: 4768030279908908}
-  - {fileID: 4939326528706130}
-  rightCannon:
+  cannonBall: {fileID: 1170942477499074, guid: b567c063497a8e64e9329e1317de1efc, type: 2}
+  cannons:
   - {fileID: 4773232514169454}
   - {fileID: 4596325599809876}
-  hp: 5
+  hp: 3
 --- !u!212 &212120243990199276
 SpriteRenderer:
   m_ObjectHideFlags: 1
