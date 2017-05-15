@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CS_LifeCounter : MonoBehaviour {
 
-    public CS_Stages stage;
+    
     private CS_Player player;
     public GameObject counter;
     public GameObject life;
@@ -23,64 +23,70 @@ public class CS_LifeCounter : MonoBehaviour {
         life5 = GameObject.Find("Life5");
         counter = GameObject.Find("LifeCounter");
         player = GameObject.Find("Player").GetComponent<CS_Player>();
-        stage = GameObject.Find("GameManager").GetComponent<CS_Stages>();
+        
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //lifeChanger();
+        lifeChanger();
 	}
     public void lifeChanger()
     {
-        //if(stage.enableLife == true)
-        //{
-        //    counter.SetActive(true);
-        //    if(player.hp == 4)
-        //    {
-        //        life.SetActive(true);
-        //        life2.SetActive(false);
-        //        life3.SetActive(false);
-        //        life4.SetActive(false);
-        //        life5.SetActive(false);
-        //    }
-        //    else if(player.hp == 3)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(true);
-        //        life3.SetActive(false);
-        //        life4.SetActive(false);
-        //        life5.SetActive(false);
-        //    }
-        //    else if (player.hp == 2)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(false);
-        //        life3.SetActive(true);
-        //        life4.SetActive(false);
-        //        life5.SetActive(false);
-        //    }
-        //    else if (player.hp == 1)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(false);
-        //        life3.SetActive(false);
-        //        life4.SetActive(true);
-        //        life5.SetActive(false);
-        //    }
-        //    else if (player.hp == 0)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(false);
-        //        life3.SetActive(false);
-        //        life4.SetActive(false);
-        //        life5.SetActive(true);
-        //    }
-        //}
-        //else
-        //{
-        //    counter.SetActive(false);
-        //}
-        
+
+        if (player.activateLife == true)
+        {
+            counter.SetActive(true);
+            StartCoroutine(counterActive());
+            if(player.hp == 4)
+            {
+                life.SetActive(true);
+                life2.SetActive(false);
+                life3.SetActive(false);
+                life4.SetActive(false);
+                life5.SetActive(false);
+            }
+            else if(player.hp == 3)
+            {
+                life.SetActive(false);
+                life2.SetActive(true);
+                life3.SetActive(false);
+                life4.SetActive(false);
+                life5.SetActive(false);
+            }
+            else if (player.hp == 2)
+            {
+                life.SetActive(false);
+                life2.SetActive(false);
+                life3.SetActive(true);
+                life4.SetActive(false);
+                life5.SetActive(false);
+            }
+            else if (player.hp == 1)
+            {
+                life.SetActive(false);
+                life2.SetActive(false);
+                life3.SetActive(false);
+                life4.SetActive(true);
+                life5.SetActive(false);
+            }
+            else if (player.hp == 0)
+            {
+                life.SetActive(false);
+                life2.SetActive(false);
+                life3.SetActive(false);
+                life4.SetActive(false);
+                life5.SetActive(true);
+            }
+        }
+        else
+        {
+            counter.SetActive(false);
+        } 
+    }
+    public IEnumerator counterActive()
+    {
+        yield return new WaitForSeconds(4f);
+        player.activateLife = false;
     }
 }
