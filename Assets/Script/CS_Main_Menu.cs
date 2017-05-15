@@ -29,6 +29,7 @@ public class CS_Main_Menu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         board = GameObject.Find("HighScoreManager").GetComponent<CS_HighscoreBoard>();
         
         temp = PlayerPrefs.GetInt("Highscore");
