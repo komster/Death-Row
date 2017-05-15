@@ -15,6 +15,7 @@ public class CS_Player : MonoBehaviour {
     public bool gotHit = false;
     public bool ended = false;
     public bool activateLife = false;
+    public AudioSource impactHit;
     void Start () {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
@@ -33,6 +34,7 @@ public class CS_Player : MonoBehaviour {
             gotHit = true;
             activateLife = true;
             hp--;
+            impactHit.Play();
             StartCoroutine(damageFeedback());
         }
         if (collision.gameObject.tag == "End")

@@ -16,7 +16,7 @@ public class CS_Gamemanager : MonoBehaviour {
     private movment movement;
     private CS_Pickup_Coin pickS;
     public float timeInGame;
-
+    public AudioSource boostSound;
     void Start () {
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
@@ -71,7 +71,7 @@ public class CS_Gamemanager : MonoBehaviour {
     public void checkForBoost()
     {
         StartCoroutine(boost());
-        
+        boostSound.Play();
     }
     
     private IEnumerator boost()
