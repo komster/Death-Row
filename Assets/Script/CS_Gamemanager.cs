@@ -15,7 +15,8 @@ public class CS_Gamemanager : MonoBehaviour {
     private CS_Player_Movment Movement;
     private movment movement;
     private CS_Pickup_Coin pickS;
-    
+    public float timeInGame;
+
     void Start () {
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
@@ -27,6 +28,7 @@ public class CS_Gamemanager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        timeInGame += Time.deltaTime;
         if (checkIfHit.gotHit == true)
         {
             decreScore();
