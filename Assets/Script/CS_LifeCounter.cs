@@ -29,11 +29,11 @@ public class CS_LifeCounter : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //lifeChanger();
+        lifeChanger();
 	}
     public void lifeChanger()
     {
-<<<<<<< HEAD
+
         if (player.activateLife == true)
         {
             counter.SetActive(true);
@@ -82,58 +82,7 @@ public class CS_LifeCounter : MonoBehaviour {
         else
         {
             counter.SetActive(false);
-        }
-=======
-        //if(stage.enableLife == true)
-        //{
-        //    counter.SetActive(true);
-        //    if(player.hp == 4)
-        //    {
-        //        life.SetActive(true);
-        //        life2.SetActive(false);
-        //        life3.SetActive(false);
-        //        life4.SetActive(false);
-        //        life5.SetActive(false);
-        //    }
-        //    else if(player.hp == 3)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(true);
-        //        life3.SetActive(false);
-        //        life4.SetActive(false);
-        //        life5.SetActive(false);
-        //    }
-        //    else if (player.hp == 2)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(false);
-        //        life3.SetActive(true);
-        //        life4.SetActive(false);
-        //        life5.SetActive(false);
-        //    }
-        //    else if (player.hp == 1)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(false);
-        //        life3.SetActive(false);
-        //        life4.SetActive(true);
-        //        life5.SetActive(false);
-        //    }
-        //    else if (player.hp == 0)
-        //    {
-        //        life.SetActive(false);
-        //        life2.SetActive(false);
-        //        life3.SetActive(false);
-        //        life4.SetActive(false);
-        //        life5.SetActive(true);
-        //    }
-        //}
-        //else
-        //{
-        //    counter.SetActive(false);
-        //}
->>>>>>> origin/master
-        
+        } 
     }
     public IEnumerator counterActive()
     {
