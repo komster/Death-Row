@@ -42,10 +42,10 @@ public class CS_Player_Cannons : MonoBehaviour
     {
         shot = this.gameObject.GetComponent<AudioSource>();
 
-        //rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
-        //leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
-        //rightReloadIndicator.SetActive(false);
-        //leftReloadIndicator.SetActive(false);
+        rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
+        leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
+        rightReloadIndicator.SetActive(false);
+        leftReloadIndicator.SetActive(false);
     }
 
     void Update()
@@ -121,7 +121,7 @@ public class CS_Player_Cannons : MonoBehaviour
             left2 = false;
             rightReloadIndicator.SetActive(false);
             rightIndicationOn = false;
-            rightIndicationTime = 6f;
+            rightIndicationTime = 1f;
         }
 
         if (right1 == true && right2 == true)
@@ -131,7 +131,7 @@ public class CS_Player_Cannons : MonoBehaviour
             right2 = false;
             leftReloadIndicator.SetActive(false);
             leftIndicationOn = false;
-            leftIndicationTime = 6f;
+            leftIndicationTime = 1f;
         }
 
         
@@ -145,7 +145,7 @@ public class CS_Player_Cannons : MonoBehaviour
         if (rightIndicationOn == false)
         {
             rightIndicationOn = true;
-            rightIndicationTime = 6f;
+            rightIndicationTime = 1f;
 
         }
         if (leftReloaded == false)
@@ -163,7 +163,7 @@ public class CS_Player_Cannons : MonoBehaviour
         if (leftIndicationOn == false)
         {
             leftIndicationOn = true;
-            leftIndicationTime = 6f;
+            leftIndicationTime = 1f;
 
         }
         if (rightReloaded == false)
