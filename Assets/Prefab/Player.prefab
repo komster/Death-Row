@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 82001076185990338}
   - component: {fileID: 114205918907270478}
   - component: {fileID: 114871955586318820}
+  - component: {fileID: 70588584177191830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -985,6 +986,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &70588584177191830
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140149334368934}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.10677332, y: -0.33899224}
+  m_Size: {x: 2, y: 4.9417953}
+  m_Direction: 0
 --- !u!70 &70923784244767228
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -997,7 +1012,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -0.10677332, y: -0.33899224}
-  m_Size: {x: 1.1233321, y: 4.9417953}
+  m_Size: {x: 2, y: 4.9417953}
   m_Direction: 0
 --- !u!82 &82001076185990338
 AudioSource:
@@ -1131,7 +1146,7 @@ MonoBehaviour:
     type: 2}
   leftReloadIndicator: {fileID: 1661947425677986, guid: 394b67a16de47f04c89e55e65d6240c6,
     type: 2}
-  cannonBall: {fileID: 1852603831466300, guid: 8564b94216736724e984bd1aa2a69e06, type: 2}
+  cannonBall: {fileID: 1650019771926888, guid: e017656b5a962804fb77eeada66a8c5c, type: 2}
   cannons:
   - {fileID: 1411737504124422}
   - {fileID: 1208636343802580}
@@ -1185,7 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e6846b01a1e734db77173355e76baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovSpeed: 6
+  MovSpeed: 4
 --- !u!114 &114385600957707106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1225,7 +1240,7 @@ MonoBehaviour:
   leftOarScript: {fileID: 0}
   rightOarScript: {fileID: 0}
   rb: {fileID: 50355135339147282}
-  movSpeed: 6
+  movSpeed: 4
 --- !u!114 &114933874818760584
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,9 +23,9 @@ public class CS_Player : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "CannonBall")
+        if (collision.gameObject.tag == "CannonBallEnemy")
         {
             Destroy(collision.gameObject);
             playerpos = this.gameObject.transform.position;
@@ -33,20 +33,19 @@ public class CS_Player : MonoBehaviour {
             hp--;
             StartCoroutine(damageFeedback());
         }
-
         if (collision.gameObject.tag == "End")
         {
             ended = true;
             winScreen.gameObject.SetActive(true);
             Time.timeScale = 0;
-            
-        }
 
+        }
         if (hp <= 0)
         {
             death();
         }
     }
+
     public void death()
     {
         dead = true;
