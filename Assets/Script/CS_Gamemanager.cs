@@ -58,7 +58,10 @@ public class CS_Gamemanager : MonoBehaviour {
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
         }
-        
+        else if (coins <= 0)
+        {
+
+        }
         score.text = "score: " + coins;
         
     }
