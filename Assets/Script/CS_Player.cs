@@ -45,7 +45,7 @@ public class CS_Player : MonoBehaviour {
             activateLife = true;
             hp--;
             ActivateDamagePoints();
-            //impactHit.Play();
+            impactHit.Play();
             StartCoroutine(damageFeedback());
             Destroy(collision.gameObject);
         }

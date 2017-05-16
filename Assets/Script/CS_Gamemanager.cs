@@ -74,7 +74,7 @@ public class CS_Gamemanager : MonoBehaviour {
     public void checkForBoost()
     {
         StartCoroutine(boost());
-        //boostSound.Play();
+        boostSound.Play();
     }
     
     private IEnumerator boost()
