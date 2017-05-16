@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CS_Enemy : MonoBehaviour {
+    public AudioSource spotted;
 
     public Transform player;
 
@@ -29,11 +30,12 @@ public class CS_Enemy : MonoBehaviour {
 
         float angle = CS_Utils.PointToDegree(player.position - this.transform.position);
         this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
-
+        
         if (distans <= 20)
         {
+            
             shotDelay -= Time.deltaTime;
-
+            //spotted.Play();
             if (shotDelay <= 0)
             {
                 for (int index = 0; index < cannons.Length; index++)

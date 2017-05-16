@@ -16,6 +16,7 @@ public class CS_Player : MonoBehaviour {
     public bool ended = false;
     public bool activateLife = false;
     public AudioSource impactHit;
+    public AudioSource onFire;
     public List<Transform> damagePoints = new List<Transform>();
 
     void Start () {
@@ -87,6 +88,7 @@ public class CS_Player : MonoBehaviour {
         for (int i = 0; i < hp - 1; i++)
         {
             damagePoints[i].GetComponent<ParticleSystem>().Play();
+            onFire.Play();
         }
     }
 }
