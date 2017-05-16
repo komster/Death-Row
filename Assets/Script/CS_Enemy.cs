@@ -11,6 +11,11 @@ public class CS_Enemy : MonoBehaviour {
     public Transform[] cannons;
     private float cannonSpeed = 10;
 
+    public GameObject movmentPowerUp;
+    public GameObject shotCoin;
+    public GameObject biggerCoin;
+    public GameObject cannonUpgrade;
+
     public int hp;
 
     private float shotDelay = 3;
@@ -39,6 +44,43 @@ public class CS_Enemy : MonoBehaviour {
                     rb.velocity = (transform.right * cannonSpeed);
                     shotDelay = 3;
                 }
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "CannonBallPlayer")
+        {
+            Destroy(collision.gameObject);
+            hp--;
+            if (hp == 0)
+            {
+                int randomValue = Random.Range(1, 9);
+
+                if (randomValue == 1)
+                {
+                    Instantiate<GameObject>(movmentPowerUp, this.transform.position, Quaternion.identity);
+                }
+                if (randomValue == 2)
+                {
+                    Instantiate<GameObject>(cannonUpgrade, this.transform.position, Quaternion.identity);
+                }
+                if (randomValue == 3)
+                {
+                    Instantiate<GameObject>(biggerCoin, this.transform.position, Quaternion.identity);
+                }
+                if (randomValue == 4)
+                {
+                    Instantiate<GameObject>(shotCoin, this.transform.position, Quaternion.identity);
+                }
+
+                Destroy(this.gameObject);
             }
         }
     }

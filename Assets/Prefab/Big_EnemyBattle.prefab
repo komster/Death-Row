@@ -345,7 +345,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -0.19251549, y: 0.014809199}
   m_Size: {x: 2.6517265, y: 5.9448414}
@@ -366,7 +366,13 @@ MonoBehaviour:
   cannons:
   - {fileID: 4773232514169454}
   - {fileID: 4596325599809876}
-  hp: 3
+  movmentPowerUp: {fileID: 1287973521166242, guid: 472e971a6cbb972408b955d14bf7e003,
+    type: 2}
+  shotCoin: {fileID: 1900774472652902, guid: b49449ea9e466a243b7c79a0ea12b721, type: 2}
+  biggerCoin: {fileID: 1514066198154306, guid: 2835162e9e666ff42bc024623eb11468, type: 2}
+  cannonUpgrade: {fileID: 1298544995123396, guid: cf4b61a8ae036a94d91adfd149263ba3,
+    type: 2}
+  hp: 2
 --- !u!212 &212120243990199276
 SpriteRenderer:
   m_ObjectHideFlags: 1

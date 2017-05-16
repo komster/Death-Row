@@ -32,7 +32,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
     {
         if (shotCoins == true)
         {
-            if (other.gameObject.tag == "CannonBall")
+            if (other.gameObject.tag == "CannonBallPlayer")
             {
                 AudioSource.PlayClipAtPoint(sound, transform.position);
                 gameManager.InitScore(coinValue);
