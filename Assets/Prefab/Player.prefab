@@ -816,7 +816,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1140149334368934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.37, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.3986997}
   m_Children:
   - {fileID: 4909619029418538}
@@ -1584,6 +1584,7 @@ MonoBehaviour:
   ended: 0
   activateLife: 0
   impactHit: {fileID: 0}
+  onFire: {fileID: 0}
   damagePoints: []
 --- !u!114 &114242552024683592
 MonoBehaviour:
