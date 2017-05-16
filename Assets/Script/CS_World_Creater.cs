@@ -30,11 +30,6 @@ public class CS_World_Creater : MonoBehaviour {
 
     void Update() {
 
-
-        Debug.Log(tile + " " + line); 
-
-
-
         if (player.transform.position.x > playerTileX + 5)
         {
             if (checkLine(line + 2) == false)
