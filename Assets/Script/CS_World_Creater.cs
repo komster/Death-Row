@@ -13,12 +13,14 @@ public class CS_World_Creater : MonoBehaviour {
     private List<Lines> lines = new List<Lines>();
 
     private int line = 0;
-    private int tile = -5;
+    private int tile = 0;
 
     private float playerTileX = 0;
     private float playerTileY = 0;
 
     private int lineIndex = 0;
+
+    private bool startSpawnTile = false;
 
     void Start() {
 
@@ -30,152 +32,161 @@ public class CS_World_Creater : MonoBehaviour {
 
     void Update() {
 
-        if (player.transform.position.x > playerTileX + 5)
+        if (player.transform.position.y >= 100 && startSpawnTile == false)
         {
-            if (checkLine(line + 2) == false)
-            {
-                addLine(line + 2);
-                lineIndex++;
-                instansModuals(lineIndex, tile - 2 , tile + 2);
-            }
+            playerTileY = player.transform.position.y;
+            startSpawnTile = true;
         }
-        if (player.transform.position.x > playerTileX + 15)
+        if (startSpawnTile == true)
         {
-            line++;
-            playerTileX += 25.5f;
-            if (tile >= 0 && tile <= 14)
+            if (player.transform.position.x > playerTileX + 5)
             {
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                if (checkLine(line + 2) == false)
                 {
-                    instansModuals(getLinePlace(line + 1), tile - 2, tile + 2);
+                    addLine(line + 2);
+                    lineIndex++;
+                    instansModuals(lineIndex, tile - 2, tile + 2);
                 }
             }
-
-        }
-        if (player.transform.position.x < playerTileX - 5)
-        {
-            if (checkLine(line - 2) == false)
+            if (player.transform.position.x > playerTileX + 15)
             {
-                addLine(line - 2);
-                lineIndex++;
-                instansModuals(lineIndex, tile - 2, tile + 2);
+                line++;
+                playerTileX += 25.5f;
+                if (tile >= 0 && tile <= 14)
+                {
+                    if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 1), tile - 2, tile + 2);
+                    }
+                }
+
             }
-        }
-        if (player.transform.position.x < playerTileX - 15)
-        {
-            line--;
-            playerTileX -= 25.5f;
-            if (tile >= 0 && tile <= 14)
+            if (player.transform.position.x < playerTileX - 5)
             {
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                if (checkLine(line - 2) == false)
                 {
-                    instansModuals(getLinePlace(line - 1), tile - 2, tile + 2);
-                }
-            }
-
-        }
-        if (player.transform.position.y > playerTileY + 5)
-        {
-            playerTileY += 25.5f;
-
-            instansModuals(getLinePlace(line), tile, tile + 1);
-            instansModuals(getLinePlace(line + 1), tile, tile + 1);
-            instansModuals(getLinePlace(line - 1), tile , tile + 1);
-            instansModuals(getLinePlace(line + 2), tile, tile + 1);
-            instansModuals(getLinePlace(line - 2), tile, tile + 1);
-            tile++;
-            CS_Notify.Send(this,"NextTile");
-
-            if (tile >= 0 && tile <= 14)
-            {
-
-                if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line), tile, tile + 1);
-                }
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line + 1), tile, tile + 1);
-                }
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line - 1), tile, tile + 1);
-                }
-                if (lines[getLinePlace(line + 2)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line + 2), tile, tile + 1);
-                }
-                if (lines[getLinePlace(line - 2)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line - 2), tile, tile + 1);
+                    addLine(line - 2);
+                    lineIndex++;
+                    instansModuals(lineIndex, tile - 2, tile + 2);
                 }
             }
+            if (player.transform.position.x < playerTileX - 15)
+            {
+                line--;
+                playerTileX -= 25.5f;
+                if (tile >= 0 && tile <= 14)
+                {
+                    if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 1), tile - 2, tile + 2);
+                    }
+                }
 
-        }
+            }
+            if (player.transform.position.y > playerTileY + 5)
+            {
+                playerTileY += 25.5f;
 
-        if (player.transform.position.y < playerTileY)
-           {
+                instansModuals(getLinePlace(line), tile, tile + 1);
+                instansModuals(getLinePlace(line + 1), tile, tile + 1);
+                instansModuals(getLinePlace(line - 1), tile, tile + 1);
+                instansModuals(getLinePlace(line + 2), tile, tile + 1);
+                instansModuals(getLinePlace(line - 2), tile, tile + 1);
+                tile++;
+                CS_Notify.Send(this, "NextTile");
 
-            instansModuals(getLinePlace(line), tile, tile - 1);
-            instansModuals(getLinePlace(line + 1), tile, tile - 1);
-            instansModuals(getLinePlace(line - 1), tile, tile - 1);
-            instansModuals(getLinePlace(line + 2), tile, tile - 1);
-            instansModuals(getLinePlace(line - 2), tile, tile - 1);
+                if (tile >= 0 && tile <= 14)
+                {
 
-            if (tile >= 0 && tile <= 14)
+                    if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line), tile, tile + 1);
+                    }
+                    if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 1), tile, tile + 1);
+                    }
+                    if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 1), tile, tile + 1);
+                    }
+                    if (lines[getLinePlace(line + 2)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 2), tile, tile + 1);
+                    }
+                    if (lines[getLinePlace(line - 2)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 2), tile, tile + 1);
+                    }
+                }
+
+            }
+
+            if (player.transform.position.y < playerTileY)
             {
 
-                if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+                instansModuals(getLinePlace(line), tile, tile - 1);
+                instansModuals(getLinePlace(line + 1), tile, tile - 1);
+                instansModuals(getLinePlace(line - 1), tile, tile - 1);
+                instansModuals(getLinePlace(line + 2), tile, tile - 1);
+                instansModuals(getLinePlace(line - 2), tile, tile - 1);
+
+                if (tile >= 0 && tile <= 14)
                 {
-                    instansModuals(getLinePlace(line), tile, tile - 1);
+
+                    if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line), tile, tile - 1);
+                    }
+                    if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 1), tile, tile - 1);
+                    }
+                    if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 1), tile, tile - 1);
+                    }
+                    if (lines[getLinePlace(line + 2)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line + 2), tile, tile - 1);
+                    }
+                    if (lines[getLinePlace(line - 2)].GetHasSpawned(tile) == false)
+                    {
+                        instansModuals(getLinePlace(line - 2), tile, tile - 1);
+                    }
                 }
-                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+
+            }
+            for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
+            {
+                for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
                 {
-                    instansModuals(getLinePlace(line + 1), tile, tile - 1);
-                }
-                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line - 1), tile, tile - 1);
-                }
-                if (lines[getLinePlace(line + 2)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line + 2), tile, tile - 1);
-                }
-                if (lines[getLinePlace(line - 2)].GetHasSpawned(tile) == false)
-                {
-                    instansModuals(getLinePlace(line - 2), tile, tile - 1);
+                    if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 40)
+                    {
+                        Destroy(lines[lineIndex].tiles[tileIndex].tile);
+                        lines[lineIndex].tiles[tileIndex].hasSpawned = false;
+                    }
                 }
             }
 
-        }
-        for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
-        {
-            for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
+            for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
             {
-                if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 40)
+                for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
                 {
-                    Destroy(lines[lineIndex].tiles[tileIndex].tile);
-                    lines[lineIndex].tiles[tileIndex].hasSpawned = false;
+                    if (player.transform.position.x >= lines[lineIndex].GetPosX(tileIndex) + 50 || player.transform.position.x <= lines[lineIndex].GetPosX(tileIndex) - 50)
+                    {
+                        Destroy(lines[lineIndex].tiles[tileIndex].tile);
+                        lines[lineIndex].tiles[tileIndex].hasSpawned = false;
+                    }
                 }
+            }
+
+            if (player.transform.position.y >= 180)
+            {
+                Destroy(startTile.gameObject);
             }
         }
 
-        for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
-        {
-            for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
-            {
-                if (player.transform.position.x >= lines[lineIndex].GetPosX(tileIndex) + 50 || player.transform.position.x <= lines[lineIndex].GetPosX(tileIndex) - 50)
-                {
-                    Destroy(lines[lineIndex].tiles[tileIndex].tile);
-                    lines[lineIndex].tiles[tileIndex].hasSpawned = false;
-                }
-            }
-        }
-
-        if (player.transform.position.y >= 80)
-        {
-            Destroy(startTile.gameObject);
-        }
     }
 
     public void addLine(int newLine)
@@ -248,7 +259,7 @@ public class CS_World_Creater : MonoBehaviour {
 
         public void RandomTiles(float x, int modualsLength, int line)
         {
-            float y = 125f;
+            float y = 132;
             for (int index = 0; index < 15; index++)
             {
                 if (index == 14)
