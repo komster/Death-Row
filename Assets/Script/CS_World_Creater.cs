@@ -13,10 +13,10 @@ public class CS_World_Creater : MonoBehaviour {
     private List<Lines> lines = new List<Lines>();
 
     private int line = 0;
-    private int tile = -2;
+    private int tile = -5;
 
     private float playerTileX = 0;
-    private float playerTileY = -16;
+    private float playerTileY = 0;
 
     private int lineIndex = 0;
 
@@ -248,7 +248,7 @@ public class CS_World_Creater : MonoBehaviour {
 
         public void RandomTiles(float x, int modualsLength, int line)
         {
-            float y = 50.5f;
+            float y = 125f;
             for (int index = 0; index < 15; index++)
             {
                 if (index == 14)
