@@ -71,7 +71,7 @@ public class CS_EnemySpawner : MonoBehaviour {
     }
     private void WhatEnemy()
     {
-        switch (Random.Range(1,2))
+        switch (Random.Range(1,3))
         {
             case (1):
                 chosenEnemyType = Enemy1;
