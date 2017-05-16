@@ -36,6 +36,7 @@ public class CS_World_Creater : MonoBehaviour {
         {
             playerTileY = player.transform.position.y;
             startSpawnTile = true;
+            CS_Notify.Send(this, "StartTimer");
         }
         if (startSpawnTile == true)
         {

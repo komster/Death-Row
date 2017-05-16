@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class CS_DeathCounter : MonoBehaviour {
     public float timeToDie;
     public Text dCounter;
+    public CS_Player pl;
 
-    private Vector3 smallHUDPosition= new Vector3(300,400,0);
+    private Vector3 smallHUDPosition= new Vector3(140, 470, 0);
     private Vector3 bigHudPosition=new Vector3(0,0,0);
 
     private Vector3 bigScale = new Vector3(2.5f, 2.5f, 2.5f);
@@ -17,19 +18,20 @@ public class CS_DeathCounter : MonoBehaviour {
     private bool timeToBlink;
     private float minutes;
     private float seconds;
-    private float blinkInterval = 0.5f;
+    private float blinkInterval = 0.1f;
 
     // Use this for initialization
     void Start ()
     {
         
         CS_Notify.Register(this, "StartTimer");
+        pl = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
         timeToDie =300f;
         timerHasStarted = false;
         timeToBlink = false;
         dCounter = this.gameObject.GetComponent<Text>();
         dCounter.text = "";
-        StartTimer();
+   
 
 
     }
@@ -43,13 +45,17 @@ public class CS_DeathCounter : MonoBehaviour {
             DisplayTimer();   
             timeToDie -= Time.deltaTime;
 
-            this.GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(this.GetComponent<RectTransform>().localPosition, smallHUDPosition, 0.005f);
-            this.GetComponent<RectTransform>().localScale = Vector3.Lerp(this.GetComponent<RectTransform>().localScale, smallScale, 0.005f);
+            this.GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(this.GetComponent<RectTransform>().localPosition, smallHUDPosition, 0.05f);
+            this.GetComponent<RectTransform>().localScale = Vector3.Lerp(this.GetComponent<RectTransform>().localScale, smallScale, 0.05f);
         
         }
         if (timeToBlink==true)
         {
             this.GetComponent<Text>().enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2f));
+        }
+        if (timeToDie == 0 || timeToDie < 0)
+        {
+            pl.death();
         }
     }
 
