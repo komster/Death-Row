@@ -17,6 +17,7 @@ public class CS_EnemySpawner : MonoBehaviour {
     private int enemySpawnChance;
     private int randomSpawn;
     private int amountOfSpawnPoints;
+    private int enemyTypeRoll;
 
     void Start ()
     {
@@ -71,15 +72,17 @@ public class CS_EnemySpawner : MonoBehaviour {
     }
     private void WhatEnemy()
     {
-        switch (Random.Range(1,3))
+        enemyTypeRoll = Random.Range(1, 11);
+
+        if (enemyTypeRoll > 7)
         {
-            case (1):
-                chosenEnemyType = Enemy1;
-                break;
-            case (2):
-                chosenEnemyType = Enemy2;
-                break;
+            chosenEnemyType = Enemy2;
         }
+        else
+        {
+            chosenEnemyType = Enemy1;
+        }
+       
     }
     private void SpawnEnemies()
     {

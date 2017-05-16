@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212693878125746480}
   - component: {fileID: 58446107086491462}
   - component: {fileID: 50341645459650698}
-  - component: {fileID: 114922822239945884}
+  - component: {fileID: 114394831994736362}
   m_Layer: 0
   m_Name: CannonBallPlayer
   m_TagString: CannonBallPlayer
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650019771926888}
   m_LocalRotation: {x: -0.59482473, y: 0.8038554, z: -0, w: 0}
-  m_LocalPosition: {x: 5.4426594, y: 43.657795, z: 0}
+  m_LocalPosition: {x: 50.806305, y: 185.84029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.034298}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.6
---- !u!114 &114922822239945884
+  m_Radius: 1
+--- !u!114 &114394831994736362
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650019771926888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c3786ffb4024741bc1feae440a5660, type: 3}
+  m_Script: {fileID: 11500000, guid: df9e6fa239383ad4ba1e34808d9a24bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1.5

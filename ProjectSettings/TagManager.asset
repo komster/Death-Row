@@ -15,6 +15,7 @@ TagManager:
   - CannonBallEnemy
   - CannonBallPlayer
   - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX

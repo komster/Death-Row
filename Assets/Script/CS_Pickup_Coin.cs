@@ -6,6 +6,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
     private CS_Gamemanager gameManager;
     public int coinValue;
     public AudioClip sound;
+    public GameObject pickupParticle;
     private CS_Gamemanager manager;
 
     private bool shotCoins = false;
@@ -36,6 +37,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
             {
                 AudioSource.PlayClipAtPoint(sound, transform.position);
                 gameManager.InitScore(coinValue);
+                Instantiate(pickupParticle,this.transform.position,Quaternion.Euler(-90,0,0));
                 Destroy(this.gameObject);
             }
         }
@@ -45,6 +47,7 @@ public class CS_Pickup_Coin : MonoBehaviour {
             AudioSource.PlayClipAtPoint(sound, transform.position);
             gameManager.InitScore(coinValue);
             manager.checkForBoost();
+            Instantiate(pickupParticle, this.transform.position, Quaternion.Euler(-90, 0, 0));
             //manager.coinPicked = true;
             Destroy(this.gameObject);
             

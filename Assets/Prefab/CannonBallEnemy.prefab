@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212103370434990758}
   - component: {fileID: 58099265674130222}
   - component: {fileID: 50220134904715710}
-  - component: {fileID: 114801790504706424}
+  - component: {fileID: 114120581155656504}
   m_Layer: 0
   m_Name: CannonBallEnemy
   m_TagString: CannonBallEnemy
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170942477499074}
   m_LocalRotation: {x: -0.59482473, y: 0.8038554, z: -0, w: 0}
-  m_LocalPosition: {x: -27.63744, y: 208.45212, z: 0.5941267}
+  m_LocalPosition: {x: 6.2890854, y: 150.15883, z: 0.59412664}
   m_LocalScale: {x: 1, y: 1, z: 0.034298}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.6
---- !u!114 &114801790504706424
+  m_Radius: 1
+--- !u!114 &114120581155656504
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170942477499074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c3786ffb4024741bc1feae440a5660, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fb94e7be28e0d240883dc58f080d649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1.5

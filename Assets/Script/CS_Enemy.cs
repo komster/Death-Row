@@ -59,7 +59,7 @@ public class CS_Enemy : MonoBehaviour {
     {
         if (collision.gameObject.tag == "CannonBallPlayer")
         {
-            Destroy(collision.gameObject);
+            
             hp--;
             if (hp == 0)
             {

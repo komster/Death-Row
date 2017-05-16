@@ -43,15 +43,15 @@ public class CS_Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "CannonBallEnemy")
         {
-            Destroy(collision.gameObject);
+            
             playerpos = this.gameObject.transform.position;
             gotHit = true;
             activateLife = true;
             ActivateDamagePoints();
             hp--;
-            impactHit.Play();
+            //impactHit.Play();
             StartCoroutine(damageFeedback());
-            Destroy(collision.gameObject);
+            
         }
         if (collision.gameObject.tag == "End")
         {
@@ -92,7 +92,7 @@ public class CS_Player : MonoBehaviour {
         if (hp > 1)
         {
             damagePoints[whichDamagePoint].GetComponent<ParticleSystem>().Play();
-            onFire.Play();
+           //onFire.Play();
             whichDamagePoint++;
         }
     }

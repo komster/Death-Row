@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CS_CannonBall_Range : MonoBehaviour {
+public class CS_CannonBallEnemy : MonoBehaviour {
 
-    public float range;
+    public float range= 1.5f;
 
-	void Start () {
-		
-	}
-	
-	void Update () {
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
         range -= Time.deltaTime;
         if (range <= 0)
         {
             Destroy(this.gameObject);
         }
-        
-	}
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag=="Player"|| collision.tag == "Enemy")
+        if (collision.tag == "Player")
         {
             Destroy(this.gameObject);
         }
