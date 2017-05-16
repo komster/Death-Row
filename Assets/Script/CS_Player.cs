@@ -16,9 +16,19 @@ public class CS_Player : MonoBehaviour {
     public bool ended = false;
     public bool activateLife = false;
     public AudioSource impactHit;
+    public List<Transform> damagePoints = new List<Transform>();
+
     void Start () {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
+        foreach (Transform child in this.transform)
+        {
+            if (child.tag == "Damage")
+            {
+                damagePoints.Add(child);
+                child.GetComponent<ParticleSystem>().Stop();
+            }
+        }
     }
 	
 	void Update () {
@@ -34,6 +44,7 @@ public class CS_Player : MonoBehaviour {
             gotHit = true;
             activateLife = true;
             hp--;
+            ActivateDamagePoints();
             impactHit.Play();
             StartCoroutine(damageFeedback());
         }
@@ -69,5 +80,12 @@ public class CS_Player : MonoBehaviour {
         yield return new WaitForSeconds(0.7f);
         rend.material.color = Color.white;
         
+    }
+    private void ActivateDamagePoints()
+    {
+        for (int i = 0; i < hp - 1; i++)
+        {
+            damagePoints[i].GetComponent<ParticleSystem>().Play();
+        }
     }
 }

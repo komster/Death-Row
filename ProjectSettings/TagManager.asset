@@ -10,6 +10,11 @@ TagManager:
   - Tile
   - CannonBall
   - End
+  - Coin
+  - SpawnPoint
+  - CannonBallEnemy
+  - CannonBallPlayer
+  - Damage
   layers:
   - Default
   - TransparentFX
