@@ -18,10 +18,12 @@ public class CS_Player : MonoBehaviour {
     public AudioSource impactHit;
     public AudioSource onFire;
     public List<Transform> damagePoints = new List<Transform>();
+    private int whichDamagePoint=0;
 
     void Start () {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
+        whichDamagePoint = 0;
         foreach (Transform child in this.transform)
         {
             if (child.tag == "Damage")
@@ -30,6 +32,7 @@ public class CS_Player : MonoBehaviour {
                 child.GetComponent<ParticleSystem>().Stop();
             }
         }
+        
     }
 	
 	void Update () {
@@ -44,8 +47,8 @@ public class CS_Player : MonoBehaviour {
             playerpos = this.gameObject.transform.position;
             gotHit = true;
             activateLife = true;
-            hp--;
             ActivateDamagePoints();
+            hp--;
             impactHit.Play();
             StartCoroutine(damageFeedback());
             Destroy(collision.gameObject);
@@ -85,10 +88,12 @@ public class CS_Player : MonoBehaviour {
     }
     private void ActivateDamagePoints()
     {
-        for (int i = 0; i < hp - 1; i++)
+
+        if (hp > 1)
         {
-            damagePoints[i].GetComponent<ParticleSystem>().Play();
+            damagePoints[whichDamagePoint].GetComponent<ParticleSystem>().Play();
             onFire.Play();
+            whichDamagePoint++;
         }
     }
 }
