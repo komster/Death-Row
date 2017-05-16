@@ -47,6 +47,7 @@ public class CS_Player : MonoBehaviour {
             ActivateDamagePoints();
             //impactHit.Play();
             StartCoroutine(damageFeedback());
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "End")
         {
