@@ -29,6 +29,9 @@ public class CS_Player_Cannons : MonoBehaviour
     private bool right1 = false;
     private bool right2 = false;
 
+    private int leftReloadMultiplay = 3;
+    private int rightReloadMultiplay = 3;
+
 
     private int leftCannonsPositon = 0;
     private int rightCannonsPositon = 0;
@@ -116,22 +119,41 @@ public class CS_Player_Cannons : MonoBehaviour
 
         if (left1 == true && left2 == true)
         {
-            leftReloaded = true;
-            left1 = false;
-            left2 = false;
-            rightReloadIndicator.SetActive(false);
-            rightIndicationOn = false;
-            rightIndicationTime = 1f;
+            if (leftReloadMultiplay == 0)
+            {
+                leftReloaded = true;
+                rightReloadIndicator.SetActive(false);
+                rightIndicationOn = false;
+                rightIndicationTime = 1f;
+                leftReloadMultiplay = 3;
+            }
+            else
+            {
+                left1 = false;
+                left2 = false;
+                leftReloadMultiplay--;
+            }
+
+
         }
 
         if (right1 == true && right2 == true)
         {
-            rightReloaded = true;
-            right1 = false;
-            right2 = false;
-            leftReloadIndicator.SetActive(false);
-            leftIndicationOn = false;
-            leftIndicationTime = 1f;
+            if (rightReloadMultiplay == 0)
+            {
+                rightReloaded = true;
+                leftReloadIndicator.SetActive(false);
+                leftIndicationOn = false;
+                leftIndicationTime = 1f;
+            }
+            else
+            {
+                right1 = false;
+                right2 = false;
+                rightReloadMultiplay--;
+            }
+
+
         }
 
         

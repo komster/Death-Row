@@ -13,10 +13,10 @@ public class CS_World_Creater : MonoBehaviour {
     private List<Lines> lines = new List<Lines>();
 
     private int line = 0;
-    private int tile = 0;
+    private int tile = -2;
 
     private float playerTileX = 0;
-    private float playerTileY = 20;
+    private float playerTileY = -16;
 
     private int lineIndex = 0;
 
@@ -29,13 +29,19 @@ public class CS_World_Creater : MonoBehaviour {
     }
 
     void Update() {
-        if (player.transform.position.x > playerTileX + 10)
+
+
+        Debug.Log(tile + " " + line); 
+
+
+
+        if (player.transform.position.x > playerTileX + 5)
         {
             if (checkLine(line + 2) == false)
             {
                 addLine(line + 2);
                 lineIndex++;
-                instansModuals(lineIndex, tile - 1, tile + 2);
+                instansModuals(lineIndex, tile - 2 , tile + 2);
             }
         }
         if (player.transform.position.x > playerTileX + 15)
@@ -51,13 +57,13 @@ public class CS_World_Creater : MonoBehaviour {
             }
 
         }
-        if (player.transform.position.x < playerTileX - 10)
+        if (player.transform.position.x < playerTileX - 5)
         {
             if (checkLine(line - 2) == false)
             {
                 addLine(line - 2);
                 lineIndex++;
-                instansModuals(lineIndex, tile - 1, tile + 2);
+                instansModuals(lineIndex, tile - 2, tile + 2);
             }
         }
         if (player.transform.position.x < playerTileX - 15)
@@ -111,13 +117,50 @@ public class CS_World_Creater : MonoBehaviour {
             }
 
         }
+
+        if (player.transform.position.y < playerTileY)
+           {
+
+            instansModuals(getLinePlace(line), tile, tile - 1);
+            instansModuals(getLinePlace(line + 1), tile, tile - 1);
+            instansModuals(getLinePlace(line - 1), tile, tile - 1);
+            instansModuals(getLinePlace(line + 2), tile, tile - 1);
+            instansModuals(getLinePlace(line - 2), tile, tile - 1);
+
+            if (tile >= 0 && tile <= 14)
+            {
+
+                if (lines[getLinePlace(line)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line), tile, tile - 1);
+                }
+                if (lines[getLinePlace(line + 1)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line + 1), tile, tile - 1);
+                }
+                if (lines[getLinePlace(line - 1)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line - 1), tile, tile - 1);
+                }
+                if (lines[getLinePlace(line + 2)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line + 2), tile, tile - 1);
+                }
+                if (lines[getLinePlace(line - 2)].GetHasSpawned(tile) == false)
+                {
+                    instansModuals(getLinePlace(line - 2), tile, tile - 1);
+                }
+            }
+
+        }
         for (int lineIndex = 0; lineIndex < lines.Count; lineIndex++)
         {
             for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
             {
-                if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 35)
+                if (player.transform.position.y >= lines[lineIndex].GetPosY(tileIndex) + 40)
                 {
                     Destroy(lines[lineIndex].tiles[tileIndex].tile);
+                    lines[lineIndex].tiles[tileIndex].hasSpawned = false;
                 }
             }
         }
@@ -126,9 +169,10 @@ public class CS_World_Creater : MonoBehaviour {
         {
             for (int tileIndex = 0; tileIndex < lines[lineIndex].tiles.Count; tileIndex++)
             {
-                if (player.transform.position.x >= lines[lineIndex].GetPosX(tileIndex) + 50 || player.transform.position.x <= lines[lineIndex].GetPosX(tileIndex)  - 50)
+                if (player.transform.position.x >= lines[lineIndex].GetPosX(tileIndex) + 50 || player.transform.position.x <= lines[lineIndex].GetPosX(tileIndex) - 50)
                 {
                     Destroy(lines[lineIndex].tiles[tileIndex].tile);
+                    lines[lineIndex].tiles[tileIndex].hasSpawned = false;
                 }
             }
         }
