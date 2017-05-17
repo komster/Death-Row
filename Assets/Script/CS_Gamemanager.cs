@@ -19,6 +19,7 @@ public class CS_Gamemanager : MonoBehaviour {
     public AudioSource boostSound;
     public Text pickUpParticleText;
     public GameObject lossParticle;
+    public CS_DeathCounter dC;
  
 
 
@@ -33,6 +34,7 @@ public class CS_Gamemanager : MonoBehaviour {
         stage = this.gameObject.GetComponent<CS_Stages>();
         pickUpParticleText = GameObject.Find("Text_ParticleMaterialMaker").GetComponentInChildren<Text>();
         scoreCoins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
+        dC = GameObject.Find("DeathCounter").GetComponent<CS_DeathCounter>();
     }
 	
 	// Update is called once per frame
@@ -46,6 +48,20 @@ public class CS_Gamemanager : MonoBehaviour {
         pointAnimTimer += Time.deltaTime;
         prcComplete = pointAnimTimer / pointAnimDurationSec;
         score.text = "SCORE: " + Mathf.RoundToInt(Mathf.Lerp(previousScore, coins, prcComplete));
+
+        if (checkIfHit.ended==true)
+        {
+            coins += 500;
+            for(int i = 0; i < dC.minutes; i++)
+            {
+                coins += 200;
+            }
+            for(int g = 0; g < checkIfHit.hp; g++)
+            {
+                coins += 200;
+            }
+        }
+        
 
     }
     public void decreScore()
@@ -109,13 +125,21 @@ public class CS_Gamemanager : MonoBehaviour {
     
     private IEnumerator boost()
     {
-
-        Movement.movSpeed += 2f;
-        movement.MovSpeed += 2f;
-        yield return new WaitForSeconds(3f);
-        Movement.movSpeed -= 2f;
-        movement.MovSpeed -= 2f;
-        Debug.Log("Boosted");
+        if (movement.MovSpeed < movement.MovSpeed + 6 && Movement.movSpeed < Movement.movSpeed + 6)
+        {
+            Movement.movSpeed += 2f;
+            movement.MovSpeed += 2f;
+            yield return new WaitForSeconds(3f);
+            Movement.movSpeed -= 2f;
+            movement.MovSpeed -= 2f;
+            Debug.Log("Boosted");
+        }
+        else
+        {
+            yield return new WaitForSeconds(3f);
+            Movement.movSpeed -= 2f;
+            movement.MovSpeed -= 2f;
+        }
         
 
 

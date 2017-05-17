@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 70990026463835576}
   - component: {fileID: 114440323755198124}
   - component: {fileID: 82480300309322026}
+  - component: {fileID: 70035404784824856}
   m_Layer: 0
   m_Name: Big_EnemyBattle
   m_TagString: Enemy
@@ -360,7 +361,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903875769369780}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 62.13, y: 64.89, z: -4}
+  m_LocalPosition: {x: -0.018466473, y: -6.555103, z: -4}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.59412664}
   m_Children:
   - {fileID: 4001578656844730}
@@ -395,6 +396,20 @@ Transform:
   m_Father: {fileID: 4935983624911696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &70035404784824856
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903875769369780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.19251549, y: -1}
+  m_Size: {x: 2.6517265, y: 9}
+  m_Direction: 0
 --- !u!70 &70990026463835576
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
