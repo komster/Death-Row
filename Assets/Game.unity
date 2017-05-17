@@ -3200,7 +3200,7 @@ GameObject:
   - component: {fileID: 1601054584}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: TrueCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3970,6 +3970,9 @@ MonoBehaviour:
   checkIfHit: {fileID: 0}
   timeInGame: 0
   boostSound: {fileID: 1854120785}
+  pickUpParticleText: {fileID: 0}
+  lossParticle: {fileID: 1877050050240302, guid: 10ed2dcbeaa685c4ca70dfdb19b23f5d,
+    type: 2}
 --- !u!114 &1854120781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4554,7 +4557,7 @@ GameObject:
   - component: {fileID: 1926632936}
   m_Layer: 5
   m_Name: score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
