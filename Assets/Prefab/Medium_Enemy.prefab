@@ -370,6 +370,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotted: {fileID: 82868377681374680}
   player: {fileID: 0}
+  gM: {fileID: 0}
+  scoreParticle: {fileID: 1864734506425878, guid: 7e8db68ec93e9454ca3701129d3f5137,
+    type: 2}
   cannonBall: {fileID: 1170942477499074, guid: b567c063497a8e64e9329e1317de1efc, type: 2}
   cannonSmoke: {fileID: 1120561713857022, guid: 097432e565e5cd54cb7a594fc61a415a,
     type: 2}

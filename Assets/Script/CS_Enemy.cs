@@ -6,7 +6,8 @@ public class CS_Enemy : MonoBehaviour {
     public AudioSource spotted;
 
     public Transform player;
-
+    public CS_Gamemanager gM;
+    public GameObject scoreParticle;
     
     public GameObject cannonBall;
     public GameObject cannonSmoke;
@@ -25,6 +26,7 @@ public class CS_Enemy : MonoBehaviour {
 
     void Start () {
         player = GameObject.Find("Player").GetComponent<Transform>();
+        gM = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
     }
 	
 	void Update () {
@@ -85,6 +87,8 @@ public class CS_Enemy : MonoBehaviour {
                     Instantiate<GameObject>(shotCoin, this.transform.position, Quaternion.identity);
                 }
 
+                gM.InitScore(300);
+                Instantiate(scoreParticle, this.transform.position, Quaternion.Euler(-90, 0, 0));
                 Destroy(this.gameObject);
             }
         }
