@@ -17,6 +17,12 @@ public class CS_Gamemanager : MonoBehaviour {
     private CS_Pickup_Coin pickS;
     public float timeInGame;
     public AudioSource boostSound;
+
+
+    private int previousScore;
+    private float pointAnimDurationSec = 1f;
+    private float pointAnimTimer = 0f;
+    private float prcComplete;
     void Start () {
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
@@ -34,26 +40,36 @@ public class CS_Gamemanager : MonoBehaviour {
             decreScore();
             checkIfHit.gotHit = false;
         }
+        pointAnimTimer += Time.deltaTime;
+        prcComplete = pointAnimTimer / pointAnimDurationSec;
+        score.text = "SCORE: " + Mathf.RoundToInt(Mathf.Lerp(previousScore, coins, prcComplete));
+
     }
     public void decreScore()
     {
 
         if (coins == 100)
         {
+            previousScore = coins;
             coins -= 100;
+            pointAnimTimer = 0;
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             
         }
         else if (coins == 200)
         {
+            previousScore = coins;
             coins -= 200;
+            pointAnimTimer = 0;
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
 
         }
         else if (coins >= 300)
         {
+            previousScore = coins;
             coins -= 300;
+            pointAnimTimer = 0;
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
@@ -62,13 +78,15 @@ public class CS_Gamemanager : MonoBehaviour {
         {
 
         }
-        score.text = "score: " + coins;
+        //score.text = "score: " + coins;
         
     }
     public void InitScore(int nrOfCoins)
     {
+        previousScore = coins;
         coins += nrOfCoins;
-        score.text = "score: " + coins;
+        pointAnimTimer = 0;
+       // score.text = "score: " + coins;
         
     }
     public void checkForBoost()
