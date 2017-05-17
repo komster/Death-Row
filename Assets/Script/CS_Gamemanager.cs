@@ -49,20 +49,24 @@ public class CS_Gamemanager : MonoBehaviour {
         prcComplete = pointAnimTimer / pointAnimDurationSec;
         score.text = "SCORE: " + Mathf.RoundToInt(Mathf.Lerp(previousScore, coins, prcComplete));
 
-        if (checkIfHit.ended==true)
+        
+        
+
+    }
+    public void CalculateFinalScore()
+    {
+        if (checkIfHit.ended == true)
         {
             coins += 500;
-            for(int i = 0; i < dC.minutes; i++)
+            for (int i = 0; i < dC.minutes; i++)
             {
                 coins += 200;
             }
-            for(int g = 0; g < checkIfHit.hp; g++)
+            for (int g = 0; g < checkIfHit.hp; g++)
             {
                 coins += 200;
             }
         }
-        
-
     }
     public void decreScore()
     {

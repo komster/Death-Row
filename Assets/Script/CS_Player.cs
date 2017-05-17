@@ -58,6 +58,7 @@ public class CS_Player : MonoBehaviour {
             ended = true;
             winScreen.gameObject.SetActive(true);
             Time.timeScale = 0;
+            coins.CalculateFinalScore();
 
         }
         if (hp <= 0)
@@ -69,7 +70,7 @@ public class CS_Player : MonoBehaviour {
     public void death()
     {
         dead = true;
-
+        coins.CalculateFinalScore();
         gameover.gameObject.SetActive(true);
         //StartCoroutine(onDeath());
         Time.timeScale = 0;

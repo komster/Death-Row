@@ -16,6 +16,9 @@ TagManager:
   - CannonBallPlayer
   - Damage
   - Enemy
+  - TrueCanvas
+  - Score
+  - Image
   layers:
   - Default
   - TransparentFX
