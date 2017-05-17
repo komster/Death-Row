@@ -42,6 +42,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1370550709909290
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4848780019546044}
+  m_Layer: 0
+  m_Name: AimPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1421802528281722
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4300755746820260}
+  m_Layer: 0
+  m_Name: FireStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1684382983269956
 GameObject:
   m_ObjectHideFlags: 1
@@ -51,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4355166210548638}
   m_Layer: 0
-  m_Name: FireStartPosition
+  m_Name: AimPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,25 +144,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972718888231450}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -18.858398, y: -5.8256226, z: -4}
+  m_LocalPosition: {x: -1.09, y: 9.16, z: -4}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.59412664}
   m_Children:
   - {fileID: 4949176983822608}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!4 &4355166210548638
+--- !u!4 &4300755746820260
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1684382983269956}
+  m_GameObject: {fileID: 1421802528281722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.325, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4402949091869142}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4355166210548638
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684382983269956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.53, z: 0.00000011920929}
+  m_LocalScale: {x: 1.0000015, y: 1.0000015, z: 1.0000056}
+  m_Children: []
+  m_Father: {fileID: 4402949091869142}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4370142962480018
 Transform:
@@ -157,10 +200,24 @@ Transform:
   m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4300755746820260}
   - {fileID: 4355166210548638}
   m_Father: {fileID: 4949176983822608}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!4 &4848780019546044
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370550709909290}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008, y: 1.266, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4862736594447574}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4862736594447574
 Transform:
   m_ObjectHideFlags: 1
@@ -172,6 +229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4370142962480018}
+  - {fileID: 4848780019546044}
   m_Father: {fileID: 4949176983822608}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -298,8 +356,12 @@ MonoBehaviour:
   spotted: {fileID: 82868377681374680}
   player: {fileID: 0}
   cannonBall: {fileID: 1170942477499074, guid: b567c063497a8e64e9329e1317de1efc, type: 2}
+  cannonSmoke: {fileID: 1120561713857022, guid: 097432e565e5cd54cb7a594fc61a415a,
+    type: 2}
   cannons:
   - {fileID: 4370142962480018}
+  rightCannonAimPositions:
+  - {fileID: 4848780019546044}
   movmentPowerUp: {fileID: 1287973521166242, guid: 472e971a6cbb972408b955d14bf7e003,
     type: 2}
   shotCoin: {fileID: 1900774472652902, guid: b49449ea9e466a243b7c79a0ea12b721, type: 2}

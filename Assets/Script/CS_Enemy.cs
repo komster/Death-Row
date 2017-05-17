@@ -7,9 +7,11 @@ public class CS_Enemy : MonoBehaviour {
 
     public Transform player;
 
-
+    
     public GameObject cannonBall;
+    public GameObject cannonSmoke;
     public Transform[] cannons;
+    public Transform[] rightCannonAimPositions;
     private float cannonSpeed = 10;
 
     public GameObject movmentPowerUp;
@@ -45,6 +47,7 @@ public class CS_Enemy : MonoBehaviour {
                     Rigidbody2D rb = temp.GetComponent<Rigidbody2D>();
                     rb.velocity = (transform.right * cannonSpeed);
                     shotDelay = 3;
+                    Instantiate(cannonSmoke, cannons[index].transform.position, Quaternion.LookRotation(rightCannonAimPositions[index].transform.position - cannons[index].transform.position));
                 }
             }
         }

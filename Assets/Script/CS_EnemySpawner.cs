@@ -88,7 +88,7 @@ public class CS_EnemySpawner : MonoBehaviour {
     {
         if (enemySpawnChance == 2 || enemySpawnChance == 4 || enemySpawnChance == 6 || enemySpawnChance == 8 || enemySpawnChance == 10)
         {
-            Debug.Log("enemy spawned");
+            
             Instantiate(chosenEnemyType, chosenSpawnPoint.transform.position, Quaternion.Euler(0, 0, Random.Range(-360, 360)));
         }
     }
