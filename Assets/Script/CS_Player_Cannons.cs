@@ -49,8 +49,8 @@ public class CS_Player_Cannons : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
 
 
-        rightReloadIndicator = GameObject.Find("ReloadIndicator (1)");
-        leftReloadIndicator = GameObject.Find("ReloadIndicator (2)");
+        rightReloadIndicator = GameObject.Find("ReloadRight");
+        leftReloadIndicator = GameObject.Find("ReloadLeft");
         rightReloadIndicator.SetActive(false);
         leftReloadIndicator.SetActive(false);
     }

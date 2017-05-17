@@ -6,8 +6,8 @@ public class CS_PrograssBar : MonoBehaviour {
 
     public RectTransform player;
 
-    private Vector3 uIOnscreenPosition = new Vector3(822, 0, 0);
-    private Vector3 uIOffscreenPosition = new Vector3(1400, 0, 0);
+    private Vector3 uIOnscreenPosition = new Vector3(822, 40, 0);
+    private Vector3 uIOffscreenPosition = new Vector3(1400, 40, 0);
     private Vector3 position;
     private float pointAnimDurationSec = 1f;
     private float pointAnimTimer = 0f;
