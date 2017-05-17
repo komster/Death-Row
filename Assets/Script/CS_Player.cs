@@ -49,7 +49,7 @@ public class CS_Player : MonoBehaviour {
             activateLife = true;
             ActivateDamagePoints();
             hp--;
-            //impactHit.Play();
+            impactHit.Play();
             StartCoroutine(damageFeedback());
             
         }
@@ -92,8 +92,9 @@ public class CS_Player : MonoBehaviour {
         if (hp > 1)
         {
             damagePoints[whichDamagePoint].GetComponent<ParticleSystem>().Play();
-           //onFire.Play();
+            
             whichDamagePoint++;
+            onFire.Play();
         }
     }
 }
