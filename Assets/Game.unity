@@ -215,6 +215,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!224 &48414736 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224686527096744136, guid: 310e8843ea8392b469165373326fe21b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654380691}
+--- !u!224 &303407923 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224086848522935902, guid: 310e8843ea8392b469165373326fe21b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654380691}
 --- !u!1 &372838681 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1414571431772536, guid: da56f6e2e7b82a846b0402f459bc38b4,
@@ -267,8 +277,18 @@ Prefab:
     - target: {fileID: 114242552024683592, guid: f56f3ee9184c7f44f8cedaad0f46f619,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114205918907270478, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: gameover
+      value: 
+      objectReference: {fileID: 303407923}
+    - target: {fileID: 114205918907270478, guid: f56f3ee9184c7f44f8cedaad0f46f619,
+        type: 2}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 48414736}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f56f3ee9184c7f44f8cedaad0f46f619, type: 2}
   m_IsPrefabParent: 0
@@ -314,6 +334,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 069e3e73dc2d67e4994bc55af0806eae, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1291430560 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114677784875598756, guid: 310e8843ea8392b469165373326fe21b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1654380691}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1365029182
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
-  score: {fileID: 0}
+  score: {fileID: 1291430560}
   scoreCoins: {fileID: 0}
   coinPre: {fileID: 1828077766021504, guid: 0a2f062a1dd205b4fbf4547d452f85c0, type: 2}
   checkIfHit: {fileID: 0}
