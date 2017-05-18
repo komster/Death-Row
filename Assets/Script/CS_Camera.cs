@@ -8,7 +8,7 @@ public class CS_Camera : MonoBehaviour {
     public GameObject score;
     public Transform player;
 
-    public Transform end;
+    private float playerX;
 
     CS_Camera_Movment cameraScript;
 
@@ -46,9 +46,10 @@ public class CS_Camera : MonoBehaviour {
 
         if (zoomOut == true)
         {          
-            if (main.transform.position == end.position)
+            if (main.transform.position.y >= 489)
             {
                 zoomOut = false;
+                CS_Notify.Send(this, "StopMoving");
                 CS_Notify.Send(this, "EndGame");
 
             }
@@ -59,7 +60,7 @@ public class CS_Camera : MonoBehaviour {
                     main.orthographicSize = main.orthographicSize + 5 * Time.deltaTime;
                 }
 
-                main.transform.position = Vector3.MoveTowards(main.transform.position, new Vector3(end.position.x, end.position.y, -10), Time.deltaTime * 8);
+                main.transform.position = Vector3.MoveTowards(main.transform.position, new Vector3(playerX, 489, -10), Time.deltaTime * 8);
             }
         }
     }
@@ -75,6 +76,12 @@ public class CS_Camera : MonoBehaviour {
 
     public void ZoomOut()
     {
-        zoomOut = true;
+        if (zoomOut != true)
+        {
+            zoomOut = true;
+            cameraScript.enabled = false;
+            playerX = player.transform.position.x;
+        }
+ 
     }
 }
