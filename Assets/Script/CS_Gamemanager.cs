@@ -18,6 +18,7 @@ public class CS_Gamemanager : MonoBehaviour {
     public float timeInGame;
     public AudioSource boostSound;
     public Text pickUpParticleText;
+    public Text lossParticleText;
     public GameObject lossParticle;
     public CS_DeathCounter dC;
  
@@ -33,6 +34,7 @@ public class CS_Gamemanager : MonoBehaviour {
         checkIfHit = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
         stage = this.gameObject.GetComponent<CS_Stages>();
         pickUpParticleText = GameObject.Find("Text_ParticleMaterialMaker").GetComponentInChildren<Text>();
+        lossParticleText = GameObject.Find("Text_ParticleMaterialMakerLoss").GetComponentInChildren<Text>();
         scoreCoins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         dC = GameObject.Find("DeathCounter").GetComponent<CS_DeathCounter>();
     }
@@ -75,7 +77,7 @@ public class CS_Gamemanager : MonoBehaviour {
         {
             previousScore = coins;
             coins -= 100;
-            pickUpParticleText.text = "- " + 100;
+            lossParticleText.text = "- " + 100;
             pointAnimTimer = 0;
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(lossParticle, GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform.position, Quaternion.Euler(90, 0, 0));
@@ -86,7 +88,7 @@ public class CS_Gamemanager : MonoBehaviour {
         {
             previousScore = coins;
             coins -= 200;
-            pickUpParticleText.text = "- " + 200;
+            lossParticleText.text = "- " + 200;
             pointAnimTimer = 0;
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
@@ -98,7 +100,7 @@ public class CS_Gamemanager : MonoBehaviour {
         {
             previousScore = coins;
             coins -= 300;
-            pickUpParticleText.text = "- " + 300;
+            lossParticleText.text = "- " + 300;
             pointAnimTimer = 0;
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);
             Instantiate(coinPre, checkIfHit.playerpos + new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-7.0f, 7.0f), 0), Quaternion.identity);

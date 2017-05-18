@@ -8,6 +8,7 @@ public class CS_DeathCounter : MonoBehaviour {
     public Text dCounter;
     public CS_Player pl;
     public List<Transform> images;
+    public List<Transform> arrows;
     public GameObject jaw;
 
     private Vector3 smallHUDPosition= new Vector3(140, 470, 0);
@@ -40,9 +41,20 @@ public class CS_DeathCounter : MonoBehaviour {
                 images.Add(child);
             }
         }
-        for(int i=0; i < images.Count; i++)
+        foreach (Transform child in this.transform)
+        {
+            if (child.tag == "Arrow")
+            {
+                arrows.Add(child);
+            }
+        }
+        for (int i=0; i < images.Count; i++)
         {
             images[i].GetComponent<Image>().enabled = false;
+        }
+        for (int i = 0; i < arrows.Count; i++)
+        {
+            arrows[i].GetComponent<Image>().enabled = false;
         }
 
 
@@ -65,7 +77,10 @@ public class CS_DeathCounter : MonoBehaviour {
         if (timeToBlink==true)
         {
             this.GetComponentInChildren<Text>().enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2f));
-          
+            for (int i = 0; i < arrows.Count; i++)
+            {
+                arrows[i].GetComponent<Image>().enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2f));
+            }
 
         }
         if (timeToDie == 0 || timeToDie < 0)
@@ -101,5 +116,9 @@ public class CS_DeathCounter : MonoBehaviour {
         this.GetComponentInChildren<Text>().enabled = true;
         timerHasStarted = true;
         timeToBlink = false;
+        for (int i = 0; i < arrows.Count; i++)
+        {
+            arrows[i].GetComponent<Image>().enabled = false;
+        }
     }
 }

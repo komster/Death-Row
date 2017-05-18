@@ -19,6 +19,7 @@ TagManager:
   - TrueCanvas
   - Score
   - Image
+  - Arrow
   layers:
   - Default
   - TransparentFX
