@@ -12,9 +12,12 @@ public class CS_PrograssBar : MonoBehaviour {
     private float pointAnimDurationSec = 1f;
     private float pointAnimTimer = 0f;
     private float prcComplete;
+    private int appearTimes;
     private bool onScreen = false;
+    
 
     void Start () {
+        appearTimes = 0;
         CS_Notify.Register(this, "NextTile");
         position = player.position;
 	}
@@ -41,10 +44,13 @@ public class CS_PrograssBar : MonoBehaviour {
         position.y += 40;
         position.x = 0;
         player.localPosition = position;
-        
-        pointAnimTimer = 0;
-        onScreen = true;
-        StartCoroutine(TimeOnScreen());
+        appearTimes++;
+        if (appearTimes == 1 || appearTimes == 4 || appearTimes == 8 || appearTimes == 12 || appearTimes == 14)
+        {
+            pointAnimTimer = 0;
+            onScreen = true;
+            StartCoroutine(TimeOnScreen());
+        }
         
     }
     private IEnumerator TimeOnScreen()
