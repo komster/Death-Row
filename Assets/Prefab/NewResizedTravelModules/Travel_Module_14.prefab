@@ -768,7 +768,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811525234038230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: -0.35, z: 0}
+  m_LocalPosition: {x: -0.27, y: -0.26, z: 0}
   m_LocalScale: {x: 1.016979, y: 1.016979, z: 1.016979}
   m_Children: []
   m_Father: {fileID: 4779226233696934}
@@ -1099,7 +1099,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673395418267488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.33, z: 0}
+  m_LocalPosition: {x: -0.74, y: -0.33, z: 0}
   m_LocalScale: {x: 1.0350014, y: 1.0350014, z: 1.0350014}
   m_Children: []
   m_Father: {fileID: 4136739358238614}
@@ -1154,7 +1154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427852996362892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: 0.18, z: 0}
+  m_LocalPosition: {x: -0.76, y: -0.35, z: 0}
   m_LocalScale: {x: 1.0544316, y: 1.0544316, z: 1.0544316}
   m_Children: []
   m_Father: {fileID: 4854337619528182}
@@ -2166,7 +2166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a7e40d50ff8036a49bd56e437d4f58a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fae3b67931574c41b3534564b5221a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2271,7 +2271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a96d40d9e384ff54b98c611a7a12b6ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f486f9e51a52ccd4eb3ed2d7435d0f05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2936,7 +2936,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a7e40d50ff8036a49bd56e437d4f58a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fae3b67931574c41b3534564b5221a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
