@@ -24,6 +24,7 @@ public class CS_Player : MonoBehaviour {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
         whichDamagePoint = 0;
+        CS_Notify.Register(this, "EndGame");
         foreach (Transform child in this.transform)
         {
             if (child.tag == "Damage")
@@ -56,10 +57,8 @@ public class CS_Player : MonoBehaviour {
         if (collision.gameObject.tag == "End")
         {
             ended = true;
-            winScreen.gameObject.SetActive(true);
-            Time.timeScale = 0;
             coins.CalculateFinalScore();
-
+            CS_Notify.Send(this,"ZoomOut");
         }
         if (hp <= 0)
         {
@@ -97,5 +96,11 @@ public class CS_Player : MonoBehaviour {
             whichDamagePoint++;
             onFire.Play();
         }
+    }
+
+    public void EndGame()
+    {
+        winScreen.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }

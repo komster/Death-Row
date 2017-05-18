@@ -8,6 +8,8 @@ public class CS_Camera : MonoBehaviour {
     public GameObject score;
     public Transform player;
 
+    public Transform end;
+
     CS_Camera_Movment cameraScript;
 
     private bool zoomOut = false;
@@ -15,7 +17,7 @@ public class CS_Camera : MonoBehaviour {
 
     void Start () {
         CS_Notify.Register(this, "ChangeToArenaCamera");
-        CS_Notify.Register(this, "ChangeToTravelCamera");
+        CS_Notify.Register(this, "ZoomOut");
         cameraScript = main.GetComponent<CS_Camera_Movment>();
     }
 
@@ -44,13 +46,20 @@ public class CS_Camera : MonoBehaviour {
 
         if (zoomOut == true)
         {          
-            if (main.orthographicSize < 18)
+            if (main.transform.position == end.position)
             {
-                main.orthographicSize = main.orthographicSize + 5 * Time.deltaTime;
+                zoomOut = false;
+                CS_Notify.Send(this, "EndGame");
+
             }
             else
             {
-                zoomOut = false;
+                if (main.orthographicSize < 14)
+                {
+                    main.orthographicSize = main.orthographicSize + 5 * Time.deltaTime;
+                }
+
+                main.transform.position = Vector3.MoveTowards(main.transform.position, new Vector3(end.position.x, end.position.y, -10), Time.deltaTime * 8);
             }
         }
     }
@@ -64,11 +73,8 @@ public class CS_Camera : MonoBehaviour {
 
     }
 
-    public void ChangeToTravelCamera()
+    public void ZoomOut()
     {
-        main.transform.position = new Vector3(player.position.x, player.position.y -15 - 10);
-        cameraScript.enabled = true;
-        cameraScript.gameStarted = true;
-        start = true;
+        zoomOut = true;
     }
 }

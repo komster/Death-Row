@@ -20,6 +20,7 @@ public class CS_Camera_Movment : MonoBehaviour {
     public bool gameStarted = false;
 
 
+
     void Start () {
         CS_Notify.Register(this, "StartGame");
         CS_Notify.Register(this, "StopMoving");
