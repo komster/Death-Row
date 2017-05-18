@@ -32,6 +32,7 @@ public class CS_Gamemanager : MonoBehaviour {
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
         checkIfHit = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         stage = this.gameObject.GetComponent<CS_Stages>();
         pickUpParticleText = GameObject.Find("Text_ParticleMaterialMaker").GetComponentInChildren<Text>();
         lossParticleText = GameObject.Find("Text_ParticleMaterialMakerLoss").GetComponentInChildren<Text>();
