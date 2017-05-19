@@ -58,6 +58,7 @@ public class CS_Player : MonoBehaviour {
         {
             ended = true;
             coins.CalculateFinalScore();
+            EndGame();
             CS_Notify.Send(this,"ZoomOut");
         }
         if (hp <= 0)

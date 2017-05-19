@@ -771,10 +771,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1522199341407112, guid: 310e8843ea8392b469165373326fe21b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 310e8843ea8392b469165373326fe21b, type: 2}
   m_IsPrefabParent: 0
@@ -893,7 +889,6 @@ MonoBehaviour:
   main: {fileID: 41963062}
   score: {fileID: 0}
   player: {fileID: 2078540638}
-  end: {fileID: 0}
 --- !u!82 &1854120782
 AudioSource:
   m_ObjectHideFlags: 0
