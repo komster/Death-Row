@@ -38,7 +38,7 @@ public class CS_EnemySpawner : MonoBehaviour {
 
     private void EnemySpawnChance()
     {
-        if (cSGM.timeInGame > 300f)
+        if (cSGM.timeInGame > 200f)
         {
             enemySpawnChance = Random.Range(1, 10);
         }

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545440726559030}
   - component: {fileID: 70579524593142272}
+  - component: {fileID: 114992357449950430}
   m_Layer: 0
   m_Name: Island Hitbox (2)
   m_TagString: Island
@@ -39,7 +40,7 @@ GameObject:
   - component: {fileID: 95990417787620258}
   m_Layer: 0
   m_Name: Tree 2_0 (2)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +73,7 @@ GameObject:
   - component: {fileID: 95371632315185138}
   m_Layer: 0
   m_Name: Tree 2_0 (2)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +158,7 @@ GameObject:
   - component: {fileID: 95956583263715214}
   m_Layer: 0
   m_Name: Tree 2_0 (1)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +191,7 @@ GameObject:
   - component: {fileID: 95978255189739656}
   m_Layer: 0
   m_Name: Tree 2_0 (1)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,7 +228,7 @@ GameObject:
   - component: {fileID: 95690572155677908}
   m_Layer: 0
   m_Name: Tree 1_0 (2)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,6 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4588911583127094}
   - component: {fileID: 70573457674693402}
+  - component: {fileID: 114260408998235612}
   m_Layer: 0
   m_Name: Island Hitbox (1)
   m_TagString: Island
@@ -306,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4075563577749592}
   - component: {fileID: 70666411747328374}
+  - component: {fileID: 114282728462258612}
   m_Layer: 0
   m_Name: Island Hitbox (1)
   m_TagString: Island
@@ -370,7 +373,7 @@ GameObject:
   - component: {fileID: 95031798800664406}
   m_Layer: 0
   m_Name: Tree 2_0 (1)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,7 +483,7 @@ GameObject:
   - component: {fileID: 95132933124437248}
   m_Layer: 0
   m_Name: Tree 1_0 (2)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,7 +518,7 @@ GameObject:
   - component: {fileID: 95535778333848808}
   m_Layer: 0
   m_Name: Tree 2_0 (2)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -678,7 +681,7 @@ GameObject:
   - component: {fileID: 95213170308468318}
   m_Layer: 0
   m_Name: Tree 1_0 (2)
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,7 +772,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1690118167310270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26785874, y: -0.3502775, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.0604556, y: 2.0604556, z: 2.060456}
   m_Children: []
   m_Father: {fileID: 4903228039027508}
@@ -811,7 +814,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360551611083788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20458323, y: -0.4091666, z: -3.3500507}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5572903, y: 2.5572903, z: 2.557291}
   m_Children: []
   m_Father: {fileID: 4879367761333424}
@@ -824,7 +827,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1698552373347796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20458323, y: -0.4091666, z: -3.3500507}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5572903, y: 2.5572903, z: 2.557291}
   m_Children: []
   m_Father: {fileID: 4537166236148870}
@@ -903,7 +906,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409939153038906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26785874, y: -0.3502775, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.0604556, y: 2.0604556, z: 2.060456}
   m_Children: []
   m_Father: {fileID: 4668778579397834}
@@ -929,7 +932,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975207037788082}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26785874, y: -0.3502775, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.0604556, y: 2.0604556, z: 2.060456}
   m_Children: []
   m_Father: {fileID: 4036506642108046}
@@ -958,7 +961,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284337571387918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20458323, y: -0.4091666, z: -3.3500507}
+  m_LocalPosition: {x: 0, y: 0, z: -3.3500507}
   m_LocalScale: {x: 2.5572903, y: 2.5572903, z: 2.557291}
   m_Children: []
   m_Father: {fileID: 4443426812628096}
@@ -971,7 +974,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731929324621058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20458323, y: -0.4091666, z: -3.3500507}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5572903, y: 2.5572903, z: 2.557291}
   m_Children: []
   m_Father: {fileID: 4215453717186792}
@@ -1070,7 +1073,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650687920076808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20458323, y: -0.4091666, z: -3.3500507}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5572903, y: 2.5572903, z: 2.557291}
   m_Children: []
   m_Father: {fileID: 4744995295136792}
@@ -1222,7 +1225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960667331160690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20458323, y: -0.4091666, z: -3.3500507}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5572903, y: 2.5572903, z: 2.557291}
   m_Children: []
   m_Father: {fileID: 4704003801620946}
@@ -1992,6 +1995,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+--- !u!114 &114260408998235612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296484765821442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dc7dcd2be87d54ea96d9a446f3ff97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  bird: {fileID: 1981177672724744, guid: 2660b2bcc60a2e34589901303333a8ac, type: 2}
+--- !u!114 &114282728462258612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341628479321724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dc7dcd2be87d54ea96d9a446f3ff97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  bird: {fileID: 1981177672724744, guid: 2660b2bcc60a2e34589901303333a8ac, type: 2}
 --- !u!114 &114450355304243304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2088,6 +2117,19 @@ MonoBehaviour:
   Enemy2: {fileID: 1903875769369780, guid: 434f955aef914264683928a620739136, type: 2}
   cSGM: {fileID: 0}
   spawnPoints: []
+--- !u!114 &114992357449950430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001496008992910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dc7dcd2be87d54ea96d9a446f3ff97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  bird: {fileID: 1981177672724744, guid: 2660b2bcc60a2e34589901303333a8ac, type: 2}
 --- !u!114 &114994526399990414
 MonoBehaviour:
   m_ObjectHideFlags: 1
