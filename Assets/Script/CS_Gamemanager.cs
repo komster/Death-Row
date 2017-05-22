@@ -38,6 +38,7 @@ public class CS_Gamemanager : MonoBehaviour {
         lossParticleText = GameObject.Find("Text_ParticleMaterialMakerLoss").GetComponentInChildren<Text>();
         scoreCoins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         dC = GameObject.Find("DeathCounter").GetComponent<CS_DeathCounter>();
+        Cursor.visible = false;
     }
 	
 	// Update is called once per frame
