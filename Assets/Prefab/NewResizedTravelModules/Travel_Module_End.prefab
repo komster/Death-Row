@@ -185,7 +185,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4963968756318360}
-  - component: {fileID: 114809087269688794}
   - component: {fileID: 61601422232970020}
   - component: {fileID: 61736064376969262}
   m_Layer: 0
@@ -556,21 +555,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114809087269688794
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1707921775080370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c156b4b34f3dcb4382c660d09871e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy1: {fileID: 1972718888231450, guid: 1c34541132b1e8d4fac976e9c118f7df, type: 2}
-  Enemy2: {fileID: 1903875769369780, guid: 434f955aef914264683928a620739136, type: 2}
-  cSGM: {fileID: 0}
-  spawnPoints: []
 --- !u!212 &212117052205900406
 SpriteRenderer:
   m_ObjectHideFlags: 1
