@@ -75,13 +75,13 @@ public class CS_Gamemanager : MonoBehaviour {
         if (checkIfHit.ended == true)
         {
             coins += 500;
-            for (int i = 0; i < dC.minutes; i++)
+            for (int i = 0; i < Mathf.RoundToInt(dC.seconds/10); i++)
             {
-                coins += 200;
+                coins += 10;
             }
             for (int g = 0; g < checkIfHit.hp; g++)
             {
-                coins += 200;
+                coins += 500;
             }
         }
     }

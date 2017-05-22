@@ -21,7 +21,7 @@ public class CS_DeathCounter : MonoBehaviour {
     private bool timerHasStarted;
     private bool timeToBlink;
     public float minutes;
-    private float seconds;
+    public float seconds;
     private float blinkInterval = 0.1f;
 
     // Use this for initialization
