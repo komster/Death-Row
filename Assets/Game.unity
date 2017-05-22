@@ -334,12 +334,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 069e3e73dc2d67e4994bc55af0806eae, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1291430560 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114677784875598756, guid: 310e8843ea8392b469165373326fe21b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1654380691}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1365029182
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
-  score: {fileID: 1291430560}
+  score: []
   scoreCoins: {fileID: 0}
   coinPre: {fileID: 1828077766021504, guid: 0a2f062a1dd205b4fbf4547d452f85c0, type: 2}
   checkIfHit: {fileID: 0}

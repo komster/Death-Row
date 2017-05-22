@@ -5,15 +5,17 @@ using UnityEngine;
 public class CS_PrograssBar : MonoBehaviour {
 
     public RectTransform player;
+    public bool onScreen = false;
+    public float pointAnimTimer = 0f;
 
     private Vector3 uIOnscreenPosition = new Vector3(822, 40, 0);
     private Vector3 uIOffscreenPosition = new Vector3(1400, 40, 0);
     private Vector3 position;
     private float pointAnimDurationSec = 1f;
-    private float pointAnimTimer = 0f;
+ 
     private float prcComplete;
     private int appearTimes;
-    private bool onScreen = false;
+   
     
 
     void Start () {
@@ -44,19 +46,19 @@ public class CS_PrograssBar : MonoBehaviour {
         position.y += 40;
         position.x = 0;
         player.localPosition = position;
-        appearTimes++;
-        if (appearTimes == 1 || appearTimes == 4 || appearTimes == 8 || appearTimes == 12 || appearTimes == 14)
-        {
-            pointAnimTimer = 0;
-            onScreen = true;
-            StartCoroutine(TimeOnScreen());
-        }
-        
+        /* appearTimes++;
+         if (appearTimes == 1 || appearTimes == 4 || appearTimes == 8 || appearTimes == 12 || appearTimes == 14)
+         {
+             pointAnimTimer = 0;
+             onScreen = true;
+             StartCoroutine(TimeOnScreen());
+         }*/
+
     }
-    private IEnumerator TimeOnScreen()
+    /*private IEnumerator TimeOnScreen()
     {
         yield return new WaitForSeconds(2);
         pointAnimTimer = 0;
         onScreen = false;
-    }
+    }*/
 }

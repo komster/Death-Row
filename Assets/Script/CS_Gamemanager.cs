@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CS_Gamemanager : MonoBehaviour {
 
     public int coins;
-    public Text score;
+    public List<Text> score;
     public CS_Gamemanager scoreCoins;
     private CS_Stages stage;
     public GameObject coinPre;
@@ -32,13 +32,21 @@ public class CS_Gamemanager : MonoBehaviour {
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
         checkIfHit = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
-        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        
         stage = this.gameObject.GetComponent<CS_Stages>();
         pickUpParticleText = GameObject.Find("Text_ParticleMaterialMaker").GetComponentInChildren<Text>();
         lossParticleText = GameObject.Find("Text_ParticleMaterialMakerLoss").GetComponentInChildren<Text>();
         scoreCoins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         dC = GameObject.Find("DeathCounter").GetComponent<CS_DeathCounter>();
         Cursor.visible = false;
+        foreach(Transform child in GameObject.FindGameObjectWithTag("TrueCanvas").transform)
+        {
+            if (child.tag == "Score")
+            {
+                score.Add(child.GetComponent<Text>());
+              
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -51,7 +59,12 @@ public class CS_Gamemanager : MonoBehaviour {
         }
         pointAnimTimer += Time.deltaTime;
         prcComplete = pointAnimTimer / pointAnimDurationSec;
-        score.text = "SCORE: " + Mathf.RoundToInt(Mathf.Lerp(previousScore, coins, prcComplete));
+
+        for (int i = 0; i < score.Count; i++)
+        {
+            score[i].text = "SCORE: " + Mathf.RoundToInt(Mathf.Lerp(previousScore, coins, prcComplete));
+        }
+       
 
         
         

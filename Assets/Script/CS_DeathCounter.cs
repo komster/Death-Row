@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class CS_DeathCounter : MonoBehaviour {
     public float timeToDie;
-    public Text dCounter;
+    public List<Text> dCounter;
     public CS_Player pl;
     public List<Transform> images;
     public List<Transform> arrows;
     public GameObject jaw;
+    public CS_PrograssBar csPB;
 
     private Vector3 smallHUDPosition= new Vector3(140, 470, 0);
     private Vector3 bigHudPosition=new Vector3(0,0,0);
@@ -32,8 +33,23 @@ public class CS_DeathCounter : MonoBehaviour {
         timeToDie =300f;
         timerHasStarted = false;
         timeToBlink = false;
-        dCounter = this.gameObject.GetComponentInChildren<Text>();
-        dCounter.text = "";
+        csPB = GameObject.Find("ProgressBar").GetComponent<CS_PrograssBar>();
+        foreach (Transform child in this.transform)
+        {
+            if (child.tag == ("Text"))
+            {
+                
+                dCounter.Add(child.GetComponent<Text>());
+                
+            }
+
+        }
+        for (int i = 0; i < dCounter.Count; i++)
+        {
+            dCounter[i].text = "";
+        }
+
+       
         foreach (Transform child in this.transform)
         {
             if (child.tag == "Image")
@@ -76,7 +92,10 @@ public class CS_DeathCounter : MonoBehaviour {
         }
         if (timeToBlink==true)
         {
-            this.GetComponentInChildren<Text>().enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2f));
+            for (int i = 0; i < dCounter.Count; i++)
+            {
+                dCounter[i].GetComponent<Text>().enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2f));
+            }
             for (int i = 0; i < arrows.Count; i++)
             {
                 arrows[i].GetComponent<Image>().enabled = (Mathf.PingPong(Time.time, blinkInterval) > (blinkInterval / 2f));
@@ -93,14 +112,19 @@ public class CS_DeathCounter : MonoBehaviour {
     {
         minutes = Mathf.Floor(timeToDie / 60);
         seconds = Mathf.RoundToInt(timeToDie % 60);
-        dCounter.text = "" + minutes + " : " + seconds;
+        for (int i = 0; i < dCounter.Count; i++)
+        {
+            dCounter[i].text = "" + minutes + " : " + seconds;
+        }
     }
 
     public void StartTimer()
     {
         this.GetComponent<RectTransform>().anchoredPosition = bigHudPosition;
         this.GetComponent<RectTransform>().localScale = bigScale;
-      
+        csPB.onScreen = true;
+        csPB.pointAnimTimer = 0;
+
         StartCoroutine(TimeTostart());
         
     }
@@ -113,7 +137,10 @@ public class CS_DeathCounter : MonoBehaviour {
             images[i].GetComponent<Image>().enabled = true;
         }
         yield return new WaitForSeconds(1);
-        this.GetComponentInChildren<Text>().enabled = true;
+        for (int i = 0; i < dCounter.Count; i++)
+        {
+            dCounter[i].GetComponent<Text>().enabled = true;
+        }
         timerHasStarted = true;
         timeToBlink = false;
         for (int i = 0; i < arrows.Count; i++)

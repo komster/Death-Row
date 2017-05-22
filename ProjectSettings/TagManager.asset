@@ -21,6 +21,7 @@ TagManager:
   - Image
   - Arrow
   - Bird
+  - Text
   layers:
   - Default
   - TransparentFX
