@@ -247,13 +247,13 @@ public class CS_HighScoreInput : MonoBehaviour {
         switch (letterNumberPlayer1)
         {
             case (1):
-                player1PointerHolder.transform.localPosition = new Vector3(-50, 0, 0);
+                player1PointerHolder.transform.localPosition = new Vector3(-70, 0, 0);
                 break;
             case (2):
                 player1PointerHolder.transform.localPosition = new Vector3(0, 0, 0);
                 break;
             case (3):
-                player1PointerHolder.transform.localPosition = new Vector3(50, 0, 0);
+                player1PointerHolder.transform.localPosition = new Vector3(75, 0, 0);
                 break;
         }
     }
@@ -398,13 +398,13 @@ public class CS_HighScoreInput : MonoBehaviour {
         switch (letterNumberPlayer2)
         {
             case (1):
-                player2PointerHolder.transform.localPosition = new Vector3(-50, 0, 0);
+                player2PointerHolder.transform.localPosition = new Vector3(-70, 0, 0);
                 break;
             case (2):
                 player2PointerHolder.transform.localPosition = new Vector3(0, 0, 0);
                 break;
             case (3):
-                player2PointerHolder.transform.localPosition = new Vector3(50, 0, 0);
+                player2PointerHolder.transform.localPosition = new Vector3(75, 0, 0);
                 break;
         }
     }

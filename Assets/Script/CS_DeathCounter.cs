@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CS_DeathCounter : MonoBehaviour {
     public float timeToDie;
     public List<Text> dCounter;
+    public List<Text> prompt;
     public CS_Player pl;
     public List<Transform> images;
     public List<Transform> arrows;
@@ -73,7 +74,20 @@ public class CS_DeathCounter : MonoBehaviour {
             arrows[i].GetComponent<Image>().enabled = false;
         }
 
+        foreach (Transform child in this.transform)
+        {
+            if (child.tag == ("Prompt"))
+            {
 
+                prompt.Add(child.GetComponent<Text>());
+
+            }
+
+        }
+        for (int i = 0; i < prompt.Count; i++)
+        {
+            prompt[i].GetComponent<Text>().enabled = false;
+        }
 
     }
 	
@@ -136,6 +150,10 @@ public class CS_DeathCounter : MonoBehaviour {
         {
             images[i].GetComponent<Image>().enabled = true;
         }
+        for (int i = 0; i < prompt.Count; i++)
+        {
+            prompt[i].GetComponent<Text>().enabled = true;
+        }
         yield return new WaitForSeconds(1);
         for (int i = 0; i < dCounter.Count; i++)
         {
@@ -146,6 +164,10 @@ public class CS_DeathCounter : MonoBehaviour {
         for (int i = 0; i < arrows.Count; i++)
         {
             arrows[i].GetComponent<Image>().enabled = false;
+        }
+        for (int i = 0; i < prompt.Count; i++)
+        {
+            prompt[i].GetComponent<Text>().enabled = false;
         }
     }
 }

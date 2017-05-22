@@ -8,11 +8,26 @@ public class CS_GameOver : MonoBehaviour {
     // public InputField playerName;
 
     public CS_HighScoreInput hSI;
+    public List<Text> score;
+    public CS_Gamemanager gM;
 
     // Use this for initialization
     void Start ()
     {
         hSI = GameObject.Find("HighScoreInput").GetComponent<CS_HighScoreInput>();
+        gM = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
+        foreach(Transform child in this.transform)
+        {
+            if (child.tag == "Score")
+            {
+                score.Add(child.GetComponent<Text>());
+
+            }
+        }
+        for(int i = 0; i < score.Count; i++)
+        {
+            score[i].text ="" + gM.coins;
+        }
        
     }
 	

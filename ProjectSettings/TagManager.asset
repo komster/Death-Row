@@ -22,6 +22,7 @@ TagManager:
   - Arrow
   - Bird
   - Text
+  - Prompt
   layers:
   - Default
   - TransparentFX
