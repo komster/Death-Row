@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CS_Player_Cannons : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class CS_Player_Cannons : MonoBehaviour
 
     public CS_Player player;
 
+    public List<Text> rightAmountTilReload;
+    public List<Text> leftAmountTilReload;
+
     private bool leftReloaded = true;
     public bool rightReloaded = true;
 
@@ -43,16 +47,34 @@ public class CS_Player_Cannons : MonoBehaviour
     private float leftIndicationTime = 6f;
     private bool leftIndicationOn = false;
 
+ 
+
     void Start()
     {
         shot = this.gameObject.GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
 
+        foreach (Transform child in GameObject.Find("ReloadRight").GetComponent<Transform>())
+        {
+            if (child.tag == "Reload")
+            {
+                rightAmountTilReload.Add(child.GetComponent<Text>());
+            }
+        }
+        foreach (Transform child in GameObject.Find("ReloadLeft").GetComponent<Transform>())
+        {
+            if (child.tag == "Reload")
+            {
+                leftAmountTilReload.Add(child.GetComponent<Text>());
+            }
+        }
 
         rightReloadIndicator = GameObject.Find("ReloadRight");
         leftReloadIndicator = GameObject.Find("ReloadLeft");
         rightReloadIndicator.SetActive(false);
         leftReloadIndicator.SetActive(false);
+
+    
     }
 
     void Update()
@@ -78,6 +100,7 @@ public class CS_Player_Cannons : MonoBehaviour
                     }
 
                     leftReloaded = false;
+                    leftReloadMultiplay = 4;
                 }
 
             }
@@ -100,6 +123,8 @@ public class CS_Player_Cannons : MonoBehaviour
                     }
 
                     rightReloaded = false;
+                    rightReloadMultiplay = 4;
+
                 }
 
             }
@@ -169,6 +194,22 @@ public class CS_Player_Cannons : MonoBehaviour
 
             ActivateRightReloadIndicator();
             ActivateLeftReloadIndicator();
+        }
+
+        if (leftReloaded == false)
+        {
+            for(int i = 0; i < rightAmountTilReload.Count; i++)
+            {
+                rightAmountTilReload[i].text = "x" + (leftReloadMultiplay+1);
+            }
+        }
+
+        if (rightReloaded == false)
+        {
+            for (int i = 0; i < leftAmountTilReload.Count; i++)
+            {
+                leftAmountTilReload[i].text = "x" + (rightReloadMultiplay+1);
+            }
         }
     }
 

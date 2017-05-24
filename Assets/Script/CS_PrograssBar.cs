@@ -8,8 +8,8 @@ public class CS_PrograssBar : MonoBehaviour {
     public bool onScreen = false;
     public float pointAnimTimer = 0f;
 
-    private Vector3 uIOnscreenPosition = new Vector3(822, 40, 0);
-    private Vector3 uIOffscreenPosition = new Vector3(1400, 40, 0);
+    private Vector3 uIOnscreenPosition = new Vector3(822, 82, 0);
+    private Vector3 uIOffscreenPosition = new Vector3(1400, 82, 0);
     private Vector3 position;
     private float pointAnimDurationSec = 1f;
  

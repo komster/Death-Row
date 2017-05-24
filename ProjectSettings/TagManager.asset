@@ -23,6 +23,7 @@ TagManager:
   - Bird
   - Text
   - Prompt
+  - Reload
   layers:
   - Default
   - TransparentFX
