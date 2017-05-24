@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class CS_DeathCounter : MonoBehaviour {
     public float timeToDie;
     public List<Text> dCounter;
-    public List<Text> prompt;
+  
     public CS_Player pl;
     public List<Transform> images;
     public List<Transform> arrows;
     public GameObject jaw;
     public CS_PrograssBar csPB;
+    public CS_GTTIPrompt csGTTIP;
 
     private Vector3 smallHUDPosition= new Vector3(140, 470, 0);
     private Vector3 bigHudPosition=new Vector3(0,0,0);
@@ -35,6 +36,7 @@ public class CS_DeathCounter : MonoBehaviour {
         timerHasStarted = false;
         timeToBlink = false;
         csPB = GameObject.Find("ProgressBar").GetComponent<CS_PrograssBar>();
+        csGTTIP = GameObject.Find("GTTI prompt").GetComponent<CS_GTTIPrompt>();
         foreach (Transform child in this.transform)
         {
             if (child.tag == ("Text"))
@@ -74,20 +76,7 @@ public class CS_DeathCounter : MonoBehaviour {
             arrows[i].GetComponent<Image>().enabled = false;
         }
 
-        foreach (Transform child in this.transform)
-        {
-            if (child.tag == ("Prompt"))
-            {
-
-                prompt.Add(child.GetComponent<Text>());
-
-            }
-
-        }
-        for (int i = 0; i < prompt.Count; i++)
-        {
-            prompt[i].GetComponent<Text>().enabled = false;
-        }
+       
 
     }
 	
@@ -140,6 +129,7 @@ public class CS_DeathCounter : MonoBehaviour {
         csPB.pointAnimTimer = 0;
 
         StartCoroutine(TimeTostart());
+        StartCoroutine(csGTTIP.ShowPrompt());
         
     }
     private IEnumerator TimeTostart()
@@ -150,10 +140,7 @@ public class CS_DeathCounter : MonoBehaviour {
         {
             images[i].GetComponent<Image>().enabled = true;
         }
-        for (int i = 0; i < prompt.Count; i++)
-        {
-            prompt[i].GetComponent<Text>().enabled = true;
-        }
+       
         yield return new WaitForSeconds(1);
         for (int i = 0; i < dCounter.Count; i++)
         {
@@ -165,9 +152,6 @@ public class CS_DeathCounter : MonoBehaviour {
         {
             arrows[i].GetComponent<Image>().enabled = false;
         }
-        for (int i = 0; i < prompt.Count; i++)
-        {
-            prompt[i].GetComponent<Text>().enabled = false;
-        }
+        
     }
 }
