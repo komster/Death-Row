@@ -70,14 +70,18 @@ public class CS_Player : MonoBehaviour {
     {
         dead = true;
         coins.CalculateFinalScore();
-        gameover.gameObject.SetActive(true);
-        //StartCoroutine(onDeath());
-        Time.timeScale = 0;
+        
+        StartCoroutine(onDeath());
+        
+        
+        
     }
+
     private IEnumerator onDeath()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(0);
+        gameover.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
     public IEnumerator damageFeedback()
     {
