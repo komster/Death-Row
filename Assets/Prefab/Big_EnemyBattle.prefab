@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 114440323755198124}
   - component: {fileID: 82480300309322026}
   - component: {fileID: 70035404784824856}
+  - component: {fileID: 95267944740038210}
   m_Layer: 0
   m_Name: Big_EnemyBattle
   m_TagString: Enemy
@@ -361,7 +362,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903875769369780}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.018466473, y: -6.555103, z: -4}
+  m_LocalPosition: {x: -102.61134, y: 79.26007, z: -4}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.59412664}
   m_Children:
   - {fileID: 4001578656844730}
@@ -504,6 +505,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95267944740038210
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903875769369780}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8f3b2ec696a5a049839996a5ee8e636, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114440323755198124
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 114248570722930732}
   - component: {fileID: 82868377681374680}
   - component: {fileID: 70482930833274104}
+  - component: {fileID: 95111503343663600}
   m_Layer: 0
   m_Name: Medium_Enemy
   m_TagString: Enemy
@@ -145,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972718888231450}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.09, y: 9.16, z: -4}
+  m_LocalPosition: {x: -97.20894, y: 60.26776, z: -4}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.59412664}
   m_Children:
   - {fileID: 4949176983822608}
@@ -357,6 +358,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95111503343663600
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972718888231450}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8f3b2ec696a5a049839996a5ee8e636, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114248570722930732
 MonoBehaviour:
   m_ObjectHideFlags: 1
