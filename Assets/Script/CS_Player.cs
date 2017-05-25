@@ -20,6 +20,9 @@ public class CS_Player : MonoBehaviour {
     public List<Transform> damagePoints = new List<Transform>();
     private int whichDamagePoint=0;
 
+    public Animation deathAnimation;
+    public Sprite playerSprite;
+
     void Start () {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
@@ -69,6 +72,17 @@ public class CS_Player : MonoBehaviour {
     public void death()
     {
         dead = true;
+        CS_Notify.Send(this,"StopMoving");
+        CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
+        collider.enabled = false;
+        CS_Player_Movment movment = GetComponent<CS_Player_Movment>();
+        movment.enabled = false;
+        CS_Player_Cannons cannons = GetComponent<CS_Player_Cannons>();
+        cannons.enabled = false;
+
+        deathAnimation.enabled = true;
+
+
         coins.CalculateFinalScore();
         
         StartCoroutine(onDeath());
