@@ -91,7 +91,7 @@ public class CS_LifeCounter : MonoBehaviour {
     }
     public IEnumerator counterActive()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         player.activateLife = false;
     }
 }

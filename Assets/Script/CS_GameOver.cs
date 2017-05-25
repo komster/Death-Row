@@ -14,8 +14,10 @@ public class CS_GameOver : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+
         hSI = GameObject.Find("HighScoreInput").GetComponent<CS_HighScoreInput>();
         gM = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
+     
         foreach(Transform child in this.transform)
         {
             if (child.tag == "Score")

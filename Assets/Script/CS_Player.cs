@@ -18,16 +18,21 @@ public class CS_Player : MonoBehaviour {
     public AudioSource impactHit;
     public AudioSource onFire;
     public List<Transform> damagePoints = new List<Transform>();
+    public GameObject highScoreInput;
     private int whichDamagePoint=0;
 
-    public Animation deathAnimation;
-    public Sprite playerSprite;
+    public Animator deathAnimation;
+
+    public GameObject[] playerSprites;
 
     void Start () {
+
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
         whichDamagePoint = 0;
         CS_Notify.Register(this, "EndGame");
+        deathAnimation = GetComponent<Animator>();
+
         foreach (Transform child in this.transform)
         {
             if (child.tag == "Damage")
@@ -36,11 +41,14 @@ public class CS_Player : MonoBehaviour {
                 child.GetComponent<ParticleSystem>().Stop();
             }
         }
+        highScoreInput = GameObject.Find("HighScoreInput");
+        highScoreInput.SetActive(false);
         
     }
 	
 	void Update () {
-		
+
+
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,6 +70,7 @@ public class CS_Player : MonoBehaviour {
             ended = true;
             coins.CalculateFinalScore();
             CS_Notify.Send(this,"ZoomOut");
+       
         }
         if (hp <= 0)
         {
@@ -71,6 +80,7 @@ public class CS_Player : MonoBehaviour {
 
     public void death()
     {
+
         dead = true;
         CS_Notify.Send(this,"StopMoving");
         CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
@@ -80,20 +90,23 @@ public class CS_Player : MonoBehaviour {
         CS_Player_Cannons cannons = GetComponent<CS_Player_Cannons>();
         cannons.enabled = false;
 
+        for (int inde = 0; inde < playerSprites.Length; inde++)
+        {
+            playerSprites[inde].gameObject.SetActive(false);
+        }
         deathAnimation.enabled = true;
-
-
         coins.CalculateFinalScore();
-        
+
         StartCoroutine(onDeath());
-        
-        
-        
+
+
+
     }
 
     private IEnumerator onDeath()
     {
         yield return new WaitForSeconds(1.5f);
+        highScoreInput.SetActive(true);
         gameover.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
@@ -118,6 +131,7 @@ public class CS_Player : MonoBehaviour {
 
     public void EndGame()
     {
+        highScoreInput.SetActive(true);
         winScreen.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
