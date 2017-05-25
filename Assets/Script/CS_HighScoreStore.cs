@@ -20,7 +20,7 @@ public class CS_HighScoreStore : MonoBehaviour {
 	}
     public void setupScore()
     {
-        if(playerLife.dead == true)
+        if(playerLife.dead == true || playerLife.ended == true)
         {
            
             PlayerPrefs.SetInt("Highscore", playerScore.coins);
