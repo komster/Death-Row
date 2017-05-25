@@ -21,14 +21,15 @@ public class CS_Player : MonoBehaviour {
     private int whichDamagePoint=0;
 
     public Animator deathAnimation;
-    public SpriteRenderer playerSprite;
-    private float deathTimer = 2;
+
+    public GameObject[] playerSprites;
 
     void Start () {
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
         whichDamagePoint = 0;
         CS_Notify.Register(this, "EndGame");
+        deathAnimation = GetComponent<Animator>();
 
         foreach (Transform child in this.transform)
         {
@@ -43,16 +44,7 @@ public class CS_Player : MonoBehaviour {
 	
 	void Update () {
 
-        if (dead == true)
-        {
-            deathTimer -= Time.deltaTime;
-            if (deathTimer <= 0)
-            {
-                coins.CalculateFinalScore();
 
-                StartCoroutine(onDeath());
-            }
-        }
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -91,8 +83,15 @@ public class CS_Player : MonoBehaviour {
         movment.enabled = false;
         CS_Player_Cannons cannons = GetComponent<CS_Player_Cannons>();
         cannons.enabled = false;
-        deathAnimation.enabled = true;
 
+        for (int inde = 0; inde < playerSprites.Length; inde++)
+        {
+            playerSprites[inde].gameObject.SetActive(false);
+        }
+        deathAnimation.enabled = true;
+        coins.CalculateFinalScore();
+
+        StartCoroutine(onDeath());
 
 
 
