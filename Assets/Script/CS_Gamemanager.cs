@@ -21,8 +21,8 @@ public class CS_Gamemanager : MonoBehaviour {
     public Text lossParticleText;
     public GameObject lossParticle;
     public CS_DeathCounter dC;
- 
 
+    public GameObject boostEffect;
 
     private int previousScore;
     private float pointAnimDurationSec = 1f;
@@ -32,14 +32,15 @@ public class CS_Gamemanager : MonoBehaviour {
         Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player_Movment>();
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<movment>();
         checkIfHit = GameObject.FindGameObjectWithTag("Player").GetComponent<CS_Player>();
-        
+        boostEffect = GameObject.Find("Speed Particle Effect");
         stage = this.gameObject.GetComponent<CS_Stages>();
         pickUpParticleText = GameObject.Find("Text_ParticleMaterialMaker").GetComponentInChildren<Text>();
         lossParticleText = GameObject.Find("Text_ParticleMaterialMakerLoss").GetComponentInChildren<Text>();
         scoreCoins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         dC = GameObject.Find("DeathCounter").GetComponent<CS_DeathCounter>();
         Cursor.visible = false;
-        foreach(Transform child in GameObject.FindGameObjectWithTag("TrueCanvas").transform)
+        boostEffect.gameObject.SetActive(false);
+        foreach (Transform child in GameObject.FindGameObjectWithTag("TrueCanvas").transform)
         {
             if (child.tag == "Score")
             {
@@ -141,7 +142,7 @@ public class CS_Gamemanager : MonoBehaviour {
     public void checkForBoost()
     {
         StartCoroutine(boost());
-        boostSound.Play();
+        //boostSound.Play();
     }
     
     private IEnumerator boost()
@@ -150,7 +151,9 @@ public class CS_Gamemanager : MonoBehaviour {
         {
             Movement.movSpeed += 2f;
             movement.MovSpeed += 2f;
+            boostEffect.gameObject.SetActive(true);
             yield return new WaitForSeconds(3f);
+            boostEffect.gameObject.SetActive(false);
             Movement.movSpeed -= 2f;
             movement.MovSpeed -= 2f;
             Debug.Log("Boosted");
