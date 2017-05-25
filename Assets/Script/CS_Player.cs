@@ -18,6 +18,7 @@ public class CS_Player : MonoBehaviour {
     public AudioSource impactHit;
     public AudioSource onFire;
     public List<Transform> damagePoints = new List<Transform>();
+    public GameObject highScoreInput;
     private int whichDamagePoint=0;
 
     public Animator deathAnimation;
@@ -25,6 +26,7 @@ public class CS_Player : MonoBehaviour {
     public GameObject[] playerSprites;
 
     void Start () {
+
         coins = GameObject.Find("GameManager").GetComponent<CS_Gamemanager>();
         rend = this.gameObject.GetComponent<SpriteRenderer>();
         whichDamagePoint = 0;
@@ -39,6 +41,8 @@ public class CS_Player : MonoBehaviour {
                 child.GetComponent<ParticleSystem>().Stop();
             }
         }
+        highScoreInput = GameObject.Find("HighScoreInput");
+        highScoreInput.SetActive(false);
         
     }
 	
@@ -66,6 +70,7 @@ public class CS_Player : MonoBehaviour {
             ended = true;
             coins.CalculateFinalScore();
             CS_Notify.Send(this,"ZoomOut");
+       
         }
         if (hp <= 0)
         {
@@ -75,6 +80,7 @@ public class CS_Player : MonoBehaviour {
 
     public void death()
     {
+
         dead = true;
         CS_Notify.Send(this,"StopMoving");
         CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
@@ -100,6 +106,7 @@ public class CS_Player : MonoBehaviour {
     private IEnumerator onDeath()
     {
         yield return new WaitForSeconds(1.5f);
+        highScoreInput.SetActive(true);
         gameover.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
@@ -124,6 +131,7 @@ public class CS_Player : MonoBehaviour {
 
     public void EndGame()
     {
+        highScoreInput.SetActive(true);
         winScreen.gameObject.SetActive(true);
         Time.timeScale = 0;
     }

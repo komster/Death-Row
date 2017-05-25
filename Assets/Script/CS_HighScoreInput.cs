@@ -61,6 +61,7 @@ public class CS_HighScoreInput : MonoBehaviour {
 
         player1PointerHolder = GameObject.Find("Player1PointerHolder");
         player2PointerHolder = GameObject.Find("Player2PointerHolder");
+
         
     }
 	
